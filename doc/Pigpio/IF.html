@@ -1,0 +1,6894 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Pigpio::IF - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-bb_i2c_close">::bb_i2c_close</a>
+    
+    <li ><a href="#method-c-bb_i2c_open">::bb_i2c_open</a>
+    
+    <li ><a href="#method-c-bb_i2c_zip">::bb_i2c_zip</a>
+    
+    <li ><a href="#method-c-bb_serial_invert">::bb_serial_invert</a>
+    
+    <li ><a href="#method-c-bb_serial_read">::bb_serial_read</a>
+    
+    <li ><a href="#method-c-bb_serial_read_close">::bb_serial_read_close</a>
+    
+    <li ><a href="#method-c-bb_serial_read_open">::bb_serial_read_open</a>
+    
+    <li ><a href="#method-c-bb_spi_close">::bb_spi_close</a>
+    
+    <li ><a href="#method-c-bb_spi_open">::bb_spi_open</a>
+    
+    <li ><a href="#method-c-bb_spi_xfer">::bb_spi_xfer</a>
+    
+    <li ><a href="#method-c-bsc_i2c">::bsc_i2c</a>
+    
+    <li ><a href="#method-c-bsc_xfer">::bsc_xfer</a>
+    
+    <li ><a href="#method-c-callback">::callback</a>
+    
+    <li ><a href="#method-c-callback_cancel">::callback_cancel</a>
+    
+    <li ><a href="#method-c-clear_bank_1">::clear_bank_1</a>
+    
+    <li ><a href="#method-c-clear_bank_2">::clear_bank_2</a>
+    
+    <li ><a href="#method-c-delete_script">::delete_script</a>
+    
+    <li ><a href="#method-c-event_callback">::event_callback</a>
+    
+    <li ><a href="#method-c-event_callback_cancel">::event_callback_cancel</a>
+    
+    <li ><a href="#method-c-event_trigger">::event_trigger</a>
+    
+    <li ><a href="#method-c-get_PWM_dutycycle">::get_PWM_dutycycle</a>
+    
+    <li ><a href="#method-c-get_PWM_frequency">::get_PWM_frequency</a>
+    
+    <li ><a href="#method-c-get_PWM_range">::get_PWM_range</a>
+    
+    <li ><a href="#method-c-get_PWM_real_range">::get_PWM_real_range</a>
+    
+    <li ><a href="#method-c-get_current_tick">::get_current_tick</a>
+    
+    <li ><a href="#method-c-get_hardware_revision">::get_hardware_revision</a>
+    
+    <li ><a href="#method-c-get_mode">::get_mode</a>
+    
+    <li ><a href="#method-c-get_pad_strength">::get_pad_strength</a>
+    
+    <li ><a href="#method-c-get_pigpio_version">::get_pigpio_version</a>
+    
+    <li ><a href="#method-c-get_servo_pulsewidth">::get_servo_pulsewidth</a>
+    
+    <li ><a href="#method-c-gpio_read">::gpio_read</a>
+    
+    <li ><a href="#method-c-gpio_trigger">::gpio_trigger</a>
+    
+    <li ><a href="#method-c-gpio_write">::gpio_write</a>
+    
+    <li ><a href="#method-c-hardware_PWM">::hardware_PWM</a>
+    
+    <li ><a href="#method-c-hardware_clock">::hardware_clock</a>
+    
+    <li ><a href="#method-c-i2c_block_process_call">::i2c_block_process_call</a>
+    
+    <li ><a href="#method-c-i2c_close">::i2c_close</a>
+    
+    <li ><a href="#method-c-i2c_open">::i2c_open</a>
+    
+    <li ><a href="#method-c-i2c_process_call">::i2c_process_call</a>
+    
+    <li ><a href="#method-c-i2c_read_block_data">::i2c_read_block_data</a>
+    
+    <li ><a href="#method-c-i2c_read_byte">::i2c_read_byte</a>
+    
+    <li ><a href="#method-c-i2c_read_byte_data">::i2c_read_byte_data</a>
+    
+    <li ><a href="#method-c-i2c_read_device">::i2c_read_device</a>
+    
+    <li ><a href="#method-c-i2c_read_i2c_block_data">::i2c_read_i2c_block_data</a>
+    
+    <li ><a href="#method-c-i2c_read_word_data">::i2c_read_word_data</a>
+    
+    <li ><a href="#method-c-i2c_write_block_data">::i2c_write_block_data</a>
+    
+    <li ><a href="#method-c-i2c_write_byte">::i2c_write_byte</a>
+    
+    <li ><a href="#method-c-i2c_write_byte_data">::i2c_write_byte_data</a>
+    
+    <li ><a href="#method-c-i2c_write_device">::i2c_write_device</a>
+    
+    <li ><a href="#method-c-i2c_write_i2c_block_data">::i2c_write_i2c_block_data</a>
+    
+    <li ><a href="#method-c-i2c_write_quick">::i2c_write_quick</a>
+    
+    <li ><a href="#method-c-i2c_write_word_data">::i2c_write_word_data</a>
+    
+    <li ><a href="#method-c-i2c_zip">::i2c_zip</a>
+    
+    <li ><a href="#method-c-notify_begin">::notify_begin</a>
+    
+    <li ><a href="#method-c-notify_close">::notify_close</a>
+    
+    <li ><a href="#method-c-notify_open">::notify_open</a>
+    
+    <li ><a href="#method-c-notify_pause">::notify_pause</a>
+    
+    <li ><a href="#method-c-pigpio_error">::pigpio_error</a>
+    
+    <li ><a href="#method-c-pigpio_start">::pigpio_start</a>
+    
+    <li ><a href="#method-c-pigpio_start_local">::pigpio_start_local</a>
+    
+    <li ><a href="#method-c-pigpio_stop">::pigpio_stop</a>
+    
+    <li ><a href="#method-c-pigpiod_if_version">::pigpiod_if_version</a>
+    
+    <li ><a href="#method-c-read_bank_1">::read_bank_1</a>
+    
+    <li ><a href="#method-c-read_bank_2">::read_bank_2</a>
+    
+    <li ><a href="#method-c-run_script">::run_script</a>
+    
+    <li ><a href="#method-c-script_status">::script_status</a>
+    
+    <li ><a href="#method-c-serial_close">::serial_close</a>
+    
+    <li ><a href="#method-c-serial_data_available">::serial_data_available</a>
+    
+    <li ><a href="#method-c-serial_open">::serial_open</a>
+    
+    <li ><a href="#method-c-serial_read">::serial_read</a>
+    
+    <li ><a href="#method-c-serial_read_byte">::serial_read_byte</a>
+    
+    <li ><a href="#method-c-serial_write">::serial_write</a>
+    
+    <li ><a href="#method-c-serial_write_byte">::serial_write_byte</a>
+    
+    <li ><a href="#method-c-set_PWM_dutycycle">::set_PWM_dutycycle</a>
+    
+    <li ><a href="#method-c-set_PWM_frequency">::set_PWM_frequency</a>
+    
+    <li ><a href="#method-c-set_PWM_range">::set_PWM_range</a>
+    
+    <li ><a href="#method-c-set_bank_1">::set_bank_1</a>
+    
+    <li ><a href="#method-c-set_bank_2">::set_bank_2</a>
+    
+    <li ><a href="#method-c-set_glitch_filter">::set_glitch_filter</a>
+    
+    <li ><a href="#method-c-set_mode">::set_mode</a>
+    
+    <li ><a href="#method-c-set_noise_filter">::set_noise_filter</a>
+    
+    <li ><a href="#method-c-set_pad_strength">::set_pad_strength</a>
+    
+    <li ><a href="#method-c-set_pull_up_down">::set_pull_up_down</a>
+    
+    <li ><a href="#method-c-set_servo_pulsewidth">::set_servo_pulsewidth</a>
+    
+    <li ><a href="#method-c-set_watchdog">::set_watchdog</a>
+    
+    <li ><a href="#method-c-spi_close">::spi_close</a>
+    
+    <li ><a href="#method-c-spi_open">::spi_open</a>
+    
+    <li ><a href="#method-c-spi_read">::spi_read</a>
+    
+    <li ><a href="#method-c-spi_write">::spi_write</a>
+    
+    <li ><a href="#method-c-spi_xfer">::spi_xfer</a>
+    
+    <li ><a href="#method-c-stop_script">::stop_script</a>
+    
+    <li ><a href="#method-c-store_script">::store_script</a>
+    
+    <li ><a href="#method-c-time_time">::time_time</a>
+    
+    <li ><a href="#method-c-wait_for_edge">::wait_for_edge</a>
+    
+    <li ><a href="#method-c-wait_for_event">::wait_for_event</a>
+    
+    <li ><a href="#method-c-wave_add_generic">::wave_add_generic</a>
+    
+    <li ><a href="#method-c-wave_add_new">::wave_add_new</a>
+    
+    <li ><a href="#method-c-wave_add_serial">::wave_add_serial</a>
+    
+    <li ><a href="#method-c-wave_chain">::wave_chain</a>
+    
+    <li ><a href="#method-c-wave_clear">::wave_clear</a>
+    
+    <li ><a href="#method-c-wave_create">::wave_create</a>
+    
+    <li ><a href="#method-c-wave_delete">::wave_delete</a>
+    
+    <li ><a href="#method-c-wave_get_cbs">::wave_get_cbs</a>
+    
+    <li ><a href="#method-c-wave_get_high_cbs">::wave_get_high_cbs</a>
+    
+    <li ><a href="#method-c-wave_get_high_micros">::wave_get_high_micros</a>
+    
+    <li ><a href="#method-c-wave_get_high_pulses">::wave_get_high_pulses</a>
+    
+    <li ><a href="#method-c-wave_get_max_cbs">::wave_get_max_cbs</a>
+    
+    <li ><a href="#method-c-wave_get_max_micros">::wave_get_max_micros</a>
+    
+    <li ><a href="#method-c-wave_get_max_pulses">::wave_get_max_pulses</a>
+    
+    <li ><a href="#method-c-wave_get_micros">::wave_get_micros</a>
+    
+    <li ><a href="#method-c-wave_get_pulses">::wave_get_pulses</a>
+    
+    <li ><a href="#method-c-wave_send_once">::wave_send_once</a>
+    
+    <li ><a href="#method-c-wave_send_repeat">::wave_send_repeat</a>
+    
+    <li ><a href="#method-c-wave_send_using_mode">::wave_send_using_mode</a>
+    
+    <li ><a href="#method-c-wave_tx_at">::wave_tx_at</a>
+    
+    <li ><a href="#method-c-wave_tx_busy">::wave_tx_busy</a>
+    
+    <li ><a href="#method-c-wave_tx_stop">::wave_tx_stop</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Pigpio::IF">
+  <h1 id="module-Pigpio::IF" class="module">
+    module Pigpio::IF
+  </h1>
+
+  <section class="description">
+    
+<p>This module is a ruby binding to pigpio library.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-bb_i2c_close" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bb_i2c_close(Integer pi,Integer SDA) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function stops bit banging I2C on a pair of GPIO previously opened
+with [<strong>bb_i2c_open</strong>].</p>
+
+<p>. .</p>
+
+<pre> pi: &gt;=0 (as returned by [*pigpio_start*]).
+SDA: 0-31, the SDA GPIO used in a prior call to [*bb_i2c_open*]</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, or PI_NOT_I2C_GPIO.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_i2c_close">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="bb_i2c_close-source">
+            <pre>VALUE pigpio_rbfn_bb_i2c_close(VALUE self, VALUE pi, VALUE SDA){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bb_i2c_open" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bb_i2c_open(Integer pi,Integer SDA, Integer SCL, Integer baud) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function selects a pair of GPIO for bit banging I2C at a specified
+baud rate.</p>
+
+<p>Bit banging I2C allows for certain operations which are not possible with
+the standard I2C driver.</p>
+
+<pre class="ruby"><span class="ruby-identifier">baud</span> <span class="ruby-identifier">rates</span> <span class="ruby-identifier">as</span> <span class="ruby-identifier">low</span> <span class="ruby-identifier">as</span> <span class="ruby-value">50</span> 
+<span class="ruby-identifier">repeated</span> <span class="ruby-identifier">starts</span> 
+<span class="ruby-identifier">clock</span> <span class="ruby-identifier">stretching</span> 
+<span class="ruby-constant">I2C</span> <span class="ruby-identifier">on</span> <span class="ruby-identifier">any</span> <span class="ruby-identifier">pair</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">spare</span> <span class="ruby-constant">GPIO</span>
+</pre>
+
+<p>. .</p>
+
+<pre>  pi: &gt;=0 (as returned by [*pigpio_start*]).
+ SDA: 0-31
+ SCL: 0-31
+baud: 50-500000</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, PI_BAD_I2C_BAUD, or
+PI_GPIO_IN_USE.</p>
+
+<p>NOTE:</p>
+
+<p>The GPIO used for SDA and SCL must have pull-ups to 3V3 connected.  As a
+guide the hardware pull-ups on pins 3 and 5 are 1k8 in value.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_i2c_open">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="bb_i2c_open-source">
+            <pre>VALUE pigpio_rbfn_bb_i2c_open(VALUE self, VALUE pi, VALUE SDA, VALUE SCL, VALUE baud){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bb_i2c_zip" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bb_i2c_zip(Integer pi,Integer SDA, String inBuf, Integer outLen) &rarr; Integer (When onError)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bb_i2c_zip(Integer pi,Integer SDA, String inBuf, Integer outLen) &rarr; String outBuf (When Success)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function executes a sequence of bit banged I2C operations.  The
+operations to be performed are specified by the contents of inBuf which
+contains the concatenated command codes and associated data.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+   SDA: 0-31 (as used in a prior call to [*bb_i2c_open*])
+ inBuf: the concatenated I2C commands, see below
+outBuf: buffer to hold returned data
+outLen: size of output buffer</pre>
+
+<p>. .</p>
+
+<p>Returns &gt;= 0 if OK (the number of bytes read), otherwise
+PI_BAD_USER_GPIO, PI_NOT_I2C_GPIO, PI_BAD_POINTER, PI_BAD_I2C_CMD,
+PI_BAD_I2C_RLEN, PI_BAD_I2C_WLEN, PI_I2C_READ_FAILED, or
+PI_I2C_WRITE_FAILED.</p>
+
+<p>The following command codes are supported:</p>
+
+<pre>Name    @ Cmd &amp; Data   @ Meaning
+End     @ 0            @ No more commands
+Escape  @ 1            @ Next P is two bytes
+Start   @ 2            @ Start condition
+Stop    @ 3            @ Stop condition
+Address @ 4 P          @ Set I2C address to P
+Flags   @ 5 lsb msb    @ Set I2C flags to lsb + (msb &lt;&lt; 8)
+Read    @ 6 P          @ Read P bytes of data
+Write   @ 7 P ...      @ Write P bytes of data</pre>
+
+<p>The address, read, and write commands take a parameter P. Normally P is one
+byte (0-255).  If the command is preceded by the Escape command then P is
+two bytes (0-65535, least significant byte first).</p>
+
+<p>The address and flags default to 0.  The address and flags maintain their
+previous value until updated.</p>
+
+<p>No flags are currently defined.</p>
+
+<p>The returned I2C data is stored in consecutive locations of outBuf.</p>
+
+<p>…</p>
+
+<pre>Set address 0x53
+start, write 0x32, (re)start, read 6 bytes, stop
+Set address 0x1E
+start, write 0x03, (re)start, read 6 bytes, stop
+Set address 0x68
+start, write 0x1B, (re)start, read 8 bytes, stop
+End
+
+0x04 0x53
+0x02 0x07 0x01 0x32   0x02 0x06 0x06 0x03
+
+0x04 0x1E 
+0x02 0x07 0x01 0x03   0x02 0x06 0x06 0x03
+
+0x04 0x68
+0x02 0x07 0x01 0x1B   0x02 0x06 0x08 0x03
+
+0x00</pre>
+
+<p>…</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_i2c_zip">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="bb_i2c_zip-source">
+            <pre>VALUE pigpio_rbfn_bb_i2c_zip(VALUE self, VALUE pi, VALUE SDA, VALUE inBuf, VALUE outLen_v){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bb_serial_invert" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bb_serial_invert(Integer pi,Integer user_gpio, Integer invert) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function inverts serial logic for big bang serial reads.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31, previously opened with [*bb_serial_read_open*].
+   invert: 0-1, 1 invert, 0 normal.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_NOT_SERIAL_GPIO or PI_BAD_SER_INVERT.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_serial_invert">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="bb_serial_invert-source">
+            <pre>VALUE pigpio_rbfn_bb_serial_invert(VALUE self, VALUE pi, VALUE user_gpio, VALUE invert){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bb_serial_read" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bb_serial_read(Integer pi,Integer user_gpio, Integer bufSize) &rarr; Integer (When onError)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bb_serial_read(Integer pi,Integer user_gpio, Integer bufSize) &rarr; String  (When Success)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function copies up to bufSize bytes of data read from the bit bang
+serial cyclic buffer to the buffer starting at buf.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31, previously opened with [*bb_serial_read_open*].
+      buf: an array to receive the read bytes.
+  bufSize: &gt;=0</pre>
+
+<p>. .</p>
+
+<p>Returns the number of bytes copied if OK, otherwise PI_BAD_USER_GPIO or
+PI_NOT_SERIAL_GPIO.</p>
+
+<p>The bytes returned for each character depend upon the number of data bits
+[<strong>data_bits</strong>] specified in the
+[<strong>bb_serial_read_open</strong>] command.</p>
+
+<pre>For [*data_bits*] 1-8 there will be one byte per character. 
+For [*data_bits*] 9-16 there will be two bytes per character. 
+For [*data_bits*] 17-32 there will be four bytes per character.</pre>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_serial_read">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="bb_serial_read-source">
+            <pre>VALUE pigpio_rbfn_bb_serial_read(VALUE self, VALUE pi, VALUE user_gpio, VALUE bufSize){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bb_serial_read_close" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bb_serial_read_close(Integer pi,Integer user_gpio) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function closes a GPIO for bit bang reading of serial data.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31, previously opened with [*bb_serial_read_open*].</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, or PI_NOT_SERIAL_GPIO.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_serial_read_close">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="bb_serial_read_close-source">
+            <pre>VALUE pigpio_rbfn_bb_serial_read_close(VALUE self, VALUE pi, VALUE user_gpio){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bb_serial_read_open" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bb_serial_read_open(Integer pi,Integer user_gpio, Integer baud, Integer data_bits) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function opens a GPIO for bit bang reading of serial data.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31.
+     baud: 50-250000
+data_bits: 1-32</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, PI_BAD_WAVE_BAUD, or
+PI_GPIO_IN_USE.</p>
+
+<p>The serial data is returned in a cyclic buffer and is read using
+bb_serial_read.</p>
+
+<p>It is the caller&#39;s responsibility to read data from the cyclic buffer
+in a timely fashion.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_serial_read_open">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="bb_serial_read_open-source">
+            <pre>VALUE pigpio_rbfn_bb_serial_read_open(VALUE self, VALUE pi, VALUE user_gpio, VALUE baud, VALUE data_bits){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bb_spi_close" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bb_spi_close(Integer pi,Integer CS) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function stops bit banging SPI on a set of GPIO opened with
+[<strong>bbSPIOpen</strong>].</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).
+CS: 0-31, the CS GPIO used in a prior call to [*bb_spi_open*]</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, or PI_NOT_SPI_GPIO.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_spi_close">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="bb_spi_close-source">
+            <pre>VALUE pigpio_rbfn_bb_spi_close(VALUE self, VALUE pi, VALUE CS){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bb_spi_open" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bb_spi_open(Integer pi,Integer CS, Integer MISO, Integer MOSI, Integer SCLK, Integer baud, Integer spi_flags) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function selects a set of GPIO for bit banging SPI at a specified baud
+rate.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+       CS: 0-31
+     MISO: 0-31
+     MOSI: 0-31
+     SCLK: 0-31
+     baud: 50-250000
+spi_flags: see below</pre>
+
+<p>. .</p>
+
+<p>spi_flags consists of the least significant 22 bits.</p>
+
+<p>. .</p>
+
+<pre>21 20 19 18 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0
+ 0  0  0  0  0  0  R  T  0  0  0  0  0  0  0  0  0  0  0  p  m  m</pre>
+
+<p>. .</p>
+
+<p>mm defines the SPI mode, defaults to 0</p>
+
+<p>. .</p>
+
+<pre>Mode CPOL CPHA
+ 0    0    0
+ 1    0    1
+ 2    1    0
+ 3    1    1</pre>
+
+<p>. .</p>
+
+<p>p is 0 if CS is active low (default) and 1 for active high.</p>
+
+<p>T is 1 if the least significant bit is transmitted on MOSI first, the
+default (0) shifts the most significant bit out first.</p>
+
+<p>R is 1 if the least significant bit is received on MISO first, the default
+(0) receives the most significant bit first.</p>
+
+<p>The other bits in flags should be set to zero.</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, PI_BAD_SPI_BAUD, or
+PI_GPIO_IN_USE.</p>
+
+<p>If more than one device is connected to the SPI bus (defined by SCLK, MOSI,
+and MISO) each must have its own CS.</p>
+
+<p>…</p>
+
+<pre>bb_spi_open(pi,10, MISO, MOSI, SCLK, 10000, 0); // device 1
+bb_spi_open(pi,11, MISO, MOSI, SCLK, 20000, 3); // device 2</pre>
+
+<p>…</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_spi_open">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="bb_spi_open-source">
+            <pre>VALUE pigpio_rbfn_bb_spi_open(VALUE self, VALUE pi, VALUE CS, VALUE MISO, VALUE MOSI, VALUE SCLK, VALUE baud, VALUE spi_flags){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bb_spi_xfer" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bb_spi_xfer(Integer pi,Integer CS, String txBuf) &rarr; Integer (When onError)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bb_spi_xfer(Integer pi,Integer CS, String txBuf) &rarr; String rxBuf (When Success)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function executes a bit banged SPI transfer.</p>
+
+<p>. .</p>
+
+<pre>   pi: &gt;=0 (as returned by [*pigpio_start*]).
+   CS: 0-31 (as used in a prior call to [*bb_spi_open*])
+txBuf: binary string buffer to hold data to be sent
+rxBuf: binary string buffer to hold returned data</pre>
+
+<p>. .</p>
+
+<p>Returns &gt;= 0 if OK (the number of bytes read), otherwise
+PI_BAD_USER_GPIO, PI_NOT_SPI_GPIO or PI_BAD_POINTER.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_spi_xfer">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="bb_spi_xfer-source">
+            <pre>VALUE pigpio_rbfn_bb_spi_xfer(VALUE self, VALUE pi, VALUE CS, VALUE txBuf){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bsc_i2c" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bsc_i2c(Integer pi,Integer i2c_addr, PIGPIO::BscXfer bscxfer) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function allows the Pi to act as a slave I2C device.</p>
+
+<p>The data bytes (if any) are written to the BSC transmit FIFO and the bytes
+in the BSC receive FIFO are returned.</p>
+
+<p>. .</p>
+
+<pre>      pi: &gt;=0 (as returned by [*pigpio_start*]).
+i2c_addr: 0-0x7F.
+ bscxfer: a structure defining the transfer.
+
+typedef struct
+{
+   uint32_t control;          // N/A
+   int rxCnt;                 // Read only
+   char rxBuf[BSC_FIFO_SIZE]; // Read only
+   int txCnt;                 // Write
+   char txBuf[BSC_FIFO_SIZE]; // Write
+} bsc_xfer_t;</pre>
+
+<p>. .</p>
+
+<p>txCnt is set to the number of bytes to be transmitted, possibly zero. The
+data itself should be copied to txBuf.</p>
+
+<p>Any received data will be written to rxBuf with rxCnt set.</p>
+
+<p>See [<strong>bsc_xfer</strong>] for details of the returned status value.</p>
+
+<p>If there was an error the status will be less than zero (and will contain
+the error code).</p>
+
+<p>Note that an i2c_address of 0 may be used to close the BSC device and
+reassign the used GPIO (18/19) as inputs.</p>
+
+<p>See also: <a href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bsc_i2c">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="bsc_i2c-source">
+            <pre>VALUE pigpio_rbfn_bsc_i2c(VALUE self, VALUE pi, VALUE i2c_addr, VALUE bscxfer){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-bsc_xfer" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            bsc_xfer(Integer pi, PIGPIO::BscXfer bscxfer) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function provides a low-level interface to the SPI/I2C Slave
+peripheral.  This peripheral allows the Pi to act as a slave device on an
+I2C or SPI bus.</p>
+
+<p>I can&#39;t get SPI to work properly.  I tried with a control word of 0x303
+and swapped MISO and MOSI.</p>
+
+<p>The function sets the BSC mode, writes any data in the transmit buffer to
+the BSC transmit FIFO, and copies any data in the BSC receive FIFO to the
+receive buffer.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+bscxfer: a structure defining the transfer.
+
+typedef struct
+{
+   uint32_t control;          // Write
+   int rxCnt;                 // Read only
+   char rxBuf[BSC_FIFO_SIZE]; // Read only
+   int txCnt;                 // Write
+   char txBuf[BSC_FIFO_SIZE]; // Write
+} bsc_xfer_t;</pre>
+
+<p>. .</p>
+
+<p>To start a transfer set control (see below) and copy the bytes to be sent
+(if any) to txBuf and set the byte count in txCnt.</p>
+
+<p>Upon return rxCnt will be set to the number of received bytes placed in
+rxBuf.</p>
+
+<p>The returned function value is the status of the transfer (see below).</p>
+
+<p>If there was an error the status will be less than zero (and will contain
+the error code).</p>
+
+<p>The most significant word of the returned status contains the number of
+bytes actually copied from txBuf to the BSC transmit FIFO (may be less than
+requested if the FIFO already contained untransmitted data).</p>
+
+<p>Note that the control word sets the BSC mode.  The BSC will stay in that
+mode until a different control word is sent.</p>
+
+<p>The BSC peripheral uses GPIO 18 (SDA) and 19 (SCL) in I2C mode and GPIO 18
+(MOSI), 19 (SCLK), 20 (MISO), and 21 (CE) in SPI mode.  You need to swap
+MISO/MOSI between master and slave.</p>
+
+<p>When a zero control word is received GPIO 18-21 will be reset to INPUT
+mode.</p>
+
+<p>control consists of the following bits.</p>
+
+<p>. .</p>
+
+<pre>22 21 20 19 18 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0
+ a  a  a  a  a  a  a  -  - IT HC TF IR RE TE BK EC ES PL PH I2 SP EN</pre>
+
+<p>. .</p>
+
+<p>Bits 0-13 are copied unchanged to the BSC CR register.  See pages 163-165
+of the Broadcom peripherals document for full details.</p>
+
+<pre>aaaaaaa @ defines the I2C slave address (only relevant in I2C mode)
+IT      @ invert transmit status flags
+HC      @ enable host control
+TF      @ enable test FIFO
+IR      @ invert receive status flags
+RE      @ enable receive
+TE      @ enable transmit
+BK      @ abort operation and clear FIFOs
+EC      @ send control register as first I2C byte
+ES      @ send status register as first I2C byte
+PL      @ set SPI polarity high
+PH      @ set SPI phase high
+I2      @ enable I2C mode
+SP      @ enable SPI mode
+EN      @ enable BSC peripheral</pre>
+
+<p>The returned status has the following format</p>
+
+<p>. .</p>
+
+<pre>20 19 18 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0
+ S  S  S  S  S  R  R  R  R  R  T  T  T  T  T RB TE RF TF RE TB</pre>
+
+<p>. .</p>
+
+<p>Bits 0-15 are copied unchanged from the BSC FR register.  See pages 165-166
+of the Broadcom peripherals document for full details.</p>
+
+<pre>SSSSS @ number of bytes successfully copied to transmit FIFO
+RRRRR @ number of bytes in receieve FIFO
+TTTTT @ number of bytes in transmit FIFO
+RB    @ receive busy
+TE    @ transmit FIFO empty
+RF    @ receive FIFO full
+TF    @ transmit FIFO full
+RE    @ receive FIFO empty
+TB    @ transmit busy</pre>
+
+<p>See also: <a href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bsc_xfer">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="bsc_xfer-source">
+            <pre>VALUE pigpio_rbfn_bsc_xfer(VALUE self, VALUE pi, VALUE bscxfer){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-callback" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            callback(Integer pi,Integer user_gpio, Integer edge){|tick,level,user_gpio| } &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function initialises a new callback.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31.
+     edge: RISING_EDGE, FALLING_EDGE, or EITHER_EDGE.</pre>
+
+<p>. .</p>
+
+<p>The function returns a callback id if OK, otherwise pigif_bad_malloc,
+pigif_duplicate_callback, or pigif_bad_callback.</p>
+
+<p>The callback is called with the GPIO, edge, and tick, whenever the GPIO has
+the identified edge.</p>
+
+<p>. .</p>
+
+<pre>Parameter   Value    Meaning
+
+GPIO        0-31     The GPIO which has changed state
+
+edge        0-2      0 = change to low (a falling edge)
+                     1 = change to high (a rising edge)
+                     2 = no level change (a watchdog timeout)
+
+tick        32 bit   The number of microseconds since boot
+                     WARNING: this wraps around from
+                     4294967295 to 0 roughly every 72 minutes</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#callback_ex">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="callback-source">
+            <pre>VALUE pigpio_rbfn_callback(int argc, VALUE *argv, VALUE self){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-callback_cancel" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            callback_cancel(Integer callback_id) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function cancels a callback identified by its id.</p>
+
+<p>. .</p>
+
+<pre>callback_id: &gt;=0, as returned by a call to [*callback*] or [*callback_ex*].</pre>
+
+<p>. .</p>
+
+<p>The function returns 0 if OK, otherwise pigif_callback_not_found.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#callback_cancel">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="callback_cancel-source">
+            <pre>VALUE pigpio_rbfn_callback_cancel(VALUE self,VALUE callback_id){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-clear_bank_1" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            clear_bank_1(Integer pi,Integer bits) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Clears GPIO 0-31 if the corresponding bit in bits is set.</p>
+
+<p>. .</p>
+
+<pre>  pi: &gt;=0 (as returned by [*pigpio_start*]).
+bits: a bit mask with 1 set if the corresponding GPIO is
+      to be cleared.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_SOME_PERMITTED.</p>
+
+<p>A status of PI_SOME_PERMITTED indicates that the user is not allowed to
+write to one or more of the GPIO.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#clear_bank_1">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear_bank_1-source">
+            <pre>VALUE pigpio_rbfn_clear_bank_1(VALUE self, VALUE pi, VALUE bits){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-clear_bank_2" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            clear_bank_2(Integer pi,Integer bits) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Clears GPIO 32-53 if the corresponding bit (0-21) in bits is set.</p>
+
+<p>. .</p>
+
+<pre>  pi: &gt;=0 (as returned by [*pigpio_start*]).
+bits: a bit mask with 1 set if the corresponding GPIO is
+      to be cleared.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_SOME_PERMITTED.</p>
+
+<p>A status of PI_SOME_PERMITTED indicates that the user is not allowed to
+write to one or more of the GPIO.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#clear_bank_2">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="clear_bank_2-source">
+            <pre>VALUE pigpio_rbfn_clear_bank_2(VALUE self, VALUE pi, VALUE bits){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-delete_script" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            delete_script(Integer pi,Integer script_id) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function deletes a stored script.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+script_id: &gt;=0, as returned by [*store_script*].</pre>
+
+<p>. .</p>
+
+<p>The function returns 0 if OK, otherwise PI_BAD_SCRIPT_ID.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#delete_script">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete_script-source">
+            <pre>VALUE pigpio_rbfn_delete_script(VALUE self,VALUE pi, VALUE script_id){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-event_callback" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            event_callback(Integer pi,Integer event){|tick,event| } &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function initialises an event callback.</p>
+
+<p>. .</p>
+
+<pre>   pi: &gt;=0 (as returned by [*pigpio_start*]).
+event: 0-31.</pre>
+
+<p>. .</p>
+
+<p>The function returns a callback id if OK, otherwise pigif_bad_malloc,
+pigif_duplicate_callback, or pigif_bad_callback.</p>
+
+<p>The callback is called with the event id, and tick, whenever the event
+occurs.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#event_callback_ex">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="event_callback-source">
+            <pre>VALUE pigpio_rbfn_event_callback(int argc, VALUE *argv, VALUE self){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-event_callback_cancel" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            event_callback_cancel(Integer callback_id) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function cancels an event callback identified by its id.</p>
+
+<p>. .</p>
+
+<pre>callback_id: &gt;=0, as returned by a call to [*event_callback*] or [*event_callback_ex*].</pre>
+
+<p>. .</p>
+
+<p>The function returns 0 if OK, otherwise pigif_callback_not_found.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#event_callback_cancel">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="event_callback_cancel-source">
+            <pre>VALUE pigpio_rbfn_event_callback_cancel(VALUE self,VALUE callback_id){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-event_trigger" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            event_trigger(Integer pi,Integer event) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function signals the occurrence of an event.</p>
+
+<p>. .</p>
+
+<pre>   pi: &gt;=0 (as returned by [*pigpio_start*]).
+event: 0-31.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_EVENT_ID.</p>
+
+<p>An event is a signal used to inform one or more consumers to start an
+action.  Each consumer which has registered an interest in the event (e.g.
+by calling [<strong>event_callback</strong>]) will be informed by a
+callback.</p>
+
+<p>One event, PI_EVENT_BSC (31) is predefined.  This event is auto generated
+on BSC slave activity.</p>
+
+<p>The meaning of other events is arbitrary.</p>
+
+<p>Note that other than its id and its tick there is no data associated with
+an event.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#event_trigger">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="event_trigger-source">
+            <pre>VALUE pigpio_rbfn_event_trigger(VALUE self,VALUE pi, VALUE event){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_PWM_dutycycle" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            get_PWM_dutycycle(Integer pi,Integer user_gpio) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return the PWM dutycycle in use on a GPIO.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO or PI_NOT_PWM_GPIO.</p>
+
+<p>For normal PWM the dutycycle will be out of the defined range for the GPIO
+(see [<strong>get_PWM_range</strong>]).</p>
+
+<p>If a hardware clock is active on the GPIO the reported dutycycle will be
+500000 (500k) out of 1000000 (1M).</p>
+
+<p>If hardware PWM is active on the GPIO the reported dutycycle will be out of
+a 1000000 (1M).</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_PWM_dutycycle">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_PWM_dutycycle-source">
+            <pre>VALUE pigpio_rbfn_get_PWM_dutycycle(VALUE self, VALUE pi, VALUE user_gpio){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_PWM_frequency" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            get_PWM_frequency(Integer pi,Integer user_gpio) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Get the frequency of PWM being used on the GPIO.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31.</pre>
+
+<p>. .</p>
+
+<p>For normal PWM the frequency will be that defined for the GPIO by
+[<strong>set_PWM_frequency</strong>].</p>
+
+<p>If a hardware clock is active on the GPIO the reported frequency will be
+that set by [<strong>hardware_clock</strong>].</p>
+
+<p>If hardware PWM is active on the GPIO the reported frequency will be that
+set by [<strong>hardware_PWM</strong>].</p>
+
+<p>Returns the frequency (in hertz) used for the GPIO if OK, otherwise
+PI_BAD_USER_GPIO.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_PWM_frequency">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_PWM_frequency-source">
+            <pre>VALUE pigpio_rbfn_get_PWM_frequency(VALUE self, VALUE pi, VALUE user_gpio){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_PWM_range" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            get_PWM_range(Integer pi,Integer user_gpio) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Get the range of PWM values being used on the GPIO.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31.</pre>
+
+<p>. .</p>
+
+<p>Returns the dutycycle range used for the GPIO if OK, otherwise
+PI_BAD_USER_GPIO.</p>
+
+<p>If a hardware clock or hardware PWM is active on the GPIO the reported
+range will be 1000000 (1M).</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_PWM_range">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_PWM_range-source">
+            <pre>VALUE pigpio_rbfn_get_PWM_range(VALUE self, VALUE pi, VALUE user_gpio){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_PWM_real_range" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            get_PWM_real_range(Integer pi,Integer user_gpio) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Get the real underlying range of PWM values being used on the GPIO.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31.</pre>
+
+<p>. .</p>
+
+<p>Returns the real range used for the GPIO if OK, otherwise PI_BAD_USER_GPIO.</p>
+
+<p>If a hardware clock is active on the GPIO the reported real range will be
+1000000 (1M).</p>
+
+<p>If hardware PWM is active on the GPIO the reported real range will be
+approximately 250M divided by the set PWM frequency.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_PWM_real_range">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_PWM_real_range-source">
+            <pre>VALUE pigpio_rbfn_get_PWM_real_range(VALUE self, VALUE pi, VALUE user_gpio){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_current_tick" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            get_current_tick(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Gets the current system tick.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>Tick is the number of microseconds since system boot.</p>
+
+<p>As tick is an unsigned 32 bit quantity it wraps around after 2**32
+microseconds, which is approximately 1 hour 12 minutes.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_current_tick">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_current_tick-source">
+            <pre>VALUE pigpio_rbfn_get_current_tick(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_hardware_revision" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            get_hardware_revision(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Get the Pi&#39;s hardware revision number.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>The hardware revision is the last few characters on the Revision line of
+/proc/cpuinfo.</p>
+
+<p>If the hardware revision can not be found or is not a valid hexadecimal
+number the function returns 0.</p>
+
+<p>The revision number can be used to determine the assignment of GPIO to pins
+(see [<strong>gpio</strong>]).</p>
+
+<p>There are at least three types of board.</p>
+
+<p>Type 1 boards have hardware revision numbers of 2 and 3.</p>
+
+<p>Type 2 boards have hardware revision numbers of 4, 5, 6, and 15.</p>
+
+<p>Type 3 boards have hardware revision numbers of 16 or greater.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_hardware_revision">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_hardware_revision-source">
+            <pre>VALUE pigpio_rbfn_get_hardware_revision(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_mode" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            get_mode(Integer pi,Integer gpio) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Get the GPIO mode.</p>
+
+<p>. .</p>
+
+<pre>  pi: &gt;=0 (as returned by [*pigpio_start*]).
+gpio: 0-53.</pre>
+
+<p>. .</p>
+
+<p>Returns the GPIO mode if OK, otherwise PI_BAD_GPIO.</p>
+
+<p>See also: <a href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_mode">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_mode-source">
+            <pre>VALUE pigpio_rbfn_get_mode(VALUE self,VALUE pi, VALUE gpio){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_pad_strength" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            get_pad_strength(Integer pi,Integer pad) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function returns the pad drive strength in mA.</p>
+
+<p>. .</p>
+
+<pre> pi: &gt;=0 (as returned by [*pigpio_start*]).
+pad: 0-2, the pad to get.</pre>
+
+<p>. .</p>
+
+<p>Returns the pad drive strength if OK, otherwise PI_BAD_PAD.</p>
+
+<pre>Pad @ GPIO
+0   @ 0-27
+1   @ 28-45
+2   @ 46-53</pre>
+
+<p>…</p>
+
+<pre>strength = get_pad_strength(pi, 0); //  get pad 0 strength</pre>
+
+<p>…</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_pad_strength">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_pad_strength-source">
+            <pre>VALUE pigpio_rbfn_get_pad_strength(VALUE self, VALUE pi, VALUE pad){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_pigpio_version" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            get_pigpio_version(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the pigpio version.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_pigpio_version">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_pigpio_version-source">
+            <pre>VALUE pigpio_rbfn_get_pigpio_version(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_servo_pulsewidth" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            get_servo_pulsewidth(Integer pi,Integer user_gpio) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return the servo pulsewidth in use on a GPIO.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO or PI_NOT_SERVO_GPIO.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_servo_pulsewidth">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_servo_pulsewidth-source">
+            <pre>VALUE pigpio_rbfn_get_servo_pulsewidth(VALUE self, VALUE pi, VALUE user_gpio){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-gpio_read" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            gpio_read(Integer pi,Integer gpio) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Read the GPIO level.</p>
+
+<p>. .</p>
+
+<pre>  pi: &gt;=0 (as returned by [*pigpio_start*]).
+gpio:0-53.</pre>
+
+<p>. .</p>
+
+<p>Returns the GPIO level if OK, otherwise PI_BAD_GPIO.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#gpio_read">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="gpio_read-source">
+            <pre>VALUE pigpio_rbfn_gpio_read(VALUE self,VALUE pi, VALUE gpio){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-gpio_trigger" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            gpio_trigger(Integer pi,Integer user_gpio,Integer pulseLen,Integer level) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function sends a trigger pulse to a GPIO.  The GPIO is set to level
+for pulseLen microseconds and then reset to not level.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31.
+ pulseLen: 1-100.
+    level: 0,1.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, PI_BAD_LEVEL, PI_BAD_PULSELEN,
+or PI_NOT_PERMITTED.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#gpio_trigger">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="gpio_trigger-source">
+            <pre>VALUE pigpio_rbfn_gpio_trigger(VALUE self,VALUE pi, VALUE user_gpio, VALUE pulseLen, VALUE level){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-gpio_write" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            gpio_write(Integer pi,Integer gpio,Integer level) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Write the GPIO level.</p>
+
+<p>. .</p>
+
+<pre>   pi: &gt;=0 (as returned by [*pigpio_start*]).
+ gpio: 0-53.
+level: 0, 1.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_GPIO, PI_BAD_LEVEL, or PI_NOT_PERMITTED.</p>
+
+<p>Notes</p>
+
+<p>If PWM or servo pulses are active on the GPIO they are switched off.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#gpio_write">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="gpio_write-source">
+            <pre>VALUE pigpio_rbfn_gpio_write(VALUE self,VALUE pi, VALUE gpio, VALUE level){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-hardware_PWM" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            hardware_PWM(Integer pi,Integer gpio, Integer PWMfreq, Integer PWMduty) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Starts hardware PWM on a GPIO at the specified frequency and dutycycle.
+Frequencies above 30MHz are unlikely to work.</p>
+
+<p>NOTE: Any waveform started by [<strong>wave_send_</strong>*] or
+[<strong>wave_chain</strong>] will be cancelled.</p>
+
+<p>This function is only valid if the pigpio main clock is PCM.  The main
+clock defaults to PCM but may be overridden when the pigpio daemon is
+started (option -t).</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+   gpio: see descripton
+PWMfreq: 0 (off) or 1-125000000 (125M)
+PWMduty: 0 (off) to 1000000 (1M)(fully on)</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_NOT_PERMITTED, PI_BAD_GPIO, PI_NOT_HPWM_GPIO,
+PI_BAD_HPWM_DUTY, PI_BAD_HPWM_FREQ, or PI_HPWM_ILLEGAL.</p>
+
+<p>The same PWM channel is available on multiple GPIO.  The latest frequency
+and dutycycle setting will be used by all GPIO which share a PWM channel.</p>
+
+<p>The GPIO must be one of the following.</p>
+
+<p>. .</p>
+
+<pre>12  PWM channel 0  All models but A and B
+13  PWM channel 1  All models but A and B
+18  PWM channel 0  All models
+19  PWM channel 1  All models but A and B
+
+40  PWM channel 0  Compute module only
+41  PWM channel 1  Compute module only
+45  PWM channel 1  Compute module only
+52  PWM channel 0  Compute module only
+53  PWM channel 1  Compute module only</pre>
+
+<p>. .</p>
+
+<p>The actual number of steps beween off and fully on is the integral part of
+250 million divided by PWMfreq.</p>
+
+<p>The actual frequency set is 250 million / steps.</p>
+
+<p>There will only be a million steps for a PWMfreq of 250. Lower frequencies
+will have more steps and higher frequencies will have fewer steps.  PWMduty
+is automatically scaled to take this into account.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#hardware_PWM">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="hardware_PWM-source">
+            <pre>VALUE pigpio_rbfn_hardware_PWM(VALUE self, VALUE pi, VALUE gpio, VALUE PWMfreq, VALUE PWMduty){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-hardware_clock" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            hardware_clock(Integer pi,Integer gpio, Integer clkfreq) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Starts a hardware clock on a GPIO at the specified frequency. Frequencies
+above 30MHz are unlikely to work.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+     gpio: see description
+frequency: 0 (off) or 4689-250000000 (250M)</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_NOT_PERMITTED, PI_BAD_GPIO, PI_NOT_HCLK_GPIO,
+PI_BAD_HCLK_FREQ,or PI_BAD_HCLK_PASS.</p>
+
+<p>The same clock is available on multiple GPIO.  The latest frequency setting
+will be used by all GPIO which share a clock.</p>
+
+<p>The GPIO must be one of the following.</p>
+
+<p>. .</p>
+
+<pre>4   clock 0  All models
+5   clock 1  All models but A and B (reserved for system use)
+6   clock 2  All models but A and B
+20  clock 0  All models but A and B
+21  clock 1  All models but A and Rev.2 B (reserved for system use)
+
+32  clock 0  Compute module only
+34  clock 0  Compute module only
+42  clock 1  Compute module only (reserved for system use)
+43  clock 2  Compute module only
+44  clock 1  Compute module only (reserved for system use)</pre>
+
+<p>. .</p>
+
+<p>Access to clock 1 is protected by a password as its use will likely crash
+the Pi.  The password is given by or&#39;ing 0x5A000000 with the GPIO
+number.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#hardware_clock">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="hardware_clock-source">
+            <pre>VALUE pigpio_rbfn_hardware_clock(VALUE self, VALUE pi, VALUE gpio, VALUE clkfreq){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_block_process_call" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_block_process_call(Integer pi,Integer handle, Integer i2c_reg,String buf) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This writes data bytes to the specified register of the device associated
+with handle and reads a device specified number of bytes of data in return.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+ handle: &gt;=0, as returned by a call to [*i2c_open*].
+i2c_reg: 0-255, the register to write/read.
+    buf: an binary string with the data to send and to receive the read data.</pre>
+
+<p>. .</p>
+
+<p>Returns the number of bytes read (&gt;=0) if OK, otherwise PI_BAD_HANDLE,
+PI_BAD_PARAM, or PI_I2C_READ_FAILED.</p>
+
+<p>The smbus 2.0 documentation states that a minimum of 1 byte may be sent and
+a minimum of 1 byte may be received.  The total number of bytes
+sent/received must be 32 or less.</p>
+
+<p>Block write-block read. SMBus 2.0 5.5.8 . .</p>
+
+<pre>S Addr Wr [A] i2c_reg [A] count [A] buf0 [A] ...
+   S Addr Rd [A] [Count] A [Data] ... A P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_block_process_call">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_block_process_call-source">
+            <pre>VALUE pigpio_rbfn_i2c_block_process_call(VALUE self, VALUE pi, VALUE handle, VALUE i2c_reg, VALUE buf){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_close" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_close(Integer pi,Integer handle) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This closes the I2C device associated with the handle.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*i2c_open*].</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_close">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_close-source">
+            <pre>VALUE pigpio_rbfn_i2c_close(VALUE self, VALUE pi, VALUE handle){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_open" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_open(Integer pi,Integer i2c_bus, Integer i2c_addr, Integer i2c_flags) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This returns a handle for the device at address i2c_addr on bus i2c_bus.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+  i2c_bus: &gt;=0.
+ i2c_addr: 0-0x7F.
+i2c_flags: 0.</pre>
+
+<p>. .</p>
+
+<p>No flags are currently defined.  This parameter should be set to zero.</p>
+
+<p>Physically buses 0 and 1 are available on the Pi.  Higher numbered buses
+will be available if a kernel supported bus multiplexor is being used.</p>
+
+<p>Returns a handle (&gt;=0) if OK, otherwise PI_BAD_I2C_BUS, PI_BAD_I2C_ADDR,
+PI_BAD_FLAGS, PI_NO_HANDLE, or PI_I2C_OPEN_FAILED.</p>
+
+<p>For the SMBus commands the low level transactions are shown at the end of
+the function description.  The following abbreviations are used.</p>
+
+<p>. .</p>
+
+<pre>S       (1 bit) : Start bit
+P       (1 bit) : Stop bit
+Rd/Wr   (1 bit) : Read/Write bit. Rd equals 1, Wr equals 0.
+A, NA   (1 bit) : Accept and not accept bit. 
+Addr    (7 bits): I2C 7 bit address.
+i2c_reg (8 bits): A byte which often selects a register.
+Data    (8 bits): A data byte.
+Count   (8 bits): A byte defining the length of a block operation.
+
+[..]: Data sent by the device.</pre>
+
+<p>. .</p>
+
+<p>See also: <a href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_open">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_open-source">
+            <pre>VALUE pigpio_rbfn_i2c_open(VALUE self, VALUE pi, VALUE i2c_bus, VALUE i2c_addr, VALUE i2c_flags){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_process_call" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_process_call(Integer pi,Integer handle, Integer i2c_reg, Integer wVal) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This writes 16 bits of data to the specified register of the device
+associated with handle and and reads 16 bits of data in return.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+ handle: &gt;=0, as returned by a call to [*i2c_open*].
+i2c_reg: 0-255, the register to write/read.
+   wVal: 0-0xFFFF, the value to write.</pre>
+
+<p>. .</p>
+
+<p>Returns the word read (&gt;=0) if OK, otherwise PI_BAD_HANDLE,
+PI_BAD_PARAM, or PI_I2C_READ_FAILED.</p>
+
+<p>Process call. SMBus 2.0 5.5.6 . .</p>
+
+<pre>S Addr Wr [A] i2c_reg [A] wVal_Low [A] wVal_High [A]
+   S Addr Rd [A] [DataLow] A [DataHigh] NA P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_process_call">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_process_call-source">
+            <pre>VALUE pigpio_rbfn_i2c_process_call(VALUE self, VALUE pi, VALUE handle, VALUE i2c_reg, VALUE wVal){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_read_block_data" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_read_block_data(Integer pi,Integer handle, Integer i2c_reg) &rarr; Integer (When onError)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_read_block_data(Integer pi,Integer handle, Integer i2c_reg) &rarr; String buf (When Success)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This reads a block of up to 32 bytes from the specified register of the
+device associated with handle.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+ handle: &gt;=0, as returned by a call to [*i2c_open*].
+i2c_reg: 0-255, the register to read.
+    buf: an binary string to receive the read data.</pre>
+
+<p>. .</p>
+
+<p>The amount of returned data is set by the device.</p>
+
+<p>Returns the number of bytes read (&gt;=0) if OK, otherwise PI_BAD_HANDLE,
+PI_BAD_PARAM, or PI_I2C_READ_FAILED.</p>
+
+<p>Block read. SMBus 2.0 5.5.7 . .</p>
+
+<pre>S Addr Wr [A] i2c_reg [A]
+   S Addr Rd [A] [Count] A [buf0] A [buf1] A ... A [bufn] NA P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_read_block_data">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_read_block_data-source">
+            <pre>VALUE pigpio_rbfn_i2c_read_block_data(VALUE self, VALUE pi, VALUE handle, VALUE i2c_reg){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_read_byte" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_read_byte(Integer pi,Integer handle) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This reads a single byte from the device associated with handle.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*i2c_open*].</pre>
+
+<p>. .</p>
+
+<p>Returns the byte read (&gt;=0) if OK, otherwise PI_BAD_HANDLE, or
+PI_I2C_READ_FAILED.</p>
+
+<p>Receive byte. SMBus 2.0 5.5.3 . .</p>
+
+<pre>S Addr Rd [A] [Data] NA P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_read_byte">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_read_byte-source">
+            <pre>VALUE pigpio_rbfn_i2c_read_byte(VALUE self, VALUE pi, VALUE handle){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_read_byte_data" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_read_byte_data(Integer pi,Integer handle, Integer i2c_reg) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This reads a single byte from the specified register of the device
+associated with handle.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+ handle: &gt;=0, as returned by a call to [*i2c_open*].
+i2c_reg: 0-255, the register to read.</pre>
+
+<p>. .</p>
+
+<p>Returns the byte read (&gt;=0) if OK, otherwise PI_BAD_HANDLE,
+PI_BAD_PARAM, or PI_I2C_READ_FAILED.</p>
+
+<p>Read byte. SMBus 2.0 5.5.5 . .</p>
+
+<pre>S Addr Wr [A] i2c_reg [A] S Addr Rd [A] [Data] NA P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_read_byte_data">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_read_byte_data-source">
+            <pre>VALUE pigpio_rbfn_i2c_read_byte_data(VALUE self, VALUE pi, VALUE handle, VALUE i2c_reg){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_read_device" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_read_device(Integer pi,Integer handle, Integer count) &rarr; Integer (When onError)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_read_device(Integer pi,Integer handle, Integer count) &rarr; String buf (When Success)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This reads count bytes from the raw device into buf.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*i2c_open*].
+   buf: an binary string to receive the read data bytes.
+ count: &gt;0, the number of bytes to read.</pre>
+
+<p>. .</p>
+
+<p>Returns count (&gt;0) if OK, otherwise PI_BAD_HANDLE, PI_BAD_PARAM, or
+PI_I2C_READ_FAILED.</p>
+
+<p>. .</p>
+
+<pre>S Addr Rd [A] [buf0] A [buf1] A ... A [bufn] NA P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_read_device">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_read_device-source">
+            <pre>VALUE pigpio_rbfn_i2c_read_device(VALUE self, VALUE pi, VALUE handle, VALUE count){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_read_i2c_block_data" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_read_i2c_block_data(Integer pi,Integer handle, Integer i2c_reg,Integer buf) &rarr; Integer (When onError)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_read_i2c_block_data(Integer pi,Integer handle, Integer i2c_reg,Integer buf) &rarr; String  (When Success)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This reads count bytes from the specified register of the device associated
+with handle .  The count may be 1-32.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+ handle: &gt;=0, as returned by a call to [*i2c_open*].
+i2c_reg: 0-255, the register to read.
+    buf: an array to receive the read data.
+  count: 1-32, the number of bytes to read.</pre>
+
+<p>. .</p>
+
+<p>Returns the number of bytes read (&gt;0) if OK, otherwise PI_BAD_HANDLE,
+PI_BAD_PARAM, or PI_I2C_READ_FAILED.</p>
+
+<p>. .</p>
+
+<pre>S Addr Wr [A] i2c_reg [A]
+   S Addr Rd [A] [buf0] A [buf1] A ... A [bufn] NA P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_read_i2c_block_data">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_read_i2c_block_data-source">
+            <pre>VALUE pigpio_rbfn_i2c_read_i2c_block_data(VALUE self, VALUE pi, VALUE handle, VALUE i2c_reg, VALUE count){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_read_word_data" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_read_word_data(Integer pi,Integer handle, Integer i2c_reg) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This reads a single 16 bit word from the specified register of the device
+associated with handle.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+ handle: &gt;=0, as returned by a call to [*i2c_open*].
+i2c_reg: 0-255, the register to read.</pre>
+
+<p>. .</p>
+
+<p>Returns the word read (&gt;=0) if OK, otherwise PI_BAD_HANDLE,
+PI_BAD_PARAM, or PI_I2C_READ_FAILED.</p>
+
+<p>Read word. SMBus 2.0 5.5.5 . .</p>
+
+<pre>S Addr Wr [A] i2c_reg [A]
+   S Addr Rd [A] [DataLow] A [DataHigh] NA P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_read_word_data">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_read_word_data-source">
+            <pre>VALUE pigpio_rbfn_i2c_read_word_data(VALUE self, VALUE pi, VALUE handle, VALUE i2c_reg){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_write_block_data" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_write_block_data(Integer pi,Integer handle, Integer i2c_reg,String buf) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This writes up to 32 bytes to the specified register of the device
+associated with handle.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+ handle: &gt;=0, as returned by a call to [*i2c_open*].
+i2c_reg: 0-255, the register to write.
+    buf: an binary string with the data to send.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE, PI_BAD_PARAM, or
+PI_I2C_WRITE_FAILED.</p>
+
+<p>Block write. SMBus 2.0 5.5.7 . .</p>
+
+<pre>S Addr Wr [A] i2c_reg [A] count [A] buf0 [A] buf1 [A] ...
+   [A] bufn [A] P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_write_block_data">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_write_block_data-source">
+            <pre>VALUE pigpio_rbfn_i2c_write_block_data(VALUE self, VALUE pi, VALUE handle, VALUE i2c_reg, VALUE buf){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_write_byte" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_write_byte(Integer pi,Integer handle, Integer bVal) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This sends a single byte to the device associated with handle.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*i2c_open*].
+  bVal: 0-0xFF, the value to write.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE, PI_BAD_PARAM, or
+PI_I2C_WRITE_FAILED.</p>
+
+<p>Send byte. SMBus 2.0 5.5.2 . .</p>
+
+<pre>S Addr Wr [A] bVal [A] P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_write_byte">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_write_byte-source">
+            <pre>VALUE pigpio_rbfn_i2c_write_byte(VALUE self, VALUE pi, VALUE handle, VALUE bVal){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_write_byte_data" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_write_byte_data(Integer pi,Integer handle, Integer i2c_reg, Integer bVal) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This writes a single byte to the specified register of the device
+associated with handle.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+ handle: &gt;=0, as returned by a call to [*i2c_open*].
+i2c_reg: 0-255, the register to write.
+   bVal: 0-0xFF, the value to write.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE, PI_BAD_PARAM, or
+PI_I2C_WRITE_FAILED.</p>
+
+<p>Write byte. SMBus 2.0 5.5.4 . .</p>
+
+<pre>S Addr Wr [A] i2c_reg [A] bVal [A] P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_write_byte_data">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_write_byte_data-source">
+            <pre>VALUE pigpio_rbfn_i2c_write_byte_data(VALUE self, VALUE pi, VALUE handle, VALUE i2c_reg, VALUE bVal){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_write_device" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_write_device(Integer pi,Integer handle, String buf) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This writes count bytes from buf to the raw device.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*i2c_open*].
+   buf: an array containing the data bytes to write.
+ count: &gt;0, the number of bytes to write.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE, PI_BAD_PARAM, or
+PI_I2C_WRITE_FAILED.</p>
+
+<p>. .</p>
+
+<pre>S Addr Wr [A] buf0 [A] buf1 [A] ... [A] bufn [A] P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_write_device">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_write_device-source">
+            <pre>VALUE pigpio_rbfn_i2c_write_device(VALUE self, VALUE pi, VALUE handle, VALUE buf){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_write_i2c_block_data" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_write_i2c_block_data(Integer pi,Integer handle, Integer i2c_reg,String buf) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This writes 1 to 32 bytes to the specified register of the device
+associated with handle.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+ handle: &gt;=0, as returned by a call to [*i2c_open*].
+i2c_reg: 0-255, the register to write.
+    buf: the data to write.
+  count: 1-32, the number of bytes to write.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE, PI_BAD_PARAM, or
+PI_I2C_WRITE_FAILED.</p>
+
+<p>. .</p>
+
+<pre>S Addr Wr [A] i2c_reg [A] buf0 [A] buf1 [A] ... [A] bufn [A] P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_write_i2c_block_data">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_write_i2c_block_data-source">
+            <pre>VALUE pigpio_rbfn_i2c_write_i2c_block_data(VALUE self, VALUE pi, VALUE handle, VALUE i2c_reg, VALUE buf){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_write_quick" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_write_quick(Integer pi,Integer handle, Integer handle, Integer bit) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This sends a single bit (in the Rd/Wr bit) to the device associated with
+handle.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*i2c_open*].
+   bit: 0-1, the value to write.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE, PI_BAD_PARAM, or
+PI_I2C_WRITE_FAILED.</p>
+
+<p>Quick command. SMBus 2.0 5.5.1 . .</p>
+
+<pre>S Addr bit [A] P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_write_quick">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_write_quick-source">
+            <pre>VALUE pigpio_rbfn_i2c_write_quick(VALUE self, VALUE pi, VALUE handle, VALUE bit){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_write_word_data" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_write_word_data(Integer pi,Integer handle, Integer i2c_reg, Integer wVal) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This writes a single 16 bit word to the specified register of the device
+associated with handle.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+ handle: &gt;=0, as returned by a call to [*i2c_open*].
+i2c_reg: 0-255, the register to write.
+   wVal: 0-0xFFFF, the value to write.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE, PI_BAD_PARAM, or
+PI_I2C_WRITE_FAILED.</p>
+
+<p>Write word. SMBus 2.0 5.5.4 . .</p>
+
+<pre>S Addr Wr [A] i2c_reg [A] wval_Low [A] wVal_High [A] P</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_write_word_data">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_write_word_data-source">
+            <pre>VALUE pigpio_rbfn_i2c_write_word_data(VALUE self, VALUE pi, VALUE handle, VALUE i2c_reg, VALUE wVal){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-i2c_zip" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_zip(Integer pi,Integer handle, String inBuf, Integer outLen) &rarr; Integer (When onError)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            i2c_zip(Integer pi,Integer handle, String inBuf, Integer outLen) &rarr; String outBuf (When Success)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function executes a sequence of I2C operations.  The operations to be
+performed are specified by the contents of inBuf which contains the
+concatenated command codes and associated data.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*i2cOpen*]
+ inBuf: the concatenated I2C commands, see below
+outBuf: buffer to hold returned data
+outLen: size of output buffer</pre>
+
+<p>. .</p>
+
+<p>Returns &gt;= 0 if OK (the number of bytes read), otherwise PI_BAD_HANDLE,
+PI_BAD_POINTER, PI_BAD_I2C_CMD, PI_BAD_I2C_RLEN. PI_BAD_I2C_WLEN, or
+PI_BAD_I2C_SEG.</p>
+
+<p>The following command codes are supported:</p>
+
+<pre>Name    @ Cmd &amp; Data @ Meaning
+End     @ 0          @ No more commands
+Escape  @ 1          @ Next P is two bytes
+On      @ 2          @ Switch combined flag on
+Off     @ 3          @ Switch combined flag off
+Address @ 4 P        @ Set I2C address to P
+Flags   @ 5 lsb msb  @ Set I2C flags to lsb + (msb &lt;&lt; 8)
+Read    @ 6 P        @ Read P bytes of data
+Write   @ 7 P ...    @ Write P bytes of data</pre>
+
+<p>The address, read, and write commands take a parameter P. Normally P is one
+byte (0-255).  If the command is preceded by the Escape command then P is
+two bytes (0-65535, least significant byte first).</p>
+
+<p>The address defaults to that associated with the handle. The flags default
+to 0.  The address and flags maintain their previous value until updated.</p>
+
+<p>The returned I2C data is stored in consecutive locations of outBuf.</p>
+
+<p>…</p>
+
+<pre>Set address 0x53, write 0x32, read 6 bytes
+Set address 0x1E, write 0x03, read 6 bytes
+Set address 0x68, write 0x1B, read 8 bytes
+End
+
+0x04 0x53   0x07 0x01 0x32   0x06 0x06
+0x04 0x1E   0x07 0x01 0x03   0x06 0x06
+0x04 0x68   0x07 0x01 0x1B   0x06 0x08
+0x00</pre>
+
+<p>…</p>
+
+<p>See also: <a href="http://abyz.me.uk/rpi/pigpio/pdif2.html#i2c_zip">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="i2c_zip-source">
+            <pre>VALUE pigpio_rbfn_i2c_zip(VALUE self, VALUE pi, VALUE handle, VALUE inBuf, VALUE outLen_v){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-notify_begin" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            notify_begin(Integer pi,Integer handle, Integer bits) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Start notifications on a previously opened handle.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: 0-31 (as returned by [*notify_open*])
+  bits: a mask indicating the GPIO to be notified.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE.</p>
+
+<p>The notification sends state changes for each GPIO whose corresponding bit
+in bits is set.</p>
+
+<p>Each notification occupies 12 bytes in the fifo as follows:</p>
+
+<p>. . typedef struct</p>
+
+<pre>{
+  uint16_t seqno;
+  uint16_t flags;
+  uint32_t tick;
+  uint32_t level;
+} gpioReport_t;</pre>
+
+<p>. .</p>
+
+<p>seqno: starts at 0 each time the handle is opened and then increments by
+one for each report.</p>
+
+<p>flags: three flags are defined, PI_NTFY_FLAGS_WDOG, PI_NTFY_FLAGS_ALIVE,
+and PI_NTFY_FLAGS_EVENT.</p>
+
+<p>If bit 5 is set (PI_NTFY_FLAGS_WDOG) then bits 0-4 of the flags indicate a
+GPIO which has had a watchdog timeout.</p>
+
+<p>If bit 6 is set (PI_NTFY_FLAGS_ALIVE) this indicates a keep alive signal on
+the pipe/socket and is sent once a minute in the absence of other
+notification activity.</p>
+
+<p>If bit 7 is set (PI_NTFY_FLAGS_EVENT) then bits 0-4 of the flags indicate
+an event which has been triggered.</p>
+
+<p>tick: the number of microseconds since system boot.  It wraps around after
+1h12m.</p>
+
+<p>level: indicates the level of each GPIO.  If bit 1&lt;&lt;x is set then
+GPIO x is high.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#notify_begin">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="notify_begin-source">
+            <pre>VALUE pigpio_rbfn_notify_begin(VALUE self, VALUE pi, VALUE handle, VALUE bits){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-notify_close" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            notify_close(Integer pi,Integer handle) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Stop notifications on a previously opened handle and release the handle for
+reuse.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: 0-31 (as returned by [*notify_open*])</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#notify_close">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="notify_close-source">
+            <pre>VALUE pigpio_rbfn_notify_close(VALUE self, VALUE pi, VALUE handle){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-notify_open" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            notify_open(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Get a free notification handle.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>Returns a handle greater than or equal to zero if OK, otherwise
+PI_NO_HANDLE.</p>
+
+<p>A notification is a method for being notified of GPIO state changes via a
+pipe.</p>
+
+<p>Pipes are only accessible from the local machine so this function serves no
+purpose if you are using the library from a remote machine. The in-built
+(socket) notifications provided by [<strong>callback</strong>] should be
+used instead.</p>
+
+<p>Notifications for handle x will be available at the pipe named /dev/pigpiox
+(where x is the handle number). E.g. if the function returns 15 then the
+notifications must be read from /dev/pigpio15.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#notify_open">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="notify_open-source">
+            <pre>VALUE pigpio_rbfn_notify_open(VALUE self, VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-notify_pause" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            notify_pause(Integer pi,Integer handle) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Pause notifications on a previously opened handle.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: 0-31 (as returned by [*notify_open*])</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE.</p>
+
+<p>Notifications for the handle are suspended until</p>
+<dl class="rdoc-list label-list"><dt><strong>notify_begin</strong>
+<dd>
+<p>is called again.</p>
+</dd></dl>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#notify_pause">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="notify_pause-source">
+            <pre>VALUE pigpio_rbfn_notify_pause(VALUE self, VALUE pi, VALUE handle){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pigpio_error" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            pigpio_error(Integer errnum) &rarr; String
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return a text description for an error code.</p>
+
+<p>. .</p>
+
+<pre>errnum: the error code.</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#pigpio_error">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="pigpio_error-source">
+            <pre>VALUE pigpio_rbfn_pigpio_error(VALUE self,VALUE errnum){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pigpio_start" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            pigpio_start(String address,String port) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Connect to the pigpio daemon.  Reserving command and notification streams.</p>
+
+<p>. .</p>
+
+<pre>addrStr: specifies the host or IP address of the Pi running the
+         pigpio daemon.  It may be NULL in which case localhost
+         is used unless overridden by the PIGPIO_ADDR environment
+         variable.
+
+portStr: specifies the port address used by the Pi running the
+         pigpio daemon.  It may be NULL in which case &quot;8888&quot;
+         is used unless overridden by the PIGPIO_PORT environment
+         variable.</pre>
+
+<p>. .</p>
+
+<p>Returns an integer value greater than or equal to zero if OK.</p>
+
+<p>This value is passed to the GPIO routines to specify the Pi to be operated
+on.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#pigpio_start">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="pigpio_start-source">
+            <pre>VALUE pigpio_rbfn_pigpio_start(VALUE self,VALUE addrStr, VALUE portStr){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pigpio_start_local" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pigpio_start_local</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pigpio_start_local-source">
+            <pre>VALUE pigpio_rbfn_pigpio_start_local(VALUE self){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pigpio_stop" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            pigpio_stop() &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Terminates the connection to a pigpio daemon and releases resources used by
+the library.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#pigpio_stop">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="pigpio_stop-source">
+            <pre>VALUE pigpio_rbfn_pigpio_stop(VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pigpiod_if_version" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            pigpiod_if_version() &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return the pigpiod_if2 version.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#pigpiod_if_version">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="pigpiod_if_version-source">
+            <pre>VALUE pigpio_rbfn_pigpiod_if_version(VALUE self){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-read_bank_1" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            read_bank_1(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Read the levels of the bank 1 GPIO (GPIO 0-31).</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>The returned 32 bit integer has a bit set if the corresponding GPIO is
+logic 1.  GPIO n has bit value (1&lt;&lt;n).</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#read_bank_1">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_bank_1-source">
+            <pre>VALUE pigpio_rbfn_read_bank_1(VALUE self, VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-read_bank_2" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            read_bank_2(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Read the levels of the bank 2 GPIO (GPIO 32-53).</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>The returned 32 bit integer has a bit set if the corresponding GPIO is
+logic 1.  GPIO n has bit value (1&lt;&lt;(n-32)).</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#read_bank_2">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="read_bank_2-source">
+            <pre>VALUE pigpio_rbfn_read_bank_2(VALUE self, VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-run_script" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            rb_array_len(Integer pi,Integer script_id,[Integer] param) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function runs a stored script.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+script_id: &gt;=0, as returned by [*store_script*].
+   numPar: 0-10, the number of parameters.
+    param: an array of parameters.</pre>
+
+<p>. .</p>
+
+<p>The function returns 0 if OK, otherwise PI_BAD_SCRIPT_ID, or
+PI_TOO_MANY_PARAM</p>
+
+<p>param is an array of up to 10 parameters which may be referenced in the
+script as p0 to p9.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#rb_array_len">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="run_script-source">
+            <pre>VALUE pigpio_rbfn_run_script(VALUE self,VALUE pi, VALUE script_id, VALUE param){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-script_status" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            script_status(Integer pi,Integer script_id) &rarr; [Integer,[Integer]param]
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function returns the run status of a stored script as well as the
+current values of parameters 0 to 9.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+script_id: &gt;=0, as returned by [*store_script*].
+    param: an array to hold the returned 10 parameters.</pre>
+
+<p>. .</p>
+
+<p>The function returns greater than or equal to 0 if OK, otherwise
+PI_BAD_SCRIPT_ID.</p>
+
+<p>The run status may be</p>
+
+<p>. .</p>
+
+<pre class="ruby"><span class="ruby-constant">PI_SCRIPT_INITING</span>
+<span class="ruby-constant">PI_SCRIPT_HALTED</span>
+<span class="ruby-constant">PI_SCRIPT_RUNNING</span>
+<span class="ruby-constant">PI_SCRIPT_WAITING</span>
+<span class="ruby-constant">PI_SCRIPT_FAILED</span>
+</pre>
+
+<p>. .</p>
+
+<p>The current value of script parameters 0 to 9 are returned in param.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#script_status">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="script_status-source">
+            <pre>VALUE pigpio_rbfn_script_status(VALUE self,VALUE pi, VALUE script_id){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-serial_close" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            serial_close(Integer pi,Integer handle) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function closes the serial device associated with handle.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*serial_open*].</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#serial_close">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="serial_close-source">
+            <pre>VALUE pigpio_rbfn_serial_close(VALUE self, VALUE pi, VALUE handle){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-serial_data_available" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            serial_data_available(Integer pi,Integer handle) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Returns the number of bytes available to be read from the device associated
+with handle.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*serial_open*].</pre>
+
+<p>. .</p>
+
+<p>Returns the number of bytes of data available (&gt;=0) if OK, otherwise
+PI_BAD_HANDLE.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#serial_data_available">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="serial_data_available-source">
+            <pre>VALUE pigpio_rbfn_serial_data_available(VALUE self, VALUE pi, VALUE handle){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-serial_open" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            serial_open(Integer pi,String ser_tty, Integer baud, Integer ser_flags) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function opens a serial device at a specified baud rate with specified
+flags.  The device name must start with /dev/tty or /dev/serial.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+  ser_tty: the serial device to open.
+     baud: the baud rate in bits per second, see below.
+ser_flags: 0.</pre>
+
+<p>. .</p>
+
+<p>Returns a handle (&gt;=0) if OK, otherwise PI_NO_HANDLE, or
+PI_SER_OPEN_FAILED.</p>
+
+<p>The baud rate must be one of 50, 75, 110, 134, 150, 200, 300, 600, 1200,
+1800, 2400, 4800, 9600, 19200, 38400, 57600, 115200, or 230400.</p>
+
+<p>No flags are currently defined.  This parameter should be set to zero.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#serial_open">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="serial_open-source">
+            <pre>VALUE pigpio_rbfn_serial_open(VALUE self, VALUE pi, VALUE ser_tty, VALUE baud, VALUE ser_flags){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-serial_read" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            serial_read(Integer pi,Integer handle, Integer count) &rarr; Integer (When onError)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            serial_read(Integer pi,Integer handle, Integer count) &rarr; String buf (When Success)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function reads up to count bytes from the the serial port associated
+with handle and writes them to buf.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*serial_open*].
+   buf: an array to receive the read data.
+ count: the maximum number of bytes to read.</pre>
+
+<p>. .</p>
+
+<p>Returns the number of bytes read (&gt;=0) if OK, otherwise PI_BAD_HANDLE,
+PI_BAD_PARAM, PI_SER_READ_NO_DATA, or PI_SER_WRITE_FAILED.</p>
+
+<p>If no data is ready zero is returned.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#serial_read">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="serial_read-source">
+            <pre>VALUE pigpio_rbfn_serial_read(VALUE self, VALUE pi, VALUE handle, VALUE count){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-serial_read_byte" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            serial_read_byte(Integer pi,Integer handle) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function reads a byte from the serial port associated with handle.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*serial_open*].</pre>
+
+<p>. .</p>
+
+<p>Returns the read byte (&gt;=0) if OK, otherwise PI_BAD_HANDLE,
+PI_SER_READ_NO_DATA, or PI_SER_READ_FAILED.</p>
+
+<p>If no data is ready PI_SER_READ_NO_DATA is returned.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#serial_read_byte">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="serial_read_byte-source">
+            <pre>VALUE pigpio_rbfn_serial_read_byte(VALUE self, VALUE pi, VALUE handle){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-serial_write" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            serial_write(Integer pi,Integer handle, String buf) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function writes count bytes from buf to the the serial port associated
+with handle.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*serial_open*].
+   buf: the array of bytes to write.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE, PI_BAD_PARAM, or
+PI_SER_WRITE_FAILED.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#serial_write">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="serial_write-source">
+            <pre>VALUE pigpio_rbfn_serial_write(VALUE self, VALUE pi, VALUE handle, VALUE buf){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-serial_write_byte" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            serial_write_byte(Integer pi,Integer handle, Integer bVal) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function writes bVal to the serial port associated with handle.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*serial_open*].</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE, PI_BAD_PARAM, or
+PI_SER_WRITE_FAILED.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#serial_write_byte">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="serial_write_byte-source">
+            <pre>VALUE pigpio_rbfn_serial_write_byte(VALUE self, VALUE pi, VALUE handle, VALUE bVal){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_PWM_dutycycle" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_PWM_dutycycle(Integer pi,Integer user_gpio, VALUE dutycycle) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Start (non-zero dutycycle) or stop (0) PWM pulses on the GPIO.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31.
+dutycycle: 0-range (range defaults to 255).</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, PI_BAD_DUTYCYCLE, or
+PI_NOT_PERMITTED. Notes</p>
+
+<p>The [<strong>set_PWM_range</strong>] function may be used to change the
+default range of 255.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_PWM_dutycycle">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_PWM_dutycycle-source">
+            <pre>VALUE pigpio_rbfn_set_PWM_dutycycle(VALUE self, VALUE pi, VALUE user_gpio, VALUE dutycycle){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_PWM_frequency" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_PWM_frequency(Integer pi,Integer user_gpio, Integer frequency) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set the frequency (in Hz) of the PWM to be used on the GPIO.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31.
+frequency: &gt;=0 (Hz).</pre>
+
+<p>. .</p>
+
+<p>Returns the numerically closest frequency if OK, otherwise PI_BAD_USER_GPIO
+or PI_NOT_PERMITTED.</p>
+
+<p>If PWM is currently active on the GPIO it will be switched off and then
+back on at the new frequency.</p>
+
+<p>Each GPIO can be independently set to one of 18 different PWM frequencies.</p>
+
+<p>The selectable frequencies depend upon the sample rate which may be 1, 2,
+4, 5, 8, or 10 microseconds (default 5).  The sample rate is set when the
+pigpio daemon is started.</p>
+
+<p>The frequencies for each sample rate are:</p>
+
+<p>. .</p>
+
+<pre>                       Hertz
+
+       1: 40000 20000 10000 8000 5000 4000 2500 2000 1600
+           1250  1000   800  500  400  250  200  100   50
+
+       2: 20000 10000  5000 4000 2500 2000 1250 1000  800
+            625   500   400  250  200  125  100   50   25
+
+       4: 10000  5000  2500 2000 1250 1000  625  500  400
+            313   250   200  125  100   63   50   25   13
+sample
+ rate
+ (us)  5:  8000  4000  2000 1600 1000  800  500  400  320
+            250   200   160  100   80   50   40   20   10
+
+       8:  5000  2500  1250 1000  625  500  313  250  200
+            156   125   100   63   50   31   25   13    6
+
+      10:  4000  2000  1000  800  500  400  250  200  160
+            125   100    80   50   40   25   20   10    5</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_PWM_frequency">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_PWM_frequency-source">
+            <pre>VALUE pigpio_rbfn_set_PWM_frequency(VALUE self, VALUE pi, VALUE user_gpio, VALUE frequency){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_PWM_range" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_PWM_range(Integer pi,Integer user_gpio, Integer range) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set the range of PWM values to be used on the GPIO.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31.
+    range: 25-40000.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, PI_BAD_DUTYRANGE, or
+PI_NOT_PERMITTED.</p>
+
+<p>Notes</p>
+
+<p>If PWM is currently active on the GPIO its dutycycle will be scaled to
+reflect the new range.</p>
+
+<p>The real range, the number of steps between fully off and fully on for each
+of the 18 available GPIO frequencies is</p>
+
+<p>. .</p>
+
+<pre>  25(#1),    50(#2),   100(#3),   125(#4),    200(#5),    250(#6),
+ 400(#7),   500(#8),   625(#9),   800(#10),  1000(#11),  1250(#12),
+2000(#13), 2500(#14), 4000(#15), 5000(#16), 10000(#17), 20000(#18)</pre>
+
+<p>. .</p>
+
+<p>The real value set by <a
+href="IF.html#method-c-set_PWM_range">::set_PWM_range</a> is (dutycycle *
+real range) / range.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_PWM_range">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_PWM_range-source">
+            <pre>VALUE pigpio_rbfn_set_PWM_range(VALUE self, VALUE pi, VALUE user_gpio, VALUE range){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_bank_1" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_bank_1(Integer pi,Integer bits) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets GPIO 0-31 if the corresponding bit in bits is set.</p>
+
+<p>. .</p>
+
+<pre>  pi: &gt;=0 (as returned by [*pigpio_start*]).
+bits: a bit mask with 1 set if the corresponding GPIO is
+      to be set.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_SOME_PERMITTED.</p>
+
+<p>A status of PI_SOME_PERMITTED indicates that the user is not allowed to
+write to one or more of the GPIO.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_bank_1">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_bank_1-source">
+            <pre>VALUE pigpio_rbfn_set_bank_1(VALUE self, VALUE pi, VALUE bits){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_bank_2" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_bank_2(Integer pi,Integer bits) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets GPIO 32-53 if the corresponding bit (0-21) in bits is set.</p>
+
+<p>. .</p>
+
+<pre>  pi: &gt;=0 (as returned by [*pigpio_start*]).
+bits: a bit mask with 1 set if the corresponding GPIO is
+      to be set.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_SOME_PERMITTED.</p>
+
+<p>A status of PI_SOME_PERMITTED indicates that the user is not allowed to
+write to one or more of the GPIO.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_bank_2">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_bank_2-source">
+            <pre>VALUE pigpio_rbfn_set_bank_2(VALUE self, VALUE pi, VALUE bits){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_glitch_filter" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_glitch_filter(Integer pi,Integer user_gpio,Integer steady) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets a glitch filter on a GPIO.</p>
+
+<p>Level changes on the GPIO are not reported unless the level has been stable
+for at least [<strong>steady</strong>] microseconds.  The level is then
+reported.  Level changes of less than</p>
+<dl class="rdoc-list label-list"><dt><strong>steady</strong>
+<dd>
+<p>microseconds are ignored.</p>
+</dd></dl>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31
+   steady: 0-300000</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, or PI_BAD_FILTER.</p>
+
+<p>This filter affects the GPIO samples returned to callbacks set up with
+[<strong>callback</strong>], [<strong>callback_ex</strong>] and
+[<strong>wait_for_edge</strong>].</p>
+
+<p>It does not affect levels read by [<strong>gpio_read</strong>],
+[<strong>read_bank_1</strong>], or [<strong>read_bank_2</strong>].</p>
+
+<p>Each (stable) edge will be timestamped [<strong>steady</strong>]
+microseconds after it was first detected.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_glitch_filter">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_glitch_filter-source">
+            <pre>VALUE pigpio_rbfn_set_glitch_filter(VALUE self,VALUE pi, VALUE user_gpio, VALUE steady){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_mode" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_mode(Integer pi,Integer gpio,Integer mode) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set the GPIO mode.</p>
+
+<p>. .</p>
+
+<pre>  pi: &gt;=0 (as returned by [*pigpio_start*]).
+gpio: 0-53.
+mode: PI_INPUT, PI_OUTPUT, PI_ALT0, PI_ALT1,
+      PI_ALT2, PI_ALT3, PI_ALT4, PI_ALT5.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_GPIO, PI_BAD_MODE, or PI_NOT_PERMITTED.</p>
+
+<p>See also: <a href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_mode">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_mode-source">
+            <pre>VALUE pigpio_rbfn_set_mode(VALUE self,VALUE pi, VALUE gpio, VALUE mode){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_noise_filter" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_noise_filter(Integer pi,Integer user_gpio,Integer steady,Integer active) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets a noise filter on a GPIO.</p>
+
+<p>Level changes on the GPIO are ignored until a level which has been stable
+for [<strong>steady</strong>] microseconds is detected.  Level changes on
+the GPIO are then reported for [<strong>active</strong>] microseconds after
+which the process repeats.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31
+   steady: 0-300000
+   active: 0-1000000</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, or PI_BAD_FILTER.</p>
+
+<p>This filter affects the GPIO samples returned to callbacks set up with
+[<strong>callback</strong>], [<strong>callback_ex</strong>] and
+[<strong>wait_for_edge</strong>].</p>
+
+<p>It does not affect levels read by [<strong>gpio_read</strong>],
+[<strong>read_bank_1</strong>], or [<strong>read_bank_2</strong>].</p>
+
+<p>Level changes before and after the active period may be reported.  Your
+software must be designed to cope with such reports.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_noise_filter">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_noise_filter-source">
+            <pre>VALUE pigpio_rbfn_set_noise_filter(VALUE self,VALUE pi, VALUE user_gpio, VALUE steady, VALUE active){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_pad_strength" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_pad_strength(Integer pi,Integer pad, Integer padStrength) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function sets the pad drive strength in mA.</p>
+
+<p>. .</p>
+
+<pre>         pi: &gt;=0 (as returned by [*pigpio_start*]).
+        pad: 0-2, the pad to set.
+padStrength: 1-16 mA.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_PAD, or PI_BAD_STRENGTH.</p>
+
+<pre>Pad @ GPIO
+0   @ 0-27
+1   @ 28-45
+2   @ 46-53</pre>
+
+<p>…</p>
+
+<pre>set_pad_strength(pi, 0, 10); // set pad 0 strength to 10 mA</pre>
+
+<p>…</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_pad_strength">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_pad_strength-source">
+            <pre>VALUE pigpio_rbfn_set_pad_strength(VALUE self, VALUE pi, VALUE pad, VALUE padStrength){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_pull_up_down" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_pull_up_down(Integer pi,Integer gpio,Integer pud) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Set or clear the GPIO pull-up/down resistor.</p>
+
+<p>. .</p>
+
+<pre>  pi: &gt;=0 (as returned by [*pigpio_start*]).
+gpio: 0-53.
+ pud: PI_PUD_UP, PI_PUD_DOWN, PI_PUD_OFF.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_GPIO, PI_BAD_PUD, or PI_NOT_PERMITTED.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_pull_up_down">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_pull_up_down-source">
+            <pre>VALUE pigpio_rbfn_set_pull_up_down(VALUE self,VALUE pi, VALUE gpio, VALUE pud){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_servo_pulsewidth" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_servo_pulsewidth(Integer pi,Integer user_gpio, Integer pulsewidth) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Start (500-2500) or stop (0) servo pulses on the GPIO.</p>
+
+<p>. .</p>
+
+<pre>        pi: &gt;=0 (as returned by [*pigpio_start*]).
+ user_gpio: 0-31.
+pulsewidth: 0 (off), 500 (anti-clockwise) - 2500 (clockwise).</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, PI_BAD_PULSEWIDTH or
+PI_NOT_PERMITTED.</p>
+
+<p>The selected pulsewidth will continue to be transmitted until changed by a
+subsequent call to set_servo_pulsewidth.</p>
+
+<p>The pulsewidths supported by servos varies and should probably be
+determined by experiment. A value of 1500 should always be safe and
+represents the mid-point of rotation.</p>
+
+<p>You can DAMAGE a servo if you command it to move beyond its limits.</p>
+
+<p>OTHER UPDATE RATES:</p>
+
+<p>This function updates servos at 50Hz.  If you wish to use a different
+update frequency you will have to use the PWM functions.</p>
+
+<p>. .</p>
+
+<pre>Update Rate (Hz)     50   100  200  400  500
+1E6/Hz            20000 10000 5000 2500 2000</pre>
+
+<p>. .</p>
+
+<p>Firstly set the desired PWM frequency using
+[<strong>set_PWM_frequency</strong>].</p>
+
+<p>Then set the PWM range using [<strong>set_PWM_range</strong>] to 1E6/Hz.
+Doing this allows you to use units of microseconds when setting the servo
+pulsewidth.</p>
+
+<p>E.g. If you want to update a servo connected to GPIO 25 at 400Hz</p>
+
+<p>. .</p>
+
+<pre class="ruby"><span class="ruby-identifier">set_PWM_frequency</span>(<span class="ruby-value">25</span>, <span class="ruby-value">400</span>);
+<span class="ruby-identifier">set_PWM_range</span>(<span class="ruby-value">25</span>, <span class="ruby-value">2500</span>);
+</pre>
+
+<p>. .</p>
+
+<p>Thereafter use the [<strong>set_PWM_dutycycle</strong>] function to move
+the servo, e.g. <a
+href="IF.html#method-c-set_PWM_dutycycle">::set_PWM_dutycycle</a>(25, 1500)
+will set a 1500 us pulse.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_servo_pulsewidth">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_servo_pulsewidth-source">
+            <pre>VALUE pigpio_rbfn_set_servo_pulsewidth(VALUE self, VALUE pi, VALUE user_gpio, VALUE pulsewidth){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_watchdog" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            set_watchdog(Integer pi,Integer user_gpio,Integer timeout) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Sets a watchdog for a GPIO.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31.
+  timeout: 0-60000.</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO or PI_BAD_WDOG_TIMEOUT.</p>
+
+<p>The watchdog is nominally in milliseconds.</p>
+
+<p>Only one watchdog may be registered per GPIO.</p>
+
+<p>The watchdog may be cancelled by setting timeout to 0.</p>
+
+<p>Once a watchdog has been started callbacks for the GPIO will be triggered
+every timeout interval after the last GPIO activity.</p>
+
+<p>The callback will receive the special level PI_TIMEOUT.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_watchdog">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_watchdog-source">
+            <pre>VALUE pigpio_rbfn_set_watchdog(VALUE self,VALUE pi, VALUE user_gpio, VALUE timeout){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-spi_close" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            spi_close(Integer pi,Integer handle) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This functions closes the SPI device identified by the handle.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*spi_open*].</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_HANDLE.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#spi_close">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="spi_close-source">
+            <pre>VALUE pigpio_rbfn_spi_close(VALUE self, VALUE pi, VALUE handle){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-spi_open" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            spi_open(Integer pi,Integer spi_channel, Integer baud, Integer spi_flags) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function returns a handle for the SPI device on channel. Data will be
+transferred at baud bits per second.  The flags may be used to modify the
+default behaviour of 4-wire operation, mode 0, active low chip select.</p>
+
+<p>An auxiliary SPI device is available on all models but the A and B and may
+be selected by setting the A bit in the flags.  The auxiliary device has 3
+chip selects and a selectable word size in bits.</p>
+
+<p>. .</p>
+
+<pre>         pi: &gt;=0 (as returned by [*pigpio_start*]).
+spi_channel: 0-1 (0-2 for the auxiliary device).
+       baud: 32K-125M (values above 30M are unlikely to work).
+  spi_flags: see below.</pre>
+
+<p>. .</p>
+
+<p>Returns a handle (&gt;=0) if OK, otherwise PI_BAD_SPI_CHANNEL,
+PI_BAD_SPI_SPEED, PI_BAD_FLAGS, PI_NO_AUX_SPI, or PI_SPI_OPEN_FAILED.</p>
+
+<p>spi_flags consists of the least significant 22 bits.</p>
+
+<p>. .</p>
+
+<pre>21 20 19 18 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0
+ b  b  b  b  b  b  R  T  n  n  n  n  W  A u2 u1 u0 p2 p1 p0  m  m</pre>
+
+<p>. .</p>
+
+<p>mm defines the SPI mode.</p>
+
+<p>Warning: modes 1 and 3 do not appear to work on the auxiliary device.</p>
+
+<p>. .</p>
+
+<pre>Mode POL PHA
+ 0    0   0
+ 1    0   1
+ 2    1   0
+ 3    1   1</pre>
+
+<p>. .</p>
+
+<p>px is 0 if CEx is active low (default) and 1 for active high.</p>
+
+<p>ux is 0 if the CEx GPIO is reserved for SPI (default) and 1 otherwise.</p>
+
+<p>A is 0 for the standard SPI device, 1 for the auxiliary SPI.</p>
+
+<p>W is 0 if the device is not 3-wire, 1 if the device is 3-wire.  Standard
+SPI device only.</p>
+
+<p>nnnn defines the number of bytes (0-15) to write before switching the MOSI
+line to MISO to read data.  This field is ignored if W is not set. 
+Standard SPI device only.</p>
+
+<p>T is 1 if the least significant bit is transmitted on MOSI first, the
+default (0) shifts the most significant bit out first.  Auxiliary SPI
+device only.</p>
+
+<p>R is 1 if the least significant bit is received on MISO first, the default
+(0) receives the most significant bit first.  Auxiliary SPI device only.</p>
+
+<p>bbbbbb defines the word size in bits (0-32).  The default (0) sets 8 bits
+per word.  Auxiliary SPI device only.</p>
+
+<p>The [<strong>spi_read</strong>], [<strong>spi_write</strong>], and
+[<strong>spi_xfer</strong>] functions transfer data packed into 1, 2, or 4
+bytes according to the word size in bits.</p>
+
+<p>For bits 1-8 there will be one byte per character.  For bits 9-16 there
+will be two bytes per character.  For bits 17-32 there will be four bytes
+per character.</p>
+
+<p>Multi-byte transfers are made in least significant byte first order.</p>
+
+<p>E.g. to transfer 32 11-bit words buf should contain 64 bytes and count
+should be 64.</p>
+
+<p>E.g. to transfer the 14 bit value 0x1ABC send the bytes 0xBC followed by
+0x1A.</p>
+
+<p>The other bits in flags should be set to zero.</p>
+
+<p>See also: <a href="http://abyz.me.uk/rpi/pigpio/pdif2.html#spi_open">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="spi_open-source">
+            <pre>VALUE pigpio_rbfn_spi_open(VALUE self, VALUE pi, VALUE spi_channel, VALUE baud, VALUE spi_flags){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-spi_read" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            spi_read(Integer pi,Integer handle, Integer count) &rarr; Integer (When onError)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            spi_read(Integer pi,Integer handle, Integer count) &rarr; String buf (When Success)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function reads count bytes of data from the SPI device associated with
+the handle.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*spi_open*].
+   buf: an array to receive the read data bytes.
+ count: the number of bytes to read.</pre>
+
+<p>. .</p>
+
+<p>Returns the number of bytes transferred if OK, otherwise PI_BAD_HANDLE,
+PI_BAD_SPI_COUNT, or PI_SPI_XFER_FAILED.</p>
+
+<p>See also: <a href="http://abyz.me.uk/rpi/pigpio/pdif2.html#spi_read">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="spi_read-source">
+            <pre>VALUE pigpio_rbfn_spi_read(VALUE self, VALUE pi, VALUE handle, VALUE count){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-spi_write" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            spi_write(Integer pi,Integer handle, String buf) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function writes count bytes of data from buf to the SPI device
+associated with the handle.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*spi_open*].
+   buf: the data bytes to write.</pre>
+
+<p>. .</p>
+
+<p>Returns the number of bytes transferred if OK, otherwise PI_BAD_HANDLE,
+PI_BAD_SPI_COUNT, or PI_SPI_XFER_FAILED.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#spi_write">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="spi_write-source">
+            <pre>VALUE pigpio_rbfn_spi_write(VALUE self, VALUE pi, VALUE handle, VALUE buf){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-spi_xfer" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            spi_xfer(Integer pi,Integer handle, String txBuf) &rarr; Integer (When onError)
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            spi_xfer(Integer pi,Integer handle, String txBuf) &rarr; String rxBuf (When Success)
+          </span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function transfers count bytes of data from txBuf to the SPI device
+associated with the handle.  Simultaneously count bytes of data are read
+from the device and placed in rxBuf.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+handle: &gt;=0, as returned by a call to [*spi_open*].
+ txBuf: the data bytes to write.
+ rxBuf: the received data bytes.</pre>
+
+<p>. .</p>
+
+<p>Returns the number of bytes transferred if OK, otherwise PI_BAD_HANDLE,
+PI_BAD_SPI_COUNT, or PI_SPI_XFER_FAILED.</p>
+
+<p>See also: <a href="http://abyz.me.uk/rpi/pigpio/pdif2.html#spi_xfer">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="spi_xfer-source">
+            <pre>VALUE pigpio_rbfn_spi_xfer(VALUE self, VALUE pi, VALUE handle, VALUE txBuf){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-stop_script" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            stop_script(Integer pi,Integer script_id) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function stops a running script.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+script_id: &gt;=0, as returned by [*store_script*].</pre>
+
+<p>. .</p>
+
+<p>The function returns 0 if OK, otherwise PI_BAD_SCRIPT_ID.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#stop_script">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="stop_script-source">
+            <pre>VALUE pigpio_rbfn_stop_script(VALUE self,VALUE pi, VALUE script_id){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-store_script" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            store_script(Integer pi,String script) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function stores a script for later execution.</p>
+
+<p>See [[<a
+href="http://abyz.co.uk/rpi/pigpio/pigs.html#Scripts">abyz.co.uk/rpi/pigpio/pigs.html#Scripts</a>]]
+for details.</p>
+
+<p>. .</p>
+
+<pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
+script: the text of the script.</pre>
+
+<p>. .</p>
+
+<p>The function returns a script id if the script is valid, otherwise
+PI_BAD_SCRIPT.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#store_script">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="store_script-source">
+            <pre>VALUE pigpio_rbfn_store_script(VALUE self,VALUE pi, VALUE script){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-time_time" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            time_time() &rarr; Float
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Return the current time in seconds since the Epoch.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#time_time">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="time_time-source">
+            <pre>VALUE pigpio_rbfn_time_time(VALUE self){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wait_for_edge" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wait_for_edge(Integer pi,Integer user_gpio, Integer edge, Float timeout) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function waits for an edge on the GPIO for up to timeout seconds.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31.
+     edge: RISING_EDGE, FALLING_EDGE, or EITHER_EDGE.
+  timeout: &gt;=0.</pre>
+
+<p>. .</p>
+
+<p>The function returns when the edge occurs or after the timeout.</p>
+
+<p>Do not use this function for precise timing purposes, the edge is only
+checked 20 times a second. Whenever you need to know the accurate time of
+GPIO events use a [<strong>callback</strong>] function.</p>
+
+<p>The function returns 1 if the edge occurred, otherwise 0.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wait_for_edge">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wait_for_edge-source">
+            <pre>VALUE pigpio_rbfn_wait_for_edge(VALUE self,VALUE pi, VALUE user_gpio, VALUE edge, VALUE timeout){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wait_for_event" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wait_for_event(Integer pi,Integer event, Float timeout) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function waits for an event for up to timeout seconds.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+  event: 0-31.
+timeout: &gt;=0.</pre>
+
+<p>. .</p>
+
+<p>The function returns when the event occurs or after the timeout.</p>
+
+<p>The function returns 1 if the event occurred, otherwise 0.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wait_for_event">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wait_for_event-source">
+            <pre>VALUE pigpio_rbfn_wait_for_event(VALUE self,VALUE pi, VALUE event, VALUE timeout){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_add_generic" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_add_generic(Integer pi,[PIGPIO::Pulse] pulses) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function adds a number of pulses to the current waveform.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>numPulses: the number of pulses.</p>
+
+<pre>pulses: an array of pulses.</pre>
+
+<p>. .</p>
+
+<p>Returns the new total number of pulses in the current waveform if OK,
+otherwise PI_TOO_MANY_PULSES.</p>
+
+<p>The pulses are interleaved in time order within the existing waveform (if
+any).</p>
+
+<p>Merging allows the waveform to be built in parts, that is the settings for
+GPIO#1 can be added, and then GPIO#2 etc.</p>
+
+<p>If the added waveform is intended to start after or within the existing
+waveform then the first pulse should consist solely of a delay.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_add_generic">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_add_generic-source">
+            <pre>VALUE pigpio_rbfn_wave_add_generic(VALUE self,VALUE pi, VALUE pulses){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_add_new" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_add_new(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function starts a new empty waveform.  You wouldn&#39;t normally need
+to call this function as it is automatically called after a waveform is
+created with the [<strong>wave_create</strong>] function.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_add_new">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_add_new-source">
+            <pre>VALUE pigpio_rbfn_wave_add_new(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_add_serial" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_add_serial(Integer pi, Integer user_gpio, Integer baud, Integer data_bits, Integer stop_bits, Integer offset, String str) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function adds a waveform representing serial data to the existing
+waveform (if any).  The serial data starts offset microseconds from the
+start of the waveform.</p>
+
+<p>. .</p>
+
+<pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
+user_gpio: 0-31.
+     baud: 50-1000000
+data_bits: number of data bits (1-32)
+stop_bits: number of stop half bits (2-8)
+   offset: &gt;=0
+ numBytes: &gt;=1
+      str: an array of chars.</pre>
+
+<p>. .</p>
+
+<p>Returns the new total number of pulses in the current waveform if OK,
+otherwise PI_BAD_USER_GPIO, PI_BAD_WAVE_BAUD, PI_BAD_DATABITS,
+PI_BAD_STOP_BITS, PI_TOO_MANY_CHARS, PI_BAD_SER_OFFSET, or
+PI_TOO_MANY_PULSES.</p>
+
+<p>NOTES:</p>
+
+<p>The serial data is formatted as one start bit, [<strong>data_bits</strong>]
+data bits, and [<strong>stop_bits</strong>]/2 stop bits.</p>
+
+<p>It is legal to add serial data streams with different baud rates to the
+same waveform.</p>
+<dl class="rdoc-list label-list"><dt><strong>numBytes</strong>
+<dd>
+<p>is the number of bytes of data in str.</p>
+</dd></dl>
+
+<p>The bytes required for each character depend upon
+[<strong>data_bits</strong>].</p>
+
+<p>For [<strong>data_bits</strong>] 1-8 there will be one byte per character. 
+For [<strong>data_bits</strong>] 9-16 there will be two bytes per
+character.  For [<strong>data_bits</strong>] 17-32 there will be four bytes
+per character.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_add_serial">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_add_serial-source">
+            <pre>VALUE pigpio_rbfn_wave_add_serial(VALUE self,VALUE pi, VALUE user_gpio, VALUE baud, VALUE data_bits, VALUE stop_bits, VALUE offset, VALUE str){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_chain" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_chain(Integer pi, [Integer] buf) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function transmits a chain of waveforms.</p>
+
+<p>NOTE: Any hardware PWM started by [<strong>hardware_PWM</strong>] will be
+cancelled.</p>
+
+<p>The waves to be transmitted are specified by the contents of buf which
+contains an ordered list of [<strong>wave_id</strong>]s and optional
+command codes and related data.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+    buf: pointer to the wave_ids and optional command codes
+bufSize: the number of bytes in buf</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK, otherwise PI_CHAIN_NESTING, PI_CHAIN_LOOP_CNT,
+PI_BAD_CHAIN_LOOP, PI_BAD_CHAIN_CMD, PI_CHAIN_COUNTER, PI_BAD_CHAIN_DELAY,
+PI_CHAIN_TOO_BIG, or PI_BAD_WAVE_ID.</p>
+
+<p>Each wave is transmitted in the order specified.  A wave may occur multiple
+times per chain.</p>
+
+<p>A blocks of waves may be transmitted multiple times by using the loop
+commands. The block is bracketed by loop start and end commands.  Loops may
+be nested.</p>
+
+<p>Delays between waves may be added with the delay command.</p>
+
+<p>The following command codes are supported:</p>
+
+<pre>Name         @ Cmd &amp; Data @ Meaning
+Loop Start   @ 255 0      @ Identify start of a wave block
+Loop Repeat  @ 255 1 x y  @ loop x + y*256 times
+Delay        @ 255 2 x y  @ delay x + y*256 microseconds
+Loop Forever @ 255 3      @ loop forever</pre>
+
+<p>If present Loop Forever must be the last entry in the chain.</p>
+
+<p>The code is currently dimensioned to support a chain with roughly 600
+entries and 20 loop counters.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_chain">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_chain-source">
+            <pre>VALUE pigpio_rbfn_wave_chain(VALUE self,VALUE pi, VALUE buf){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_clear" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_clear(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function clears all waveforms and any data added by calls to the</p>
+<dl class="rdoc-list label-list"><dt><strong>wave_add_</strong>*
+<dd>
+<p>functions.</p>
+</dd></dl>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_clear">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_clear-source">
+            <pre>VALUE pigpio_rbfn_wave_clear(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_create" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_create(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function creates a waveform from the data provided by the prior calls
+to the [<strong>wave_add_</strong>*] functions.  Upon success a wave id
+greater than or equal to 0 is returned, otherwise PI_EMPTY_WAVEFORM,
+PI_TOO_MANY_CBS, PI_TOO_MANY_OOL, or PI_NO_WAVEFORM_ID.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>The data provided by the [<strong>wave_add_</strong>*] functions is
+consumed by this function.</p>
+
+<p>As many waveforms may be created as there is space available.  The wave id
+is passed to [<strong>wave_send_</strong>*] to specify the waveform to
+transmit.</p>
+
+<p>Normal usage would be</p>
+
+<p>Step 1. [<strong>wave_clear</strong>] to clear all waveforms and added
+data.</p>
+
+<p>Step 2. [<strong>wave_add_</strong>*] calls to supply the waveform data.</p>
+
+<p>Step 3. [<strong>wave_create</strong>] to create the waveform and get a
+unique id</p>
+
+<p>Repeat steps 2 and 3 as needed.</p>
+
+<p>Step 4. [<strong>wave_send_</strong>*] with the id of the waveform to
+transmit.</p>
+
+<p>A waveform comprises one or more pulses.  Each pulse consists of a
+PIGPIO::Pulse class.</p>
+
+<p>The fields specify</p>
+
+<p>1) the GPIO to be switched on at the start of the pulse.  2) the GPIO to be
+switched off at the start of the pulse.  3) the delay in microseconds
+before the next pulse.</p>
+
+<p>Any or all the fields can be zero.  It doesn&#39;t make any sense to set
+all the fields to zero (the pulse will be ignored).</p>
+
+<p>When a waveform is started each pulse is executed in order with the
+specified delay between the pulse and the next.</p>
+
+<p>Returns the new waveform id if OK, otherwise PI_EMPTY_WAVEFORM,
+PI_NO_WAVEFORM_ID, PI_TOO_MANY_CBS, or PI_TOO_MANY_OOL.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_create">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_create-source">
+            <pre>VALUE pigpio_rbfn_wave_create(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_delete" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_delete(Integer pi,Integer wave_id) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function deletes the waveform with id wave_id.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+wave_id: &gt;=0, as returned by [*wave_create*].</pre>
+
+<p>. .</p>
+
+<p>Wave ids are allocated in order, 0, 1, 2, etc.</p>
+
+<p>Returns 0 if OK, otherwise PI_BAD_WAVE_ID.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_delete">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_delete-source">
+            <pre>VALUE pigpio_rbfn_wave_delete(VALUE self,VALUE pi, VALUE wave_id){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_get_cbs" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_get_cbs(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function returns the length in DMA control blocks of the current
+waveform.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_get_cbs">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_get_cbs-source">
+            <pre>VALUE pigpio_rbfn_wave_get_cbs(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_get_high_cbs" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_get_high_cbs(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function returns the length in DMA control blocks of the longest
+waveform created since the pigpio daemon was started.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_get_high_cbs">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_get_high_cbs-source">
+            <pre>VALUE pigpio_rbfn_wave_get_high_cbs(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_get_high_micros" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_get_high_micros(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function returns the length in microseconds of the longest waveform
+created since the pigpio daemon was started.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_get_high_micros">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_get_high_micros-source">
+            <pre>VALUE pigpio_rbfn_wave_get_high_micros(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_get_high_pulses" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_get_high_pulses(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function returns the length in pulses of the longest waveform created
+since the pigpio daemon was started.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_get_high_pulses">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_get_high_pulses-source">
+            <pre>VALUE pigpio_rbfn_wave_get_high_pulses(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_get_max_cbs" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_get_max_cbs(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function returns the maximum possible size of a waveform in DMA
+control blocks.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_get_max_cbs">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_get_max_cbs-source">
+            <pre>VALUE pigpio_rbfn_wave_get_max_cbs(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_get_max_micros" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_get_max_micros(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function returns the maximum possible size of a waveform in 
+microseconds.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_get_max_micros">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_get_max_micros-source">
+            <pre>VALUE pigpio_rbfn_wave_get_max_micros(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_get_max_pulses" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_get_max_pulses(Integer pi,Integer gpio) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function returns the maximum possible size of a waveform in pulses.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_get_max_pulses">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_get_max_pulses-source">
+            <pre>VALUE pigpio_rbfn_wave_get_max_pulses(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_get_micros" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_get_micros(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function returns the length in microseconds of the current waveform.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_get_micros">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_get_micros-source">
+            <pre>VALUE pigpio_rbfn_wave_get_micros(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_get_pulses" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_get_pulses(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function returns the length in pulses of the current waveform.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_get_pulses">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_get_pulses-source">
+            <pre>VALUE pigpio_rbfn_wave_get_pulses(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_send_once" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_send_once(Integer pi,Integer wave_id) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function transmits the waveform with id wave_id.  The waveform is sent
+once.</p>
+
+<p>NOTE: Any hardware PWM started by [<strong>hardware_PWM</strong>] will be
+cancelled.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+wave_id: &gt;=0, as returned by [*wave_create*].</pre>
+
+<p>. .</p>
+
+<p>Returns the number of DMA control blocks in the waveform if OK, otherwise
+PI_BAD_WAVE_ID, or PI_BAD_WAVE_MODE.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_send_once">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_send_once-source">
+            <pre>VALUE pigpio_rbfn_wave_send_once(VALUE self,VALUE pi, VALUE wave_id){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_send_repeat" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_send_repeat(Integer pi,Integer wave_id) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function transmits the waveform with id wave_id.  The waveform cycles
+until cancelled (either by the sending of a new waveform or by
+[<strong>wave_tx_stop</strong>]).</p>
+
+<p>NOTE: Any hardware PWM started by [<strong>hardware_PWM</strong>] will be
+cancelled.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>wave_id: &gt;=0, as returned by [<strong>wave_create</strong>]. . .</p>
+
+<p>Returns the number of DMA control blocks in the waveform if OK, otherwise
+PI_BAD_WAVE_ID, or PI_BAD_WAVE_MODE.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_send_repeat">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_send_repeat-source">
+            <pre>VALUE pigpio_rbfn_wave_send_repeat(VALUE self,VALUE pi, VALUE wave_id){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_send_using_mode" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_send_using_mode(Integer pi,Integer wave_id) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>Transmits the waveform with id wave_id using mode mode.</p>
+
+<p>. .</p>
+
+<pre>     pi: &gt;=0 (as returned by [*pigpio_start*]).
+wave_id: &gt;=0, as returned by [*wave_create*].
+   mode: PI_WAVE_MODE_ONE_SHOT, PI_WAVE_MODE_REPEAT,
+         PI_WAVE_MODE_ONE_SHOT_SYNC, or PI_WAVE_MODE_REPEAT_SYNC.</pre>
+
+<p>. .</p>
+
+<p>PI_WAVE_MODE_ONE_SHOT: same as [<strong>wave_send_once</strong>].</p>
+
+<p>PI_WAVE_MODE_REPEAT same as [<strong>wave_send_repeat</strong>].</p>
+
+<p>PI_WAVE_MODE_ONE_SHOT_SYNC same as [<strong>wave_send_once</strong>] but
+tries to sync with the previous waveform.</p>
+
+<p>PI_WAVE_MODE_REPEAT_SYNC same as [<strong>wave_send_repeat</strong>] but
+tries to sync with the previous waveform.</p>
+
+<p>WARNING: bad things may happen if you delete the previous waveform before
+it has been synced to the new waveform.</p>
+
+<p>NOTE: Any hardware PWM started by [<strong>hardware_PWM</strong>] will be
+cancelled.</p>
+
+<p>Returns the number of DMA control blocks in the waveform if OK, otherwise
+PI_BAD_WAVE_ID, or PI_BAD_WAVE_MODE.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_send_using_mode">pigpio
+site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_send_using_mode-source">
+            <pre>VALUE pigpio_rbfn_wave_send_using_mode(VALUE self,VALUE pi, VALUE wave_id, VALUE mode){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_tx_at" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_tx_at(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function returns the id of the waveform currently being transmitted.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>Returns the waveform id or one of the following special values:</p>
+
+<p>PI_WAVE_NOT_FOUND (9998) - transmitted wave not found.  PI_NO_TX_WAVE
+(9999) - no wave being transmitted.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_tx_at">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_tx_at-source">
+            <pre>VALUE pigpio_rbfn_wave_tx_at(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_tx_busy" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_tx_busy(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function checks to see if a waveform is currently being transmitted.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>Returns 1 if a waveform is currently being transmitted, otherwise 0.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_tx_busy">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_tx_busy-source">
+            <pre>VALUE pigpio_rbfn_wave_tx_busy(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wave_tx_stop" class="method-detail ">
+        
+        
+        <div class="method-heading">
+          <span class="method-callseq">
+            wave_tx_stop(Integer pi) &rarr; Integer
+          </span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+        
+
+        <div class="method-description">
+          
+          <p>This function stops the transmission of the current waveform.</p>
+
+<p>. .</p>
+
+<pre>pi: &gt;=0 (as returned by [*pigpio_start*]).</pre>
+
+<p>. .</p>
+
+<p>Returns 0 if OK.</p>
+
+<p>This function is intended to stop a waveform started with the repeat mode.</p>
+
+<p>See also: <a
+href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_tx_stop">pigpio site</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="wave_tx_stop-source">
+            <pre>VALUE pigpio_rbfn_wave_tx_stop(VALUE self,VALUE pi){</pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
