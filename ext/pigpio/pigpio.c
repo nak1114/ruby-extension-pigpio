@@ -6,17 +6,35 @@
 const rb_data_type_t bsc_xfer_data_type = { //https://gist.github.com/yugui/87ef6964d8a76794be6f
     "struct@bsc_xfer",{NULL,(void*)-1,0,{0,0}},0,NULL,0
 };
+/*
+Constructor of bsc_xfer_t as Pigpio::BscXfer class
+
+  typedef struct
+  {
+    uint32_t control;          // Write
+    int rxCnt;                 // Read only
+    char rxBuf[BSC_FIFO_SIZE]; // Read only
+    int txCnt;                 // Write
+    char txBuf[BSC_FIFO_SIZE]; // Write
+  } bsc_xfer_t;
+*/
 VALUE pigpio_rbst_bsc_xfer_make(VALUE self){
   VALUE obj;
   bsc_xfer_t *st;
   obj = TypedData_Make_Struct(self, bsc_xfer_t, &bsc_xfer_data_type, st);
   return obj;
 }
+/*
+Setter
+*/
 VALUE pigpio_rbst_bsc_xfer_w_control(VALUE self,VALUE control){
   bsc_xfer_t *st=TypedData_Get_Struct2(self,bsc_xfer_t,&bsc_xfer_data_type);
   st->control=NUM2ULONG(control);
   return self;
 }
+/*
+Setter
+*/
 VALUE pigpio_rbst_bsc_xfer_w_txBuf(VALUE self,VALUE txBuf){
   bsc_xfer_t *st=TypedData_Get_Struct2(self,bsc_xfer_t,&bsc_xfer_data_type);
   int len=RSTRING_LEN(txBuf);
@@ -28,6 +46,9 @@ VALUE pigpio_rbst_bsc_xfer_w_txBuf(VALUE self,VALUE txBuf){
   RB_GC_GUARD(txBuf);
   return self;
 }
+/*
+Getter
+*/
 VALUE ctest_rbst_bsc_xfer_r_rxBuf(VALUE self){
   bsc_xfer_t *st=TypedData_Get_Struct2(self,bsc_xfer_t,&bsc_xfer_data_type);
   VALUE rxBuf=rb_str_new("",st->rxCnt);
@@ -42,7 +63,7 @@ const rb_data_type_t gpioPulse_data_type = { //https://gist.github.com/yugui/87e
     "struct@gpioPulse",{NULL,(void*)-1,0,{0,0}},0,NULL,0
 };
 /*
-Constructor of gpioPulse_t as PIGPIO::Pulse class
+Constructor of gpioPulse_t as Pigpio::Pulse class
 . .
  typedef struct
  {
@@ -96,17 +117,16 @@ to be operated on.
 
 See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#pigpio_start]
 */
-VALUE pigpio_rbfn_pigpio_start(VALUE self,VALUE addrStr, VALUE portStr){
-  int ret=pigpio_start(StringValueCStr(addrStr), StringValueCStr(portStr));
+VALUE pigpio_rbfn_pigpio_start(int argc, VALUE *argv, VALUE self){
+  VALUE addrStr; VALUE portStr;
+  rb_scan_args(argc,argv,"02",&addrStr,&portStr);
+  int ret=pigpio_start(
+    NIL_P(addrStr)? NULL : StringValueCStr(addrStr),
+    NIL_P(portStr)? NULL : StringValueCStr(portStr));
   RB_GC_GUARD(addrStr);
   RB_GC_GUARD(portStr);
   return INT2NUM(ret);
 }
-
-VALUE pigpio_rbfn_pigpio_start_local(VALUE self){
-  return INT2NUM(pigpio_start(NULL, NULL));
-}
-
 /*
 Terminates the connection to a pigpio daemon and releases
 resources used by the library.
@@ -3421,13 +3441,16 @@ VALUE pigpio_rbfn_bsc_i2c(VALUE self, VALUE pi, VALUE i2c_addr, VALUE bscxfer){
 This class has some constances for pigpio library.
 */
 void Init_pigpio(void){
-    VALUE cCTest = rb_define_class("Pigpio", rb_cObject);
-    /*
-    This module is a ruby binding to pigpio library.
-    */
-    VALUE cAPI = rb_define_module_under(cCTest, "IF");
-    rb_define_singleton_method(cAPI, "pigpio_start_local",pigpio_rbfn_pigpio_start_local, 0);
-    rb_define_singleton_method(cAPI, "pigpio_start",      pigpio_rbfn_pigpio_start,       2);
+  VALUE cPulse,cBscXfer;
+/*
+This class has some constances for pigpio library.
+*/
+  VALUE cPigpio = rb_define_class("Pigpio", rb_cObject);
+  /*
+  This module is a ruby binding to pigpio library.
+  */
+  VALUE cAPI = rb_define_module_under(cPigpio, "IF");
+    rb_define_singleton_method(cAPI, "pigpio_start",      pigpio_rbfn_pigpio_start,       -1);
     rb_define_singleton_method(cAPI, "pigpio_stop",       pigpio_rbfn_pigpio_stop,        1);
     rb_define_singleton_method(cAPI, "set_mode",          pigpio_rbfn_set_mode,           3);
     rb_define_singleton_method(cAPI, "get_mode",          pigpio_rbfn_get_mode,           2);
@@ -3543,5 +3566,20 @@ void Init_pigpio(void){
     rb_define_singleton_method(cAPI, "bsc_i2c",                 pigpio_rbfn_bsc_i2c,                  3);
     rb_define_singleton_method(cAPI, "get_pad_strength",        pigpio_rbfn_get_pad_strength,         2);
     rb_define_singleton_method(cAPI, "set_pad_strength",        pigpio_rbfn_set_pad_strength,         3);
-    //rb_define_singleton_method(cAPI, "time_time",pigpio_rbfn_, 0);
+
+  /*
+  This class wrap gpioPulse_t.
+  */
+  cPulse = rb_define_class_under(cPigpio,"Pulse", rb_cData);
+    rb_define_singleton_method(cPulse, "make", ctest_rbst_gpioPulse_make, 3);
+
+  /*
+  This class wrap bsc_xfer_t.
+  */
+  cBscXfer = rb_define_class_under(cPigpio,"BscXfer", rb_cData);
+    rb_define_singleton_method(cBscXfer, "make", pigpio_rbst_bsc_xfer_make, 0);
+    rb_define_method(cBscXfer, "control=", pigpio_rbst_bsc_xfer_w_control, 1);
+    rb_define_method(cBscXfer, "txBuf=", pigpio_rbst_bsc_xfer_w_txBuf, 1);
+    rb_define_method(cBscXfer, "rxBuf", ctest_rbst_bsc_xfer_r_rxBuf, 0);
+
 }

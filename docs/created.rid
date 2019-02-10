@@ -1,5 +1,5 @@
-Sun, 10 Feb 2019 11:38:43 +0900
-ext/pigpio/pigpio.c	Sun, 10 Feb 2019 11:37:42 +0900
+Sun, 10 Feb 2019 15:22:44 +0900
+ext/pigpio/pigpio.c	Sun, 10 Feb 2019 15:19:12 +0900
 lib/pigpio.rb	Sun, 10 Feb 2019 10:34:07 +0900
 lib/pigpio/constant.rb	Sun, 10 Feb 2019 10:41:44 +0900
-lib/pigpio/version.rb	Sun, 10 Feb 2019 10:34:22 +0900
+lib/pigpio/version.rb	Sun, 10 Feb 2019 14:42:57 +0900

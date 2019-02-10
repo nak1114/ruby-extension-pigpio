@@ -181,8 +181,6 @@
     
     <li ><a href="#method-c-pigpio_start">::pigpio_start</a>
     
-    <li ><a href="#method-c-pigpio_start_local">::pigpio_start_local</a>
-    
     <li ><a href="#method-c-pigpio_stop">::pigpio_stop</a>
     
     <li ><a href="#method-c-pigpiod_if_version">::pigpiod_if_version</a>
@@ -3783,37 +3781,7 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#pigpio_start">pigpio site</a></p>
 
           
           <div class="method-source-code" id="pigpio_start-source">
-            <pre>VALUE pigpio_rbfn_pigpio_start(VALUE self,VALUE addrStr, VALUE portStr){</pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-c-pigpio_start_local" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">pigpio_start_local</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="pigpio_start_local-source">
-            <pre>VALUE pigpio_rbfn_pigpio_start_local(VALUE self){</pre>
+            <pre>VALUE pigpio_rbfn_pigpio_start(int argc, VALUE *argv, VALUE self){</pre>
           </div>
           
         </div>
