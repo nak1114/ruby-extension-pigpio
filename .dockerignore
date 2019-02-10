@@ -1,0 +1,6 @@
+bin/Dockerfile
+bin/docker.rb
+tmp
+docs
+Gemfile.lock
+.rspec_status
