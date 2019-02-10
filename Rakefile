@@ -16,6 +16,6 @@ RDOC_FILES = FileList["ext/pigpio/pigpio.c","lib/**/*.rb"]
 
 Rake::RDocTask.new do |rd|
   rd.main = "pigpio.c"
-  rd.rdoc_dir = "doc"
+  rd.rdoc_dir = "docs"
   rd.rdoc_files.include(RDOC_FILES)
 end
