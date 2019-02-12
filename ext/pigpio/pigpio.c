@@ -140,7 +140,7 @@ resources used by the library.
 
 See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#pigpio_stop]
 */
-VALUE pigpio_rbfn_pigpio_stop(VALUE pi){
+VALUE pigpio_rbfn_pigpio_stop(VALUE self,VALUE pi){
   pigpio_stop(NUM2INT(pi));
   return Qnil;
 }
