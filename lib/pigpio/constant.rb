@@ -1,4 +1,4 @@
-class Pigpio
+module Pigpio::Constant
   #/* gpio: 0-53 */
 
   PI_MIN_GPIO       =0

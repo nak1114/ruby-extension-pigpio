@@ -1,5 +1,5 @@
 #include "pigpiod_if2.h"
-
+//Root
 double time_time(void){return 2.34;}
 void time_sleep(double seconds){return;}
 char *pigpio_error(int errnum){return "ret";}
@@ -8,11 +8,34 @@ unsigned pigpiod_if_version(void){return 123;}
 //void stop_thread(pthread_t *pth);
 int pigpio_start(char *addrStr, char *portStr){return 123;}
 void pigpio_stop(int pi){return ;}
+uint32_t get_current_tick(int pi){return 123;}
+uint32_t get_hardware_revision(int pi){return 123;}
+uint32_t get_pigpio_version(int pi){return 123;}
+
+//Bank
+uint32_t read_bank_1(int pi){return 123;}
+uint32_t read_bank_2(int pi){return 123;}
+int clear_bank_1(int pi, uint32_t bits){return 123;}
+int clear_bank_2(int pi, uint32_t bits){return 123;}
+int set_bank_1(int pi, uint32_t bits){return 123;}
+int set_bank_2(int pi, uint32_t bits){return 123;}
+//GPIO
 int set_mode(int pi, unsigned gpio, unsigned mode){return 123;}
 int get_mode(int pi, unsigned gpio){return 123;}
 int set_pull_up_down(int pi, unsigned gpio, unsigned pud){return 123;}
 int gpio_read(int pi, unsigned gpio){return 123;}
 int gpio_write(int pi, unsigned gpio, unsigned level){return 123;}
+int hardware_clock(int pi, unsigned gpio, unsigned clkfreq){return 123;}
+int hardware_PWM(int pi, unsigned gpio, unsigned PWMfreq, uint32_t PWMduty){return 123;}
+//UserGPIO
+int set_watchdog(int pi, unsigned user_gpio, unsigned timeout){return 123;}
+int set_glitch_filter(int pi, unsigned user_gpio, unsigned steady){return 123;}
+int callback(int pi, unsigned user_gpio, unsigned edge, CBFunc_t f){return 123;}
+int callback_cancel(unsigned callback_id){return 123;}
+int wait_for_edge(int pi, unsigned user_gpio, unsigned edge, double timeout){return 123;}
+int set_noise_filter(int pi, unsigned user_gpio, unsigned steady, unsigned active){return 123;}
+int gpio_trigger(int pi, unsigned user_gpio, unsigned pulseLen, unsigned level){return 123;}
+//PWM
 int set_PWM_dutycycle(int pi, unsigned user_gpio, unsigned dutycycle){return 123;}
 int get_PWM_dutycycle(int pi, unsigned user_gpio){return 123;}
 int set_PWM_range(int pi, unsigned user_gpio, unsigned range){return 123;}
@@ -22,23 +45,13 @@ int set_PWM_frequency(int pi, unsigned user_gpio, unsigned frequency){return 123
 int get_PWM_frequency(int pi, unsigned user_gpio){return 123;}
 int set_servo_pulsewidth(int pi, unsigned user_gpio, unsigned pulsewidth){return 123;}
 int get_servo_pulsewidth(int pi, unsigned user_gpio){return 123;}
+//Notify
 int notify_open(int pi){return 123;}
 int notify_begin(int pi, unsigned handle, uint32_t bits){return 123;}
 int notify_pause(int pi, unsigned handle){return 123;}
 int notify_close(int pi, unsigned handle){return 123;}
-int set_watchdog(int pi, unsigned user_gpio, unsigned timeout){return 123;}
-int set_glitch_filter(int pi, unsigned user_gpio, unsigned steady){return 123;}
-uint32_t read_bank_1(int pi){return 123;}
-uint32_t read_bank_2(int pi){return 123;}
-int clear_bank_1(int pi, uint32_t bits){return 123;}
-int clear_bank_2(int pi, uint32_t bits){return 123;}
-int set_bank_1(int pi, uint32_t bits){return 123;}
-int set_bank_2(int pi, uint32_t bits){return 123;}
-int hardware_clock(int pi, unsigned gpio, unsigned clkfreq){return 123;}
-int hardware_PWM(int pi, unsigned gpio, unsigned PWMfreq, uint32_t PWMduty){return 123;}
-uint32_t get_current_tick(int pi){return 123;}
-uint32_t get_hardware_revision(int pi){return 123;}
-uint32_t get_pigpio_version(int pi){return 123;}
+
+//Wave
 int wave_clear(int pi){return 123;}
 int wave_add_new(int pi){return 123;}
 int wave_add_generic(int pi, unsigned numPulses, gpioPulse_t *pulses){return 123;}
@@ -60,16 +73,18 @@ int wave_get_max_pulses(int pi){return 123;}
 int wave_get_cbs(int pi){return 123;}
 int wave_get_high_cbs(int pi){return 123;}
 int wave_get_max_cbs(int pi){return 123;}
-int gpio_trigger(int pi, unsigned user_gpio, unsigned pulseLen, unsigned level){return 123;}
+
 int store_script(int pi, char *script){return 123;}
 int run_script(int pi, unsigned script_id, unsigned numPar, uint32_t *param){return 123;}
 int script_status(int pi, unsigned script_id, uint32_t *param){return 123;}
 int stop_script(int pi, unsigned script_id){return 123;}
 int delete_script(int pi, unsigned script_id){return 123;}
+
 int bb_serial_read_open(int pi, unsigned user_gpio, unsigned baud, unsigned data_bits){return 123;}
 int bb_serial_read(int pi, unsigned user_gpio, void *buf, size_t bufSize){return 123;}
 int bb_serial_read_close(int pi, unsigned user_gpio){return 123;}
 int bb_serial_invert(int pi, unsigned user_gpio, unsigned invert){return 123;}
+
 int i2c_open(int pi, unsigned i2c_bus, unsigned i2c_addr, unsigned i2c_flags){return 123;}
 int i2c_close(int pi, unsigned handle){return 123;}
 int i2c_write_quick(int pi, unsigned handle, unsigned bit){return 123;}
@@ -81,13 +96,16 @@ int i2c_process_call(int pi, unsigned handle, unsigned i2c_reg, unsigned wVal){r
 int i2c_read_block_data(int pi, unsigned handle, unsigned i2c_reg, char *buf){return 123;}
 int i2c_read_device(int pi, unsigned handle, char *buf, unsigned count){return 123;}
 int i2c_write_device(int pi, unsigned handle, char *buf, unsigned count){return 123;}
+
 int bb_i2c_open(int pi, unsigned SDA, unsigned SCL, unsigned baud){return 123;}
 int bb_i2c_close(int pi, unsigned SDA){return 123;}
 int bb_spi_close(int pi, unsigned CS){return 123;}
+
 int spi_open(int pi, unsigned spi_channel, unsigned baud, unsigned spi_flags){return 123;}
 int spi_close(int pi, unsigned handle){return 123;}
 int spi_read(int pi, unsigned handle, char *buf, unsigned count){return 123;}
 int spi_write(int pi, unsigned handle, char *buf, unsigned count){return 123;}
+
 int serial_open(int pi, char *ser_tty, unsigned baud, unsigned ser_flags){return 123;}
 int serial_close(int pi, unsigned handle){return 123;}
 int serial_write_byte(int pi, unsigned handle, unsigned bVal){return 123;}
@@ -95,6 +113,7 @@ int serial_read_byte(int pi, unsigned handle){return 123;}
 int serial_write(int pi, unsigned handle, char *buf, unsigned count){return 123;}
 int serial_read(int pi, unsigned handle, char *buf, unsigned count){return 123;}
 int serial_data_available(int pi, unsigned handle){return 123;}
+
 int custom_1(int pi, unsigned arg1, unsigned arg2, char *argx, unsigned argc){return 123;}
 int get_pad_strength(int pi, unsigned pad){return 123;}
 int set_pad_strength(int pi, unsigned pad, unsigned padStrength){return 123;}
@@ -105,9 +124,6 @@ int file_write(int pi, unsigned handle, char *buf, unsigned count){return 123;}
 int file_read(int pi, unsigned handle, char *buf, unsigned count){return 123;}
 int file_seek(int pi, unsigned handle, int32_t seekOffset, int seekFrom){return 123;}
 int file_list(int pi, char *fpat,  char *buf, unsigned count){return 123;}
-int callback(int pi, unsigned user_gpio, unsigned edge, CBFunc_t f){return 123;}
-int callback_cancel(unsigned callback_id){return 123;}
-int wait_for_edge(int pi, unsigned user_gpio, unsigned edge, double timeout){return 123;}
 int bsc_xfer(int pi, bsc_xfer_t *bscxfer){return 123;}
 int bsc_i2c(int pi, int i2c_addr, bsc_xfer_t *bscxfer){return 123;}
 int event_callback(int pi, unsigned event, evtCBFunc_t f){return 123;}
