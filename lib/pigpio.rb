@@ -10,11 +10,12 @@ class Pigpio
       IF.pigpio_stop(@pi)
     end
   end
-  def conect
+  def connect
     @pi>=0
   end
   def stop
-    @pi=IF.pigpio_stop(@pi)
+    IF.pigpio_stop(@pi)
+    @pi=-1
   end
   def current_tick
     IF.get_current_tick(@pi)
