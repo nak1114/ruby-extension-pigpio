@@ -3087,7 +3087,7 @@ D*/
 #pragma GCC diagnostic pop
 
 /*F*/
-int file_close(int pi, unsigned handle);
+//int file_close(int pi, unsigned handle);
 /*D
 This function closes the file associated with handle.
 

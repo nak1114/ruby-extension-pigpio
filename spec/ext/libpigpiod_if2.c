@@ -3,8 +3,12 @@
 #include <stdarg.h>
 
 #define numAry(ary) (sizeof( ary )/sizeof( ary [0]))
+static FILE *ret_values=NULL;
+static void file_close(){
+  if(ret_values!=NULL)
+    fclose(ret_values);
+}
 static const char *flie_lines(){
-  static FILE *ret_values=NULL;
   static char ret_buf[256];
   char *ret;
   if (ret_values==NULL){
@@ -23,7 +27,7 @@ static const char *flie_lines(){
   }
   return ret;
 }
-void pargs(const char *format, ...) {
+static void pargs(const char *format, ...) {
   va_list va;
   FILE *ret_args=NULL;
   if ((ret_args = fopen(AFILENAME, "a")) == NULL){
@@ -32,17 +36,21 @@ void pargs(const char *format, ...) {
   }
   va_start(va, format);
   vfprintf(ret_args,format, va);
-  vprintf(format, va);
   va_end(va);
   fclose(ret_args);
   return;
 }
 //Root
-double time_time(void){return 2.34;}
+double time_time(void){
+  file_close();
+  return 12.3;
+}
 //void time_sleep(double seconds){return;}
 char *pigpio_error(int errnum){
+  static char retc[50];
+  sscanf(flie_lines(),"%s",retc);
   pargs("pigpio_error : %d\n",errnum);
-  return "ret";
+  return retc;
 }
 unsigned pigpiod_if_version(void){
   unsigned reti;
@@ -61,9 +69,24 @@ void pigpio_stop(int pi){
   pargs("pigpio_stop : %d\n",pi);
   return ;
 }
-uint32_t get_current_tick(int pi){return 123;}
-uint32_t get_hardware_revision(int pi){return 123;}
-uint32_t get_pigpio_version(int pi){return 123;}
+uint32_t get_current_tick(int pi){
+  uint32_t reti;
+  pargs("get_current_tick : %lu\n",pi);
+  sscanf(flie_lines(),"%d",&reti);
+  return reti;
+}
+uint32_t get_hardware_revision(int pi){
+  uint32_t reti;
+  pargs("get_hardware_revision : %lu\n",pi);
+  sscanf(flie_lines(),"%d",&reti);
+  return reti;
+}
+uint32_t get_pigpio_version(int pi){
+  uint32_t reti;
+  pargs("get_pigpio_version : %lu\n",pi);
+  sscanf(flie_lines(),"%d",&reti);
+  return reti;
+}
 
 //Bank
 uint32_t read_bank_1(int pi){return 123;}
@@ -170,13 +193,13 @@ int serial_data_available(int pi, unsigned handle){return 123;}
 int custom_1(int pi, unsigned arg1, unsigned arg2, char *argx, unsigned argc){return 123;}
 int get_pad_strength(int pi, unsigned pad){return 123;}
 int set_pad_strength(int pi, unsigned pad, unsigned padStrength){return 123;}
-int shell_(int pi, char *scriptName, char *scriptString){return 123;}
-int file_open(int pi, char *file, unsigned mode){return 123;}
-int file_close(int pi, unsigned handle){return 123;}
-int file_write(int pi, unsigned handle, char *buf, unsigned count){return 123;}
-int file_read(int pi, unsigned handle, char *buf, unsigned count){return 123;}
-int file_seek(int pi, unsigned handle, int32_t seekOffset, int seekFrom){return 123;}
-int file_list(int pi, char *fpat,  char *buf, unsigned count){return 123;}
+//int shell_(int pi, char *scriptName, char *scriptString){return 123;}
+//int file_open(int pi, char *file, unsigned mode){return 123;}
+//int file_close(int pi, unsigned handle){return 123;}
+//int file_write(int pi, unsigned handle, char *buf, unsigned count){return 123;}
+//int file_read(int pi, unsigned handle, char *buf, unsigned count){return 123;}
+//int file_seek(int pi, unsigned handle, int32_t seekOffset, int seekFrom){return 123;}
+//int file_list(int pi, char *fpat,  char *buf, unsigned count){return 123;}
 int bsc_xfer(int pi, bsc_xfer_t *bscxfer){return 123;}
 int bsc_i2c(int pi, int i2c_addr, bsc_xfer_t *bscxfer){return 123;}
 int event_callback(int pi, unsigned event, evtCBFunc_t f){return 123;}
