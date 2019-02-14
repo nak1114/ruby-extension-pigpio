@@ -52,11 +52,7 @@ class Pigpio
 
 
   def gpio(gpio)
-    if gpio<32
-      UserGPIO.new(@pi,gpio)
-    else
-      GPIO.new(@pi,gpio)
-    end
+    (gpio<32 ? UserGPIO : GPIO).new(@pi,gpio)
   end
   class GPIO
     def initialize(pi,gpio)
