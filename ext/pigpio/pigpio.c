@@ -73,7 +73,7 @@ Constructor of gpioPulse_t as Pigpio::Pulse class
  } gpioPulse_t;
 . .
 */
-VALUE ctest_rbst_gpioPulse_make(VALUE self,VALUE gpioOn,VALUE gpioOff,VALUE usDelay){
+VALUE pigpio_rbst_gpioPulse_make(VALUE self,VALUE gpioOn,VALUE gpioOff,VALUE usDelay){
   VALUE obj;
   gpioPulse_t *st;
   obj = TypedData_Make_Struct(self, gpioPulse_t, &gpioPulse_data_type, st);
@@ -3571,7 +3571,7 @@ This class has some constances for pigpio library.
   This class wrap gpioPulse_t.
   */
   cPulse = rb_define_class_under(cPigpio,"Pulse", rb_cData);
-    rb_define_singleton_method(cPulse, "make", ctest_rbst_gpioPulse_make, 3);
+    rb_define_singleton_method(cPulse, "make", pigpio_rbst_gpioPulse_make, 3);
 
   /*
   This class wrap bsc_xfer_t.
