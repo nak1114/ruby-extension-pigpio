@@ -3,6 +3,68 @@
 
 #define TypedData_Get_Struct2(obj, type, data_type) ((type*)rb_check_typeddata((obj), (data_type)))
 
+static VALUE cCallbackID;
+static VALUE cCallbackError;
+
+
+typedef int (*cancel_t)(unsigned);
+typedef struct{
+  int id;
+  VALUE proc;
+  cancel_t cancel;
+} callback_id_t;
+void pigpio_rbst_callback_id_dmark(void* _self){
+  callback_id_t *self=(callback_id_t *)_self;
+  rb_gc_mark(self->proc);
+}
+void pigpio_rbst_callback_id_dfree(void* _self){
+  callback_id_t *self=(callback_id_t *)_self;
+  xfree(self);
+}
+size_t pigpio_rbst_callback_id_dsize(const void *_self){
+  return sizeof(callback_id_t);
+}
+const rb_data_type_t callback_id_data_type = { //https://gist.github.com/yugui/87ef6964d8a76794be6f
+    "struct@callback_id",{
+      pigpio_rbst_callback_id_dmark,
+      pigpio_rbst_callback_id_dfree,
+      pigpio_rbst_callback_id_dsize,
+      {0,0}
+    },0,NULL,0
+};
+VALUE pigpio_rbst_callback_id_make_inner(int id,VALUE proc,cancel_t cancel){
+  VALUE obj;
+  callback_id_t *st;
+  obj = TypedData_Make_Struct(cCallbackID, callback_id_t, &callback_id_data_type, st);
+  st->id=id;
+  st->proc=proc;
+  st->cancel=cancel;
+  return obj;
+}
+/*
+get callback id.return Integer.
+*/
+VALUE pigpio_rbst_callback_id_r_id(VALUE self){
+  callback_id_t *st=TypedData_Get_Struct2(self,callback_id_t,&callback_id_data_type);
+  return(INT2NUM(st->id));
+}
+/*
+This function cancels a callback/event-callback.
+
+The function returns 0 if OK, otherwise pigif_callback_not_found.
+
+:call-seq:
+ cancel() -> Integer
+
+See also: {pigpio site event_callback_cancel}[http://abyz.me.uk/rpi/pigpio/pdif2.html#event_callback_cancel]
+See also: {pigpio site callback_cancel}[http://abyz.me.uk/rpi/pigpio/pdif2.html#callback_cancel]
+*/
+VALUE pigpio_rbst_callback_id_cancel(VALUE self){
+  callback_id_t *st=TypedData_Get_Struct2(self,callback_id_t,&callback_id_data_type);
+  if(st->id<0){return INT2NUM(pigif_callback_not_found);}
+  return INT2NUM((*(st->cancel))(st->id));
+}
+
 const rb_data_type_t bsc_xfer_data_type = { //https://gist.github.com/yugui/87ef6964d8a76794be6f
     "struct@bsc_xfer",{NULL,(void*)-1,0,{0,0}},0,NULL,0
 };
@@ -49,7 +111,7 @@ VALUE pigpio_rbst_bsc_xfer_w_txBuf(VALUE self,VALUE txBuf){
 /*
 Getter
 */
-VALUE ctest_rbst_bsc_xfer_r_rxBuf(VALUE self){
+VALUE pigpio_rbst_bsc_xfer_r_rxBuf(VALUE self){
   bsc_xfer_t *st=TypedData_Get_Struct2(self,bsc_xfer_t,&bsc_xfer_data_type);
   VALUE rxBuf=rb_str_new("",st->rxCnt);
   char *buf=StringValuePtr(rxBuf);
@@ -118,9 +180,10 @@ to be operated on.
 See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#pigpio_start]
 */
 VALUE pigpio_rbfn_pigpio_start(int argc, VALUE *argv, VALUE self){
+  int ret;
   VALUE addrStr; VALUE portStr;
   rb_scan_args(argc,argv,"02",&addrStr,&portStr);
-  int ret=pigpio_start(
+  ret=pigpio_start(
     NIL_P(addrStr)? NULL : StringValueCStr(addrStr),
     NIL_P(portStr)? NULL : StringValueCStr(portStr));
   RB_GC_GUARD(addrStr);
@@ -1830,14 +1893,19 @@ GPIO has the identified edge.
 . .
 
 :call-seq:
- callback(Integer pi,Integer user_gpio, Integer edge){|tick,level,user_gpio| } -> Integer
+ callback(Integer pi,Integer user_gpio, Integer edge){|tick,level,user_gpio| } -> Pigpio::CallbackID
+
+If you call this method without a block, this method raises an Pigpio::CallbackError exception.
 
 See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#callback_ex]
 */
 VALUE pigpio_rbfn_callback(int argc, VALUE *argv, VALUE self){
+  int id;
   VALUE pi; VALUE user_gpio; VALUE edge; VALUE userdata;
   rb_scan_args(argc,argv,"3&",&pi,&user_gpio,&edge,&userdata);
-  return INT2NUM( callback_ex(NUM2INT(pi), NUM2UINT(user_gpio), NUM2UINT(edge), pigpio_rbbk_CBFuncEx, (void*)userdata));
+  if(NIL_P(userdata)){rb_raise(cCallbackError,"No callback block.\n");}
+  id=( callback_ex(NUM2INT(pi), NUM2UINT(user_gpio), NUM2UINT(edge), pigpio_rbbk_CBFuncEx, (void*)userdata));
+  return pigpio_rbst_callback_id_make_inner(id,userdata,callback_cancel);
 }
 /*
 This function cancels a callback identified by its id.
@@ -1900,14 +1968,19 @@ The callback is called with the event id, and tick, whenever the
 event occurs.
 
 :call-seq:
- event_callback(Integer pi,Integer event){|tick,event| } -> Integer
+ event_callback(Integer pi,Integer event){|tick,event| } -> Pigpio::CallbackID
+
+If you call this method without a block, this method raises an Pigpio::CallbackError exception.
 
 See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#event_callback_ex]
 */
 VALUE pigpio_rbfn_event_callback(int argc, VALUE *argv, VALUE self){
+  int id;
   VALUE pi; VALUE event; VALUE userdata;
   rb_scan_args(argc,argv,"2&",&pi,&event,&userdata);
-  return INT2NUM( event_callback_ex(NUM2INT(pi), NUM2UINT(event), pigpio_rbbk_evtCBFuncEx, (void *)userdata));
+  if(NIL_P(userdata)){rb_raise(cCallbackError,"No callback block.\n");}
+  id=( event_callback_ex(NUM2INT(pi), NUM2UINT(event), pigpio_rbbk_evtCBFuncEx, (void *)userdata));
+  return pigpio_rbst_callback_id_make_inner(id,userdata,event_callback_cancel);
 }
 /*
 This function cancels an event callback identified by its id.
@@ -3580,6 +3653,17 @@ This class has some constances for pigpio library.
     rb_define_singleton_method(cBscXfer, "make", pigpio_rbst_bsc_xfer_make, 0);
     rb_define_method(cBscXfer, "control=", pigpio_rbst_bsc_xfer_w_control, 1);
     rb_define_method(cBscXfer, "txBuf=", pigpio_rbst_bsc_xfer_w_txBuf, 1);
-    rb_define_method(cBscXfer, "rxBuf", ctest_rbst_bsc_xfer_r_rxBuf, 0);
-
+    rb_define_method(cBscXfer, "rxBuf", pigpio_rbst_bsc_xfer_r_rxBuf, 0);
+  /*
+  The class for callback.
+  */
+  cCallbackID = rb_define_class_under(cPigpio,"CallbackID", rb_cData);
+    rb_define_method(cCallbackID, "id", pigpio_rbst_callback_id_r_id, 0);
+    rb_define_method(cCallbackID, "cancel", pigpio_rbst_callback_id_cancel, 0);
+    rb_gc_register_address(&cCallbackID);
+  /*
+  The class for callback error.
+  */
+  cCallbackError = rb_define_class_under(cPigpio,"CallbackError", rb_eException);
+    rb_gc_register_address(&cCallbackError);
 }
