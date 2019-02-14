@@ -184,3 +184,17 @@ int event_callback_ex(int pi, unsigned event, evtCBFuncEx_t f, void *userdata){r
 int event_callback_cancel(unsigned callback_id){return 123;}
 int wait_for_event(int pi, unsigned event, double timeout){return 123;}
 int event_trigger(int pi, unsigned event){return 123;}
+
+int wave_add_serial(int pi, unsigned user_gpio, unsigned baud, unsigned data_bits, unsigned stop_bits, unsigned offset, unsigned numBytes, char *str){return 123;}
+int i2c_write_byte_data(int pi, unsigned handle, unsigned i2c_reg, unsigned bVal){return 123;}
+int i2c_write_word_data(int pi, unsigned handle, unsigned i2c_reg, unsigned wVal){return 123;}
+int i2c_write_block_data(int pi, unsigned handle, unsigned i2c_reg, char *buf, unsigned count){return 123;}
+int i2c_block_process_call(int pi, unsigned handle, unsigned i2c_reg, char *buf, unsigned count){return 123;}
+int i2c_read_i2c_block_data(int pi, unsigned handle, unsigned i2c_reg, char *buf, unsigned count){return 123;}
+int i2c_write_i2c_block_data(int pi, unsigned handle, unsigned i2c_reg, char *buf, unsigned count){return 123;}
+int i2c_zip(int pi, unsigned handle, char *inBuf, unsigned inLen, char *outBuf, unsigned outLen){return 123;}
+int bb_i2c_zip(int pi, unsigned SDA, char *inBuf, unsigned inLen, char *outBuf, unsigned outLen){return 123;}
+int bb_spi_open(int pi, unsigned CS, unsigned MISO, unsigned MOSI, unsigned SCLK, unsigned baud, unsigned spi_flags){return 123;}
+int bb_spi_xfer(int pi, unsigned CS, char    *txBuf, char    *rxBuf, unsigned count){return 123;}
+int spi_xfer(int pi, unsigned handle, char *txBuf, char *rxBuf, unsigned count){return 123;}
+int callback_ex(int pi, unsigned user_gpio, unsigned edge, CBFuncEx_t f, void *userdata){return 123;}
