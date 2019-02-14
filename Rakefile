@@ -19,3 +19,9 @@ Rake::RDocTask.new do |rd|
   rd.rdoc_dir = "docs"
   rd.rdoc_files.include(RDOC_FILES)
 end
+
+task :dummy do
+  cd("spec/ext") do
+    sh("ruby extconf.rb && make && \\cp -f libpigpiod_if2.so /usr/lib")
+  end
+end
