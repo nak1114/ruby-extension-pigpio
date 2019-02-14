@@ -729,4 +729,19 @@ module Pigpio::Constant
   PI_DEFAULT_MEM_ALLOC_MODE          =PI_MEM_ALLOC_AUTO
 
   PI_DEFAULT_CFG_INTERNALS           =0
+
+  Pigif_bad_send           = -2000
+  Pigif_bad_recv           = -2001
+  Pigif_bad_getaddrinfo    = -2002
+  Pigif_bad_connect        = -2003
+  Pigif_bad_socket         = -2004
+  Pigif_bad_noib           = -2005
+  Pigif_duplicate_callback = -2006
+  Pigif_bad_malloc         = -2007
+  Pigif_bad_callback       = -2008
+  Pigif_notify_failed      = -2009
+  Pigif_callback_not_found = -2010
+  Pigif_unconnected_pi     = -2011
+  Pigif_too_many_pis       = -2012
+
 end
