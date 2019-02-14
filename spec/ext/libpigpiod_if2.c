@@ -1,4 +1,42 @@
 #include "pigpiod_if2.h"
+#include <stdio.h>
+#include <stdarg.h>
+
+#define numAry(ary) (sizeof( ary )/sizeof( ary [0]))
+static const char *flie_lines(){
+  static FILE *ret_values=NULL;
+  static char ret_buf[256];
+  char *ret;
+  if (ret_values==NULL){
+    if ((ret_values = fopen(VFILENAME, "r")) == NULL){
+      fprintf(stderr, "Can't load : %s.\n", VFILENAME);
+      exit(-1);
+    }
+  }
+  ret=fgets(ret_buf,numAry(ret_buf),ret_values);
+  if(feof(ret_values)!=0 || ret==NULL){
+    fclose(ret_values);
+    ret_values=NULL;
+    if(ret==NULL){
+      return flie_lines();
+    }
+  }
+  return ret;
+}
+void pargs(const char *format, ...) {
+  va_list va;
+  FILE *ret_args=NULL;
+  if ((ret_args = fopen(AFILENAME, "a")) == NULL){
+    fprintf(stderr, "Can't open : %s.\n", AFILENAME);
+    exit(-1);
+  }
+  va_start(va, format);
+  vfprintf(ret_args,format, va);
+  vprintf(format, va);
+  va_end(va);
+  fclose(ret_args);
+  return;
+}
 //Root
 double time_time(void){return 2.34;}
 void time_sleep(double seconds){return;}

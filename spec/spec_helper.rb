@@ -12,3 +12,17 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+SeqFile=File.expand_path('../ext/values.txt', __FILE__)
+ArgsFile=File.expand_path('../ext/args.txt', __FILE__)
+def write_seq(str)
+  File.write(SeqFile,str.chomp)
+end
+def read_args()
+  ret=nil
+  if File.exist? ArgsFile
+    ret=File.read(ArgsFile)
+    FileUtils.rm(ArgsFile)
+  end
+  ret
+end
