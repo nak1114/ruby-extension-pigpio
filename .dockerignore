@@ -4,3 +4,5 @@ tmp
 docs
 Gemfile.lock
 .rspec_status
+values.txt
+args.txt
