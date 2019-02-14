@@ -39,13 +39,28 @@ void pargs(const char *format, ...) {
 }
 //Root
 double time_time(void){return 2.34;}
-void time_sleep(double seconds){return;}
-char *pigpio_error(int errnum){return "ret";}
-unsigned pigpiod_if_version(void){return 123;}
+//void time_sleep(double seconds){return;}
+char *pigpio_error(int errnum){
+  pargs("pigpio_error : %d\n",errnum);
+  return "ret";
+}
+unsigned pigpiod_if_version(void){
+  unsigned reti;
+  sscanf(flie_lines(),"%u",&reti);
+  return reti;
+}
 //pthread_t *start_thread(gpioThreadFunc_t thread_func, void *userdata);
 //void stop_thread(pthread_t *pth);
-int pigpio_start(char *addrStr, char *portStr){return 123;}
-void pigpio_stop(int pi){return ;}
+int pigpio_start(char *addrStr, char *portStr){
+  int reti;
+  pargs("pigpio_start : %s,%s\n",addrStr,addrStr);
+  sscanf(flie_lines(),"%d",&reti);
+  return reti;
+}
+void pigpio_stop(int pi){
+  pargs("pigpio_stop : %d\n",pi);
+  return ;
+}
 uint32_t get_current_tick(int pi){return 123;}
 uint32_t get_hardware_revision(int pi){return 123;}
 uint32_t get_pigpio_version(int pi){return 123;}
