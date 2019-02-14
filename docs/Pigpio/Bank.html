@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class Pigpio::BscXfer - RDoc Documentation</title>
+<title>class Pigpio::Bank - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../";
@@ -58,7 +58,7 @@
   <h3>Parent</h3>
 
   
-  <p class="link">Data
+  <p class="link">Object
   
 </div>
 
@@ -70,13 +70,13 @@
 
   <ul class="link-list" role="directory">
     
-    <li ><a href="#method-c-make">::make</a>
+    <li ><a href="#method-c-new">::new</a>
     
-    <li ><a href="#method-i-control-3D">#control=</a>
+    <li ><a href="#method-i-clear">#clear</a>
     
-    <li ><a href="#method-i-rxBuf">#rxBuf</a>
+    <li ><a href="#method-i-read">#read</a>
     
-    <li ><a href="#method-i-txBuf-3D">#txBuf=</a>
+    <li ><a href="#method-i-set">#set</a>
     
   </ul>
 </div>
@@ -84,15 +84,13 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-Pigpio::BscXfer">
-  <h1 id="class-Pigpio::BscXfer" class="class">
-    class Pigpio::BscXfer
+<main role="main" aria-labelledby="class-Pigpio::Bank">
+  <h1 id="class-Pigpio::Bank" class="class">
+    class Pigpio::Bank
   </h1>
 
   <section class="description">
     
-<p>This class wrap bsc_xfer_t.</p>
-
   </section>
 
   
@@ -104,6 +102,20 @@
     
 
     
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="Set">Set
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
 
     
 
@@ -114,11 +126,11 @@
        </header>
 
     
-      <div id="method-c-make" class="method-detail ">
+      <div id="method-c-new" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">make</span><span
-            class="method-args">()</span>
+          <span class="method-name">new</span><span
+            class="method-args">(pi,num)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -127,23 +139,17 @@
 
         <div class="method-description">
           
-          <p>Constructor of bsc_xfer_t as <a href="BscXfer.html">Pigpio::BscXfer</a>
-class</p>
-
-<pre>typedef struct
-{
-  uint32_t control;          // Write
-  int rxCnt;                 // Read only
-  char rxBuf[BSC_FIFO_SIZE]; // Read only
-  int txCnt;                 // Write
-  char txBuf[BSC_FIFO_SIZE]; // Write
-} bsc_xfer_t;</pre>
+          
           
           
 
           
-          <div class="method-source-code" id="make-source">
-            <pre>VALUE pigpio_rbst_bsc_xfer_make(VALUE self){</pre>
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pi</span>,<span class="ruby-identifier">num</span>)
+  <span class="ruby-ivar">@pi</span>=<span class="ruby-identifier">pi</span>
+  <span class="ruby-ivar">@num</span>=<span class="ruby-identifier">num</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -162,11 +168,11 @@ class</p>
        </header>
 
     
-      <div id="method-i-control-3D" class="method-detail ">
+      <div id="method-i-clear" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">control=</span><span
-            class="method-args">(p1)</span>
+          <span class="method-name">clear</span><span
+            class="method-args">(bits)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -175,13 +181,16 @@ class</p>
 
         <div class="method-description">
           
-          <p>Setter</p>
+          
           
           
 
           
-          <div class="method-source-code" id="control-3D-source">
-            <pre>VALUE pigpio_rbst_bsc_xfer_w_control(VALUE self,VALUE control){</pre>
+          <div class="method-source-code" id="clear-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear</span>(<span class="ruby-identifier">bits</span>)
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Set</span>[<span class="ruby-value">:clear</span>][<span class="ruby-ivar">@num</span>],<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">bits</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -192,10 +201,10 @@ class</p>
       </div>
 
     
-      <div id="method-i-rxBuf" class="method-detail ">
+      <div id="method-i-read" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">rxBuf</span><span
+          <span class="method-name">read</span><span
             class="method-args">()</span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -205,13 +214,16 @@ class</p>
 
         <div class="method-description">
           
-          <p>Getter</p>
+          
           
           
 
           
-          <div class="method-source-code" id="rxBuf-source">
-            <pre>VALUE pigpio_rbst_bsc_xfer_r_rxBuf(VALUE self){</pre>
+          <div class="method-source-code" id="read-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read</span>
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Set</span>[<span class="ruby-value">:read</span>][<span class="ruby-ivar">@num</span>],<span class="ruby-ivar">@pi</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -222,11 +234,11 @@ class</p>
       </div>
 
     
-      <div id="method-i-txBuf-3D" class="method-detail ">
+      <div id="method-i-set" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">txBuf=</span><span
-            class="method-args">(p1)</span>
+          <span class="method-name">set</span><span
+            class="method-args">(bits)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -235,13 +247,16 @@ class</p>
 
         <div class="method-description">
           
-          <p>Setter</p>
+          
           
           
 
           
-          <div class="method-source-code" id="txBuf-3D-source">
-            <pre>VALUE pigpio_rbst_bsc_xfer_w_txBuf(VALUE self,VALUE txBuf){</pre>
+          <div class="method-source-code" id="set-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set</span>(<span class="ruby-identifier">bits</span>)
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Set</span>[<span class="ruby-value">:set</span>][<span class="ruby-ivar">@num</span>],<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">bits</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

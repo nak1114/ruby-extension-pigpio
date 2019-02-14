@@ -347,8 +347,9 @@
 
         <div class="method-description">
           
-          <p>This function stops bit banging I2C on a pair of GPIO previously opened
-with [<strong>bb_i2c_open</strong>].</p>
+          <p>This function stops bit banging I2C on a pair of <a
+href="GPIO.html">GPIO</a> previously opened with
+[<strong>bb_i2c_open</strong>].</p>
 
 <p>. .</p>
 
@@ -393,8 +394,8 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_i2c_close">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>This function selects a pair of GPIO for bit banging I2C at a specified
-baud rate.</p>
+          <p>This function selects a pair of <a href="GPIO.html">GPIO</a> for bit
+banging I2C at a specified baud rate.</p>
 
 <p>Bit banging I2C allows for certain operations which are not possible with
 the standard I2C driver.</p>
@@ -419,8 +420,9 @@ PI_GPIO_IN_USE.</p>
 
 <p>NOTE:</p>
 
-<p>The GPIO used for SDA and SCL must have pull-ups to 3V3 connected.  As a
-guide the hardware pull-ups on pins 3 and 5 are 1k8 in value.</p>
+<p>The <a href="GPIO.html">GPIO</a> used for SDA and SCL must have pull-ups to
+3V3 connected.  As a guide the hardware pull-ups on pins 3 and 5 are 1k8 in
+value.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_i2c_open">pigpio site</a></p>
@@ -674,7 +676,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>This function closes a GPIO for bit bang reading of serial data.</p>
+          <p>This function closes a <a href="GPIO.html">GPIO</a> for bit bang reading of
+serial data.</p>
 
 <p>. .</p>
 
@@ -720,7 +723,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>This function opens a GPIO for bit bang reading of serial data.</p>
+          <p>This function opens a <a href="GPIO.html">GPIO</a> for bit bang reading of
+serial data.</p>
 
 <p>. .</p>
 
@@ -775,8 +779,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>This function stops bit banging SPI on a set of GPIO opened with
-[<strong>bbSPIOpen</strong>].</p>
+          <p>This function stops bit banging SPI on a set of <a
+href="GPIO.html">GPIO</a> opened with [<strong>bbSPIOpen</strong>].</p>
 
 <p>. .</p>
 
@@ -821,8 +825,8 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_spi_close">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>This function selects a set of GPIO for bit banging SPI at a specified baud
-rate.</p>
+          <p>This function selects a set of <a href="GPIO.html">GPIO</a> for bit banging
+SPI at a specified baud rate.</p>
 
 <p>. .</p>
 
@@ -1002,7 +1006,7 @@ data itself should be copied to txBuf.</p>
 the error code).</p>
 
 <p>Note that an i2c_address of 0 may be used to close the BSC device and
-reassign the used GPIO (18/19) as inputs.</p>
+reassign the used <a href="GPIO.html">GPIO</a> (18/19) as inputs.</p>
 
 <p>See also: <a href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bsc_i2c">pigpio
 site</a></p>
@@ -1083,12 +1087,13 @@ requested if the FIFO already contained untransmitted data).</p>
 <p>Note that the control word sets the BSC mode.  The BSC will stay in that
 mode until a different control word is sent.</p>
 
-<p>The BSC peripheral uses GPIO 18 (SDA) and 19 (SCL) in I2C mode and GPIO 18
-(MOSI), 19 (SCLK), 20 (MISO), and 21 (CE) in SPI mode.  You need to swap
-MISO/MOSI between master and slave.</p>
+<p>The BSC peripheral uses <a href="GPIO.html">GPIO</a> 18 (SDA) and 19 (SCL)
+in I2C mode and <a href="GPIO.html">GPIO</a> 18 (MOSI), 19 (SCLK), 20
+(MISO), and 21 (CE) in SPI mode.  You need to swap MISO/MOSI between master
+and slave.</p>
 
-<p>When a zero control word is received GPIO 18-21 will be reset to INPUT
-mode.</p>
+<p>When a zero control word is received <a href="GPIO.html">GPIO</a> 18-21
+will be reset to INPUT mode.</p>
 
 <p>control consists of the following bits.</p>
 
@@ -1163,7 +1168,7 @@ site</a></p>
         
         <div class="method-heading">
           <span class="method-callseq">
-            callback(Integer pi,Integer user_gpio, Integer edge){|tick,level,user_gpio| } &rarr; Integer
+            callback(Integer pi,Integer user_gpio, Integer edge){|tick,level,user_gpio| } &rarr; Pigpio::CallbackID
           </span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -1187,8 +1192,8 @@ user_gpio: 0-31.
 <p>The function returns a callback id if OK, otherwise pigif_bad_malloc,
 pigif_duplicate_callback, or pigif_bad_callback.</p>
 
-<p>The callback is called with the GPIO, edge, and tick, whenever the GPIO has
-the identified edge.</p>
+<p>The callback is called with the <a href="GPIO.html">GPIO</a>, edge, and
+tick, whenever the <a href="GPIO.html">GPIO</a> has the identified edge.</p>
 
 <p>. .</p>
 
@@ -1205,6 +1210,9 @@ tick        32 bit   The number of microseconds since boot
                      4294967295 to 0 roughly every 72 minutes</pre>
 
 <p>. .</p>
+
+<p>If you call this method without a block, this method raises an <a
+href="CallbackError.html">Pigpio::CallbackError</a> exception.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#callback_ex">pigpio site</a></p>
@@ -1285,7 +1293,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Clears GPIO 0-31 if the corresponding bit in bits is set.</p>
+          <p>Clears <a href="GPIO.html">GPIO</a> 0-31 if the corresponding bit in bits
+is set.</p>
 
 <p>. .</p>
 
@@ -1298,7 +1307,7 @@ bits: a bit mask with 1 set if the corresponding GPIO is
 <p>Returns 0 if OK, otherwise PI_SOME_PERMITTED.</p>
 
 <p>A status of PI_SOME_PERMITTED indicates that the user is not allowed to
-write to one or more of the GPIO.</p>
+write to one or more of the <a href="GPIO.html">GPIO</a>.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#clear_bank_1">pigpio site</a></p>
@@ -1334,7 +1343,8 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#clear_bank_1">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>Clears GPIO 32-53 if the corresponding bit (0-21) in bits is set.</p>
+          <p>Clears <a href="GPIO.html">GPIO</a> 32-53 if the corresponding bit (0-21)
+in bits is set.</p>
 
 <p>. .</p>
 
@@ -1347,7 +1357,7 @@ bits: a bit mask with 1 set if the corresponding GPIO is
 <p>Returns 0 if OK, otherwise PI_SOME_PERMITTED.</p>
 
 <p>A status of PI_SOME_PERMITTED indicates that the user is not allowed to
-write to one or more of the GPIO.</p>
+write to one or more of the <a href="GPIO.html">GPIO</a>.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#clear_bank_2">pigpio site</a></p>
@@ -1418,7 +1428,7 @@ site</a></p>
         
         <div class="method-heading">
           <span class="method-callseq">
-            event_callback(Integer pi,Integer event){|tick,event| } &rarr; Integer
+            event_callback(Integer pi,Integer event){|tick,event| } &rarr; Pigpio::CallbackID
           </span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -1443,6 +1453,9 @@ pigif_duplicate_callback, or pigif_bad_callback.</p>
 
 <p>The callback is called with the event id, and tick, whenever the event
 occurs.</p>
+
+<p>If you call this method without a block, this method raises an <a
+href="CallbackError.html">Pigpio::CallbackError</a> exception.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#event_callback_ex">pigpio
@@ -1583,7 +1596,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Return the PWM dutycycle in use on a GPIO.</p>
+          <p>Return the <a href="PWM.html">PWM</a> dutycycle in use on a <a
+href="GPIO.html">GPIO</a>.</p>
 
 <p>. .</p>
 
@@ -1594,14 +1608,16 @@ user_gpio: 0-31.</pre>
 
 <p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO or PI_NOT_PWM_GPIO.</p>
 
-<p>For normal PWM the dutycycle will be out of the defined range for the GPIO
-(see [<strong>get_PWM_range</strong>]).</p>
+<p>For normal <a href="PWM.html">PWM</a> the dutycycle will be out of the
+defined range for the <a href="GPIO.html">GPIO</a> (see
+[<strong>get_PWM_range</strong>]).</p>
 
-<p>If a hardware clock is active on the GPIO the reported dutycycle will be
-500000 (500k) out of 1000000 (1M).</p>
+<p>If a hardware clock is active on the <a href="GPIO.html">GPIO</a> the
+reported dutycycle will be 500000 (500k) out of 1000000 (1M).</p>
 
-<p>If hardware PWM is active on the GPIO the reported dutycycle will be out of
-a 1000000 (1M).</p>
+<p>If hardware <a href="PWM.html">PWM</a> is active on the <a
+href="GPIO.html">GPIO</a> the reported dutycycle will be out of a 1000000
+(1M).</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_PWM_dutycycle">pigpio
@@ -1638,7 +1654,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Get the frequency of PWM being used on the GPIO.</p>
+          <p>Get the frequency of <a href="PWM.html">PWM</a> being used on the <a
+href="GPIO.html">GPIO</a>.</p>
 
 <p>. .</p>
 
@@ -1647,17 +1664,19 @@ user_gpio: 0-31.</pre>
 
 <p>. .</p>
 
-<p>For normal PWM the frequency will be that defined for the GPIO by
+<p>For normal <a href="PWM.html">PWM</a> the frequency will be that defined
+for the <a href="GPIO.html">GPIO</a> by
 [<strong>set_PWM_frequency</strong>].</p>
 
-<p>If a hardware clock is active on the GPIO the reported frequency will be
-that set by [<strong>hardware_clock</strong>].</p>
+<p>If a hardware clock is active on the <a href="GPIO.html">GPIO</a> the
+reported frequency will be that set by [<strong>hardware_clock</strong>].</p>
 
-<p>If hardware PWM is active on the GPIO the reported frequency will be that
-set by [<strong>hardware_PWM</strong>].</p>
+<p>If hardware <a href="PWM.html">PWM</a> is active on the <a
+href="GPIO.html">GPIO</a> the reported frequency will be that set by
+[<strong>hardware_PWM</strong>].</p>
 
-<p>Returns the frequency (in hertz) used for the GPIO if OK, otherwise
-PI_BAD_USER_GPIO.</p>
+<p>Returns the frequency (in hertz) used for the <a href="GPIO.html">GPIO</a>
+if OK, otherwise PI_BAD_USER_GPIO.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_PWM_frequency">pigpio
@@ -1694,7 +1713,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Get the range of PWM values being used on the GPIO.</p>
+          <p>Get the range of <a href="PWM.html">PWM</a> values being used on the <a
+href="GPIO.html">GPIO</a>.</p>
 
 <p>. .</p>
 
@@ -1703,11 +1723,11 @@ user_gpio: 0-31.</pre>
 
 <p>. .</p>
 
-<p>Returns the dutycycle range used for the GPIO if OK, otherwise
-PI_BAD_USER_GPIO.</p>
+<p>Returns the dutycycle range used for the <a href="GPIO.html">GPIO</a> if
+OK, otherwise PI_BAD_USER_GPIO.</p>
 
-<p>If a hardware clock or hardware PWM is active on the GPIO the reported
-range will be 1000000 (1M).</p>
+<p>If a hardware clock or hardware <a href="PWM.html">PWM</a> is active on the
+<a href="GPIO.html">GPIO</a> the reported range will be 1000000 (1M).</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_PWM_range">pigpio
@@ -1744,7 +1764,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Get the real underlying range of PWM values being used on the GPIO.</p>
+          <p>Get the real underlying range of <a href="PWM.html">PWM</a> values being
+used on the <a href="GPIO.html">GPIO</a>.</p>
 
 <p>. .</p>
 
@@ -1753,13 +1774,15 @@ user_gpio: 0-31.</pre>
 
 <p>. .</p>
 
-<p>Returns the real range used for the GPIO if OK, otherwise PI_BAD_USER_GPIO.</p>
+<p>Returns the real range used for the <a href="GPIO.html">GPIO</a> if OK,
+otherwise PI_BAD_USER_GPIO.</p>
 
-<p>If a hardware clock is active on the GPIO the reported real range will be
-1000000 (1M).</p>
+<p>If a hardware clock is active on the <a href="GPIO.html">GPIO</a> the
+reported real range will be 1000000 (1M).</p>
 
-<p>If hardware PWM is active on the GPIO the reported real range will be
-approximately 250M divided by the set PWM frequency.</p>
+<p>If hardware <a href="PWM.html">PWM</a> is active on the <a
+href="GPIO.html">GPIO</a> the reported real range will be approximately
+250M divided by the set <a href="PWM.html">PWM</a> frequency.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_PWM_real_range">pigpio
@@ -1858,8 +1881,8 @@ site</a></p>
 <p>If the hardware revision can not be found or is not a valid hexadecimal
 number the function returns 0.</p>
 
-<p>The revision number can be used to determine the assignment of GPIO to pins
-(see [<strong>gpio</strong>]).</p>
+<p>The revision number can be used to determine the assignment of <a
+href="GPIO.html">GPIO</a> to pins (see [<strong>gpio</strong>]).</p>
 
 <p>There are at least three types of board.</p>
 
@@ -1904,7 +1927,7 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Get the GPIO mode.</p>
+          <p>Get the <a href="GPIO.html">GPIO</a> mode.</p>
 
 <p>. .</p>
 
@@ -1913,7 +1936,7 @@ gpio: 0-53.</pre>
 
 <p>. .</p>
 
-<p>Returns the GPIO mode if OK, otherwise PI_BAD_GPIO.</p>
+<p>Returns the <a href="GPIO.html">GPIO</a> mode if OK, otherwise PI_BAD_GPIO.</p>
 
 <p>See also: <a href="http://abyz.me.uk/rpi/pigpio/pdif2.html#get_mode">pigpio
 site</a></p>
@@ -2049,7 +2072,7 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Return the servo pulsewidth in use on a GPIO.</p>
+          <p>Return the servo pulsewidth in use on a <a href="GPIO.html">GPIO</a>.</p>
 
 <p>. .</p>
 
@@ -2095,7 +2118,7 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Read the GPIO level.</p>
+          <p>Read the <a href="GPIO.html">GPIO</a> level.</p>
 
 <p>. .</p>
 
@@ -2104,7 +2127,8 @@ gpio:0-53.</pre>
 
 <p>. .</p>
 
-<p>Returns the GPIO level if OK, otherwise PI_BAD_GPIO.</p>
+<p>Returns the <a href="GPIO.html">GPIO</a> level if OK, otherwise
+PI_BAD_GPIO.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#gpio_read">pigpio site</a></p>
@@ -2140,8 +2164,9 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#gpio_read">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>This function sends a trigger pulse to a GPIO.  The GPIO is set to level
-for pulseLen microseconds and then reset to not level.</p>
+          <p>This function sends a trigger pulse to a <a href="GPIO.html">GPIO</a>.  The
+<a href="GPIO.html">GPIO</a> is set to level for pulseLen microseconds and
+then reset to not level.</p>
 
 <p>. .</p>
 
@@ -2189,7 +2214,7 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#gpio_trigger">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>Write the GPIO level.</p>
+          <p>Write the <a href="GPIO.html">GPIO</a> level.</p>
 
 <p>. .</p>
 
@@ -2203,7 +2228,8 @@ level: 0, 1.</pre>
 
 <p>Notes</p>
 
-<p>If PWM or servo pulses are active on the GPIO they are switched off.</p>
+<p>If <a href="PWM.html">PWM</a> or servo pulses are active on the <a
+href="GPIO.html">GPIO</a> they are switched off.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#gpio_write">pigpio site</a></p>
@@ -2239,7 +2265,8 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#gpio_write">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>Starts hardware PWM on a GPIO at the specified frequency and dutycycle.
+          <p>Starts hardware <a href="PWM.html">PWM</a> on a <a
+href="GPIO.html">GPIO</a> at the specified frequency and dutycycle.
 Frequencies above 30MHz are unlikely to work.</p>
 
 <p>NOTE: Any waveform started by [<strong>wave_send_</strong>*] or
@@ -2261,10 +2288,12 @@ PWMduty: 0 (off) to 1000000 (1M)(fully on)</pre>
 <p>Returns 0 if OK, otherwise PI_NOT_PERMITTED, PI_BAD_GPIO, PI_NOT_HPWM_GPIO,
 PI_BAD_HPWM_DUTY, PI_BAD_HPWM_FREQ, or PI_HPWM_ILLEGAL.</p>
 
-<p>The same PWM channel is available on multiple GPIO.  The latest frequency
-and dutycycle setting will be used by all GPIO which share a PWM channel.</p>
+<p>The same <a href="PWM.html">PWM</a> channel is available on multiple <a
+href="GPIO.html">GPIO</a>.  The latest frequency and dutycycle setting will
+be used by all <a href="GPIO.html">GPIO</a> which share a <a
+href="PWM.html">PWM</a> channel.</p>
 
-<p>The GPIO must be one of the following.</p>
+<p>The <a href="GPIO.html">GPIO</a> must be one of the following.</p>
 
 <p>. .</p>
 
@@ -2324,8 +2353,8 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#hardware_PWM">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>Starts a hardware clock on a GPIO at the specified frequency. Frequencies
-above 30MHz are unlikely to work.</p>
+          <p>Starts a hardware clock on a <a href="GPIO.html">GPIO</a> at the specified
+frequency. Frequencies above 30MHz are unlikely to work.</p>
 
 <p>. .</p>
 
@@ -2338,10 +2367,11 @@ frequency: 0 (off) or 4689-250000000 (250M)</pre>
 <p>Returns 0 if OK, otherwise PI_NOT_PERMITTED, PI_BAD_GPIO, PI_NOT_HCLK_GPIO,
 PI_BAD_HCLK_FREQ,or PI_BAD_HCLK_PASS.</p>
 
-<p>The same clock is available on multiple GPIO.  The latest frequency setting
-will be used by all GPIO which share a clock.</p>
+<p>The same clock is available on multiple <a href="GPIO.html">GPIO</a>.  The
+latest frequency setting will be used by all <a href="GPIO.html">GPIO</a>
+which share a clock.</p>
 
-<p>The GPIO must be one of the following.</p>
+<p>The <a href="GPIO.html">GPIO</a> must be one of the following.</p>
 
 <p>. .</p>
 
@@ -2360,8 +2390,8 @@ will be used by all GPIO which share a clock.</p>
 <p>. .</p>
 
 <p>Access to clock 1 is protected by a password as its use will likely crash
-the Pi.  The password is given by or&#39;ing 0x5A000000 with the GPIO
-number.</p>
+the Pi.  The password is given by or&#39;ing 0x5A000000 with the <a
+href="GPIO.html">GPIO</a> number.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#hardware_clock">pigpio
@@ -3485,8 +3515,8 @@ handle: 0-31 (as returned by [*notify_open*])
 
 <p>Returns 0 if OK, otherwise PI_BAD_HANDLE.</p>
 
-<p>The notification sends state changes for each GPIO whose corresponding bit
-in bits is set.</p>
+<p>The notification sends state changes for each <a href="GPIO.html">GPIO</a>
+whose corresponding bit in bits is set.</p>
 
 <p>Each notification occupies 12 bytes in the fifo as follows:</p>
 
@@ -3508,7 +3538,7 @@ one for each report.</p>
 and PI_NTFY_FLAGS_EVENT.</p>
 
 <p>If bit 5 is set (PI_NTFY_FLAGS_WDOG) then bits 0-4 of the flags indicate a
-GPIO which has had a watchdog timeout.</p>
+<a href="GPIO.html">GPIO</a> which has had a watchdog timeout.</p>
 
 <p>If bit 6 is set (PI_NTFY_FLAGS_ALIVE) this indicates a keep alive signal on
 the pipe/socket and is sent once a minute in the absence of other
@@ -3520,8 +3550,8 @@ an event which has been triggered.</p>
 <p>tick: the number of microseconds since system boot.  It wraps around after
 1h12m.</p>
 
-<p>level: indicates the level of each GPIO.  If bit 1&lt;&lt;x is set then
-GPIO x is high.</p>
+<p>level: indicates the level of each <a href="GPIO.html">GPIO</a>.  If bit
+1&lt;&lt;x is set then <a href="GPIO.html">GPIO</a> x is high.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#notify_begin">pigpio site</a></p>
@@ -3614,8 +3644,8 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#notify_close">pigpio site</a></p>
 <p>Returns a handle greater than or equal to zero if OK, otherwise
 PI_NO_HANDLE.</p>
 
-<p>A notification is a method for being notified of GPIO state changes via a
-pipe.</p>
+<p>A notification is a method for being notified of <a
+href="GPIO.html">GPIO</a> state changes via a pipe.</p>
 
 <p>Pipes are only accessible from the local machine so this function serves no
 purpose if you are using the library from a remote machine. The in-built
@@ -3771,8 +3801,8 @@ portStr: specifies the port address used by the Pi running the
 
 <p>Returns an integer value greater than or equal to zero if OK.</p>
 
-<p>This value is passed to the GPIO routines to specify the Pi to be operated
-on.</p>
+<p>This value is passed to the <a href="GPIO.html">GPIO</a> routines to
+specify the Pi to be operated on.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#pigpio_start">pigpio site</a></p>
@@ -3824,7 +3854,7 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#pigpio_stop">pigpio site</a></p>
 
           
           <div class="method-source-code" id="pigpio_stop-source">
-            <pre>VALUE pigpio_rbfn_pigpio_stop(VALUE pi){</pre>
+            <pre>VALUE pigpio_rbfn_pigpio_stop(VALUE self,VALUE pi){</pre>
           </div>
           
         </div>
@@ -3888,7 +3918,7 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Read the levels of the bank 1 GPIO (GPIO 0-31).</p>
+          <p>Read the levels of the bank 1 <a href="GPIO.html">GPIO</a> (GPIO 0-31).</p>
 
 <p>. .</p>
 
@@ -3896,8 +3926,9 @@ site</a></p>
 
 <p>. .</p>
 
-<p>The returned 32 bit integer has a bit set if the corresponding GPIO is
-logic 1.  GPIO n has bit value (1&lt;&lt;n).</p>
+<p>The returned 32 bit integer has a bit set if the corresponding <a
+href="GPIO.html">GPIO</a> is logic 1.  <a href="GPIO.html">GPIO</a> n has
+bit value (1&lt;&lt;n).</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#read_bank_1">pigpio site</a></p>
@@ -3933,7 +3964,7 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#read_bank_1">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>Read the levels of the bank 2 GPIO (GPIO 32-53).</p>
+          <p>Read the levels of the bank 2 <a href="GPIO.html">GPIO</a> (GPIO 32-53).</p>
 
 <p>. .</p>
 
@@ -3941,8 +3972,9 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#read_bank_1">pigpio site</a></p>
 
 <p>. .</p>
 
-<p>The returned 32 bit integer has a bit set if the corresponding GPIO is
-logic 1.  GPIO n has bit value (1&lt;&lt;(n-32)).</p>
+<p>The returned 32 bit integer has a bit set if the corresponding <a
+href="GPIO.html">GPIO</a> is logic 1.  <a href="GPIO.html">GPIO</a> n has
+bit value (1&lt;&lt;(n-32)).</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#read_bank_2">pigpio site</a></p>
@@ -4442,7 +4474,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Start (non-zero dutycycle) or stop (0) PWM pulses on the GPIO.</p>
+          <p>Start (non-zero dutycycle) or stop (0) <a href="PWM.html">PWM</a> pulses on
+the <a href="GPIO.html">GPIO</a>.</p>
 
 <p>. .</p>
 
@@ -4493,7 +4526,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Set the frequency (in Hz) of the PWM to be used on the GPIO.</p>
+          <p>Set the frequency (in Hz) of the <a href="PWM.html">PWM</a> to be used on
+the <a href="GPIO.html">GPIO</a>.</p>
 
 <p>. .</p>
 
@@ -4506,10 +4540,12 @@ frequency: &gt;=0 (Hz).</pre>
 <p>Returns the numerically closest frequency if OK, otherwise PI_BAD_USER_GPIO
 or PI_NOT_PERMITTED.</p>
 
-<p>If PWM is currently active on the GPIO it will be switched off and then
-back on at the new frequency.</p>
+<p>If <a href="PWM.html">PWM</a> is currently active on the <a
+href="GPIO.html">GPIO</a> it will be switched off and then back on at the
+new frequency.</p>
 
-<p>Each GPIO can be independently set to one of 18 different PWM frequencies.</p>
+<p>Each <a href="GPIO.html">GPIO</a> can be independently set to one of 18
+different <a href="PWM.html">PWM</a> frequencies.</p>
 
 <p>The selectable frequencies depend upon the sample rate which may be 1, 2,
 4, 5, 8, or 10 microseconds (default 5).  The sample rate is set when the
@@ -4577,7 +4613,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Set the range of PWM values to be used on the GPIO.</p>
+          <p>Set the range of <a href="PWM.html">PWM</a> values to be used on the <a
+href="GPIO.html">GPIO</a>.</p>
 
 <p>. .</p>
 
@@ -4592,11 +4629,12 @@ PI_NOT_PERMITTED.</p>
 
 <p>Notes</p>
 
-<p>If PWM is currently active on the GPIO its dutycycle will be scaled to
-reflect the new range.</p>
+<p>If <a href="PWM.html">PWM</a> is currently active on the <a
+href="GPIO.html">GPIO</a> its dutycycle will be scaled to reflect the new
+range.</p>
 
 <p>The real range, the number of steps between fully off and fully on for each
-of the 18 available GPIO frequencies is</p>
+of the 18 available <a href="GPIO.html">GPIO</a> frequencies is</p>
 
 <p>. .</p>
 
@@ -4645,7 +4683,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Sets GPIO 0-31 if the corresponding bit in bits is set.</p>
+          <p>Sets <a href="GPIO.html">GPIO</a> 0-31 if the corresponding bit in bits is
+set.</p>
 
 <p>. .</p>
 
@@ -4658,7 +4697,7 @@ bits: a bit mask with 1 set if the corresponding GPIO is
 <p>Returns 0 if OK, otherwise PI_SOME_PERMITTED.</p>
 
 <p>A status of PI_SOME_PERMITTED indicates that the user is not allowed to
-write to one or more of the GPIO.</p>
+write to one or more of the <a href="GPIO.html">GPIO</a>.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_bank_1">pigpio site</a></p>
@@ -4694,7 +4733,8 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_bank_1">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>Sets GPIO 32-53 if the corresponding bit (0-21) in bits is set.</p>
+          <p>Sets <a href="GPIO.html">GPIO</a> 32-53 if the corresponding bit (0-21) in
+bits is set.</p>
 
 <p>. .</p>
 
@@ -4707,7 +4747,7 @@ bits: a bit mask with 1 set if the corresponding GPIO is
 <p>Returns 0 if OK, otherwise PI_SOME_PERMITTED.</p>
 
 <p>A status of PI_SOME_PERMITTED indicates that the user is not allowed to
-write to one or more of the GPIO.</p>
+write to one or more of the <a href="GPIO.html">GPIO</a>.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_bank_2">pigpio site</a></p>
@@ -4743,11 +4783,11 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_bank_2">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>Sets a glitch filter on a GPIO.</p>
+          <p>Sets a glitch filter on a <a href="GPIO.html">GPIO</a>.</p>
 
-<p>Level changes on the GPIO are not reported unless the level has been stable
-for at least [<strong>steady</strong>] microseconds.  The level is then
-reported.  Level changes of less than</p>
+<p>Level changes on the <a href="GPIO.html">GPIO</a> are not reported unless
+the level has been stable for at least [<strong>steady</strong>]
+microseconds.  The level is then reported.  Level changes of less than</p>
 <dl class="rdoc-list label-list"><dt><strong>steady</strong>
 <dd>
 <p>microseconds are ignored.</p>
@@ -4763,9 +4803,9 @@ user_gpio: 0-31
 
 <p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, or PI_BAD_FILTER.</p>
 
-<p>This filter affects the GPIO samples returned to callbacks set up with
-[<strong>callback</strong>], [<strong>callback_ex</strong>] and
-[<strong>wait_for_edge</strong>].</p>
+<p>This filter affects the <a href="GPIO.html">GPIO</a> samples returned to
+callbacks set up with [<strong>callback</strong>],
+[<strong>callback_ex</strong>] and [<strong>wait_for_edge</strong>].</p>
 
 <p>It does not affect levels read by [<strong>gpio_read</strong>],
 [<strong>read_bank_1</strong>], or [<strong>read_bank_2</strong>].</p>
@@ -4808,7 +4848,7 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Set the GPIO mode.</p>
+          <p>Set the <a href="GPIO.html">GPIO</a> mode.</p>
 
 <p>. .</p>
 
@@ -4855,12 +4895,13 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Sets a noise filter on a GPIO.</p>
+          <p>Sets a noise filter on a <a href="GPIO.html">GPIO</a>.</p>
 
-<p>Level changes on the GPIO are ignored until a level which has been stable
-for [<strong>steady</strong>] microseconds is detected.  Level changes on
-the GPIO are then reported for [<strong>active</strong>] microseconds after
-which the process repeats.</p>
+<p>Level changes on the <a href="GPIO.html">GPIO</a> are ignored until a level
+which has been stable for [<strong>steady</strong>] microseconds is
+detected.  Level changes on the <a href="GPIO.html">GPIO</a> are then
+reported for [<strong>active</strong>] microseconds after which the process
+repeats.</p>
 
 <p>. .</p>
 
@@ -4873,9 +4914,9 @@ user_gpio: 0-31
 
 <p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, or PI_BAD_FILTER.</p>
 
-<p>This filter affects the GPIO samples returned to callbacks set up with
-[<strong>callback</strong>], [<strong>callback_ex</strong>] and
-[<strong>wait_for_edge</strong>].</p>
+<p>This filter affects the <a href="GPIO.html">GPIO</a> samples returned to
+callbacks set up with [<strong>callback</strong>],
+[<strong>callback_ex</strong>] and [<strong>wait_for_edge</strong>].</p>
 
 <p>It does not affect levels read by [<strong>gpio_read</strong>],
 [<strong>read_bank_1</strong>], or [<strong>read_bank_2</strong>].</p>
@@ -4976,7 +5017,7 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Set or clear the GPIO pull-up/down resistor.</p>
+          <p>Set or clear the <a href="GPIO.html">GPIO</a> pull-up/down resistor.</p>
 
 <p>. .</p>
 
@@ -5023,7 +5064,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Start (500-2500) or stop (0) servo pulses on the GPIO.</p>
+          <p>Start (500-2500) or stop (0) servo pulses on the <a
+href="GPIO.html">GPIO</a>.</p>
 
 <p>. .</p>
 
@@ -5048,7 +5090,8 @@ represents the mid-point of rotation.</p>
 <p>OTHER UPDATE RATES:</p>
 
 <p>This function updates servos at 50Hz.  If you wish to use a different
-update frequency you will have to use the PWM functions.</p>
+update frequency you will have to use the <a href="PWM.html">PWM</a>
+functions.</p>
 
 <p>. .</p>
 
@@ -5057,14 +5100,15 @@ update frequency you will have to use the PWM functions.</p>
 
 <p>. .</p>
 
-<p>Firstly set the desired PWM frequency using
+<p>Firstly set the desired <a href="PWM.html">PWM</a> frequency using
 [<strong>set_PWM_frequency</strong>].</p>
 
-<p>Then set the PWM range using [<strong>set_PWM_range</strong>] to 1E6/Hz.
-Doing this allows you to use units of microseconds when setting the servo
-pulsewidth.</p>
+<p>Then set the <a href="PWM.html">PWM</a> range using
+[<strong>set_PWM_range</strong>] to 1E6/Hz. Doing this allows you to use
+units of microseconds when setting the servo pulsewidth.</p>
 
-<p>E.g. If you want to update a servo connected to GPIO 25 at 400Hz</p>
+<p>E.g. If you want to update a servo connected to <a
+href="GPIO.html">GPIO</a> 25 at 400Hz</p>
 
 <p>. .</p>
 
@@ -5114,7 +5158,7 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>Sets a watchdog for a GPIO.</p>
+          <p>Sets a watchdog for a <a href="GPIO.html">GPIO</a>.</p>
 
 <p>. .</p>
 
@@ -5128,12 +5172,13 @@ user_gpio: 0-31.
 
 <p>The watchdog is nominally in milliseconds.</p>
 
-<p>Only one watchdog may be registered per GPIO.</p>
+<p>Only one watchdog may be registered per <a href="GPIO.html">GPIO</a>.</p>
 
 <p>The watchdog may be cancelled by setting timeout to 0.</p>
 
-<p>Once a watchdog has been started callbacks for the GPIO will be triggered
-every timeout interval after the last GPIO activity.</p>
+<p>Once a watchdog has been started callbacks for the <a
+href="GPIO.html">GPIO</a> will be triggered every timeout interval after
+the last <a href="GPIO.html">GPIO</a> activity.</p>
 
 <p>The callback will receive the special level PI_TIMEOUT.</p>
 
@@ -5261,7 +5306,8 @@ PI_BAD_SPI_SPEED, PI_BAD_FLAGS, PI_NO_AUX_SPI, or PI_SPI_OPEN_FAILED.</p>
 
 <p>px is 0 if CEx is active low (default) and 1 for active high.</p>
 
-<p>ux is 0 if the CEx GPIO is reserved for SPI (default) and 1 otherwise.</p>
+<p>ux is 0 if the CEx <a href="GPIO.html">GPIO</a> is reserved for SPI
+(default) and 1 otherwise.</p>
 
 <p>A is 0 for the standard SPI device, 1 for the auxiliary SPI.</p>
 
@@ -5626,7 +5672,8 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#time_time">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>This function waits for an edge on the GPIO for up to timeout seconds.</p>
+          <p>This function waits for an edge on the <a href="GPIO.html">GPIO</a> for up
+to timeout seconds.</p>
 
 <p>. .</p>
 
@@ -5641,7 +5688,8 @@ user_gpio: 0-31.
 
 <p>Do not use this function for precise timing purposes, the edge is only
 checked 20 times a second. Whenever you need to know the accurate time of
-GPIO events use a [<strong>callback</strong>] function.</p>
+<a href="GPIO.html">GPIO</a> events use a [<strong>callback</strong>]
+function.</p>
 
 <p>The function returns 1 if the edge occurred, otherwise 0.</p>
 
@@ -5913,8 +5961,8 @@ site</a></p>
           
           <p>This function transmits a chain of waveforms.</p>
 
-<p>NOTE: Any hardware PWM started by [<strong>hardware_PWM</strong>] will be
-cancelled.</p>
+<p>NOTE: Any hardware <a href="PWM.html">PWM</a> started by
+[<strong>hardware_PWM</strong>] will be cancelled.</p>
 
 <p>The waves to be transmitted are specified by the contents of buf which
 contains an ordered list of [<strong>wave_id</strong>]s and optional
@@ -6074,9 +6122,9 @@ PIGPIO::Pulse class.</p>
 
 <p>The fields specify</p>
 
-<p>1) the GPIO to be switched on at the start of the pulse.  2) the GPIO to be
-switched off at the start of the pulse.  3) the delay in microseconds
-before the next pulse.</p>
+<p>1) the <a href="GPIO.html">GPIO</a> to be switched on at the start of the
+pulse.  2) the <a href="GPIO.html">GPIO</a> to be switched off at the start
+of the pulse.  3) the delay in microseconds before the next pulse.</p>
 
 <p>Any or all the fields can be zero.  It doesn&#39;t make any sense to set
 all the fields to zero (the pulse will be ignored).</p>
@@ -6563,8 +6611,8 @@ site</a></p>
           <p>This function transmits the waveform with id wave_id.  The waveform is sent
 once.</p>
 
-<p>NOTE: Any hardware PWM started by [<strong>hardware_PWM</strong>] will be
-cancelled.</p>
+<p>NOTE: Any hardware <a href="PWM.html">PWM</a> started by
+[<strong>hardware_PWM</strong>] will be cancelled.</p>
 
 <p>. .</p>
 
@@ -6615,8 +6663,8 @@ site</a></p>
 until cancelled (either by the sending of a new waveform or by
 [<strong>wave_tx_stop</strong>]).</p>
 
-<p>NOTE: Any hardware PWM started by [<strong>hardware_PWM</strong>] will be
-cancelled.</p>
+<p>NOTE: Any hardware <a href="PWM.html">PWM</a> started by
+[<strong>hardware_PWM</strong>] will be cancelled.</p>
 
 <p>. .</p>
 
@@ -6686,8 +6734,8 @@ tries to sync with the previous waveform.</p>
 <p>WARNING: bad things may happen if you delete the previous waveform before
 it has been synced to the new waveform.</p>
 
-<p>NOTE: Any hardware PWM started by [<strong>hardware_PWM</strong>] will be
-cancelled.</p>
+<p>NOTE: Any hardware <a href="PWM.html">PWM</a> started by
+[<strong>hardware_PWM</strong>] will be cancelled.</p>
 
 <p>Returns the number of DMA control blocks in the waveform if OK, otherwise
 PI_BAD_WAVE_ID, or PI_BAD_WAVE_MODE.</p>

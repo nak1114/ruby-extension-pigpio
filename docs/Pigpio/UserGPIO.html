@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Pigpio::UserGPIO - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="GPIO.html">Pigpio::GPIO</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-callback">#callback</a>
+    
+    <li ><a href="#method-i-cancel_callback">#cancel_callback</a>
+    
+    <li ><a href="#method-i-glitch_filter">#glitch_filter</a>
+    
+    <li ><a href="#method-i-noise_filter">#noise_filter</a>
+    
+    <li ><a href="#method-i-pwm">#pwm</a>
+    
+    <li ><a href="#method-i-trigger">#trigger</a>
+    
+    <li ><a href="#method-i-wait_for_edge">#wait_for_edge</a>
+    
+    <li ><a href="#method-i-watchdog">#watchdog</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Pigpio::UserGPIO">
+  <h1 id="class-Pigpio::UserGPIO" class="class">
+    class Pigpio::UserGPIO
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-callback" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">callback</span><span
+            class="method-args">(edge,&blk)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="callback-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">callback</span>(<span class="ruby-identifier">edge</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>)
+  <span class="ruby-ivar">@cid</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">callback</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">edge</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cancel_callback" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cancel_callback</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cancel_callback-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cancel_callback</span>
+  <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">callback_cancel</span>(<span class="ruby-ivar">@cid</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@cid</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@cid</span> <span class="ruby-operator">&gt;=</span><span class="ruby-value">0</span>
+  <span class="ruby-ivar">@cid</span>=<span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">ret</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-glitch_filter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">glitch_filter</span><span
+            class="method-args">(steady)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="glitch_filter-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">glitch_filter</span>(<span class="ruby-identifier">steady</span>)
+  <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_glitch_filter</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">steady</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-noise_filter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">noise_filter</span><span
+            class="method-args">(steady,active)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="noise_filter-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">noise_filter</span>(<span class="ruby-identifier">steady</span>,<span class="ruby-identifier">active</span>)
+  <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_noise_filter</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">steady</span>,<span class="ruby-identifier">active</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pwm" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pwm</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pwm-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pwm</span>
+  <span class="ruby-constant">PWM</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-trigger" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">trigger</span><span
+            class="method-args">(pulseLen,level)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="trigger-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">trigger</span>(<span class="ruby-identifier">pulseLen</span>,<span class="ruby-identifier">level</span>)
+  <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">gpio_trigger</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">pulseLen</span>,<span class="ruby-identifier">level</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-wait_for_edge" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wait_for_edge</span><span
+            class="method-args">(edge,timeout)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="wait_for_edge-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wait_for_edge</span>(<span class="ruby-identifier">edge</span>,<span class="ruby-identifier">timeout</span>)
+  <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">wait_for_edge</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">edge</span>,<span class="ruby-identifier">timeout</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-watchdog" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">watchdog</span><span
+            class="method-args">(timeout)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="watchdog-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">watchdog</span>(<span class="ruby-identifier">timeout</span>)
+  <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_watchdog</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">timeout</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
