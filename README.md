@@ -1,12 +1,17 @@
 # Pigpio
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pigpio`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem is a ruby binding to a [pigpio library](http://abyz.me.uk/rpi/pigpio/).
 
 ## Installation
 
-Add this line to your application's Gemfile:
+First, install pigpio libary.
+
+```sh
+$ sudo apt-get update
+$ sudo apt-get install pigpio
+```
+
+Next, add this line to your application's Gemfile:
 
 ```ruby
 gem 'pigpio'
@@ -18,9 +23,17 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install pigpio
+    $ sudo gem install pigpio
 
 ## Usage
+
+First, start pigpio deamon.
+
+```sh
+$ sudo pigpiod
+```
+
+![board](./docs/image.svg)
 
 TODO: Write usage instructions here
 
