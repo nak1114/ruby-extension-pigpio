@@ -27,15 +27,39 @@ Or install it yourself as:
 
 ## Usage
 
-First, start pigpio deamon.
+First, create a circuit.
 
-```sh
-$ sudo pigpiod
+![board](./example/simple/board.svg)
+
+Next, write a script.
+
+```ruby
+require "pigpio"
+include Pigpio::Constant
+
+pi=Pigpio.new
+unless pi.connect
+  exit -1
+end
+
+led = pi.gpio(4)
+led.mode = PI_OUTPUT
+led.pud = PI_PUD_OFF
+3.times do |i|
+  led.write 1
+  sleep 1
+  led.write 0
+  sleep 1
+end
 ```
 
-![board](./docs/image.svg)
+Then, run deamon and script.
+```sh
+$ sudo pigpiod
+$ ruby example_led.rb
+```
 
-TODO: Write usage instructions here
+More sample for this circuit. : [Hare](./example/simple/readme.md)
 
 More document : [GitHub Pages](https://nak1114.github.io/ruby-extension-pigpio/)
 

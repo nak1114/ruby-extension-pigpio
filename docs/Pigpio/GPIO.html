@@ -82,7 +82,7 @@
     
     <li ><a href="#method-i-mode-3D">#mode=</a>
     
-    <li ><a href="#method-i-pud">#pud</a>
+    <li ><a href="#method-i-pud-3D">#pud=</a>
     
     <li ><a href="#method-i-read">#read</a>
     
@@ -141,7 +141,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 2</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 3</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pi</span>,<span class="ruby-identifier">gpio</span>)
   <span class="ruby-ivar">@pi</span>=<span class="ruby-identifier">pi</span> <span class="ruby-comment">#0-15</span>
   <span class="ruby-ivar">@gpio</span>=<span class="ruby-identifier">gpio</span> <span class="ruby-comment">#0-53</span>
@@ -183,7 +183,7 @@
 
           
           <div class="method-source-code" id="gpio-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 6</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">gpio</span>
   [<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -216,7 +216,7 @@
 
           
           <div class="method-source-code" id="hardware_PWM-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 27</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">hardware_PWM</span>(<span class="ruby-identifier">vPWMfreq</span>,<span class="ruby-identifier">vPWMduty</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">hardware_PWM</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">vPWMfreq</span>,<span class="ruby-identifier">vPWMduty</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -249,7 +249,7 @@
 
           
           <div class="method-source-code" id="hardware_clock-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 24</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">hardware_clock</span>(<span class="ruby-identifier">clkfreq</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">hardware_clock</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">clkfreq</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -282,7 +282,7 @@
 
           
           <div class="method-source-code" id="mode-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 12</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">mode</span>
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_mode</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -315,7 +315,7 @@
 
           
           <div class="method-source-code" id="mode-3D-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 9</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">mode=</span>(<span class="ruby-identifier">mode</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_mode</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">mode</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -329,10 +329,10 @@
       </div>
 
     
-      <div id="method-i-pud" class="method-detail ">
+      <div id="method-i-pud-3D" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">pud</span><span
+          <span class="method-name">pud=</span><span
             class="method-args">(pud)</span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -347,9 +347,9 @@
           
 
           
-          <div class="method-source-code" id="pud-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 15</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">pud</span>(<span class="ruby-identifier">pud</span>)
+          <div class="method-source-code" id="pud-3D-source">
+            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pud=</span>(<span class="ruby-identifier">pud</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_pull_up_down</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">pud</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -381,7 +381,7 @@
 
           
           <div class="method-source-code" id="read-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 18</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">read</span>
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">gpio_read</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -414,7 +414,7 @@
 
           
           <div class="method-source-code" id="write-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 21</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">write</span>(<span class="ruby-identifier">level</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">gpio_write</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">level</span>)
 <span class="ruby-keyword">end</span></pre>

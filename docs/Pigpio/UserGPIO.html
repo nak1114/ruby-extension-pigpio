@@ -137,7 +137,7 @@
 
           
           <div class="method-source-code" id="callback-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 12</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">callback</span>(<span class="ruby-identifier">edge</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>)
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">callback</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">edge</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -170,7 +170,7 @@
 
           
           <div class="method-source-code" id="glitch_filter-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 6</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">glitch_filter</span>(<span class="ruby-identifier">steady</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_glitch_filter</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">steady</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -203,7 +203,7 @@
 
           
           <div class="method-source-code" id="noise_filter-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 9</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">noise_filter</span>(<span class="ruby-identifier">steady</span>,<span class="ruby-identifier">active</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_noise_filter</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">steady</span>,<span class="ruby-identifier">active</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -236,7 +236,7 @@
 
           
           <div class="method-source-code" id="pwm-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 21</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 22</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">pwm</span>
   <span class="ruby-constant">PWM</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -269,7 +269,7 @@
 
           
           <div class="method-source-code" id="trigger-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 18</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">trigger</span>(<span class="ruby-identifier">pulseLen</span>,<span class="ruby-identifier">level</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">gpio_trigger</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">pulseLen</span>,<span class="ruby-identifier">level</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -302,7 +302,7 @@
 
           
           <div class="method-source-code" id="wait_for_edge-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 15</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 16</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">wait_for_edge</span>(<span class="ruby-identifier">edge</span>,<span class="ruby-identifier">timeout</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">wait_for_edge</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">edge</span>,<span class="ruby-identifier">timeout</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -335,7 +335,7 @@
 
           
           <div class="method-source-code" id="watchdog-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 3</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 4</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">watchdog</span>(<span class="ruby-identifier">timeout</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_watchdog</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">timeout</span>)
 <span class="ruby-keyword">end</span></pre>

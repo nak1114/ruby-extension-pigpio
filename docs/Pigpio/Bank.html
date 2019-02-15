@@ -145,7 +145,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/bank.rb, line 7</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/bank.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pi</span>,<span class="ruby-identifier">num</span>)
   <span class="ruby-ivar">@pi</span>=<span class="ruby-identifier">pi</span>
   <span class="ruby-ivar">@num</span>=<span class="ruby-identifier">num</span>
@@ -187,7 +187,7 @@
 
           
           <div class="method-source-code" id="clear-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/bank.rb, line 14</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/bank.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">clear</span>(<span class="ruby-identifier">bits</span>)
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Set</span>[<span class="ruby-value">:clear</span>][<span class="ruby-ivar">@num</span>],<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">bits</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -220,7 +220,7 @@
 
           
           <div class="method-source-code" id="read-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/bank.rb, line 11</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/bank.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">read</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Set</span>[<span class="ruby-value">:read</span>][<span class="ruby-ivar">@num</span>],<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -253,7 +253,7 @@
 
           
           <div class="method-source-code" id="set-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/bank.rb, line 17</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/bank.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">set</span>(<span class="ruby-identifier">bits</span>)
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Set</span>[<span class="ruby-value">:set</span>][<span class="ruby-ivar">@num</span>],<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">bits</span>)
 <span class="ruby-keyword">end</span></pre>
