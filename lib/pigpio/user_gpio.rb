@@ -10,12 +10,7 @@ class ::Pigpio::UserGPIO < ::Pigpio::GPIO
     ret=IF.set_noise_filter(@pi,@gpio,steady,active)
   end
   def callback(edge,&blk)
-    @cid=IF.callback(@pi,@gpio,edge,&blk)
-  end
-  def cancel_callback
-    ret=IF.callback_cancel(@cid) if @cid && @cid >=0
-    @cid=nil
-    ret
+    IF.callback(@pi,@gpio,edge,&blk)
   end
   def wait_for_edge(edge,timeout)
     ret=IF.wait_for_edge(@pi,@gpio,edge,timeout)
