@@ -88,6 +88,49 @@ uint32_t get_pigpio_version(int pi){
   return reti;
 }
 
+//GPIO
+int set_mode(int pi, unsigned gpio, unsigned mode){
+  int reti;
+  pargs("set_mode : %d,%u,%u\n",pi,gpio,mode);
+  sscanf(flie_lines(),"%d",&reti);
+  return reti;
+}
+int get_mode(int pi, unsigned gpio){
+  int reti;
+  pargs("getget_mode_hardware_revision : %d,%u,%u\n",pi,gpio);
+  sscanf(flie_lines(),"%d",&reti);
+  return reti;
+}
+int set_pull_up_down(int pi, unsigned gpio, unsigned pud){
+  int reti;
+  pargs("set_pull_up_down : %d,%u,%u\n",pi,gpio,pud);
+  sscanf(flie_lines(),"%d",&reti);
+  return reti;
+}
+int gpio_read(int pi, unsigned gpio){
+  int reti;
+  pargs("get_hardware_revision : %d,%u,%u\n",pi,gpio);
+  sscanf(flie_lines(),"%d",&reti);
+  return reti;
+}
+int gpio_write(int pi, unsigned gpio, unsigned level){
+  int reti;
+  pargs("get_hardware_revision : %d,%u,%u\n",pi,gpio,level);
+  sscanf(flie_lines(),"%d",&reti);
+  return reti;
+}
+int hardware_clock(int pi, unsigned gpio, unsigned clkfreq){
+  int reti;
+  pargs("get_hardware_revision : %d,%u,%u\n",pi,gpio,clkfreq);
+  sscanf(flie_lines(),"%d",&reti);
+  return reti;
+}
+int hardware_PWM(int pi, unsigned gpio, unsigned PWMfreq, uint32_t PWMduty){
+  int reti;
+  pargs("get_hardware_revision : %d,%u,%u,%lu\n",pi,gpio,PWMfreq,PWMduty);
+  sscanf(flie_lines(),"%d",&reti);
+  return reti;
+}
 //Bank
 uint32_t read_bank_1(int pi){return 123;}
 uint32_t read_bank_2(int pi){return 123;}
@@ -95,14 +138,6 @@ int clear_bank_1(int pi, uint32_t bits){return 123;}
 int clear_bank_2(int pi, uint32_t bits){return 123;}
 int set_bank_1(int pi, uint32_t bits){return 123;}
 int set_bank_2(int pi, uint32_t bits){return 123;}
-//GPIO
-int set_mode(int pi, unsigned gpio, unsigned mode){return 123;}
-int get_mode(int pi, unsigned gpio){return 123;}
-int set_pull_up_down(int pi, unsigned gpio, unsigned pud){return 123;}
-int gpio_read(int pi, unsigned gpio){return 123;}
-int gpio_write(int pi, unsigned gpio, unsigned level){return 123;}
-int hardware_clock(int pi, unsigned gpio, unsigned clkfreq){return 123;}
-int hardware_PWM(int pi, unsigned gpio, unsigned PWMfreq, uint32_t PWMduty){return 123;}
 //UserGPIO
 int set_watchdog(int pi, unsigned user_gpio, unsigned timeout){return 123;}
 int set_glitch_filter(int pi, unsigned user_gpio, unsigned steady){return 123;}
