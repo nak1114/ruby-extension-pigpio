@@ -17,6 +17,9 @@ class Pigpio
   def connect
     @pi>=0
   end
+  def pi
+    @pi
+  end
   def stop
     IF.pigpio_stop(@pi)
     @pi=-1
