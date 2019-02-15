@@ -4,7 +4,7 @@ class Pigpio::GPIO
     @gpio=gpio #0-53
   end
   def gpio
-    @gpio
+    [@pi,@gpio]
   end
   def mode=(mode)
     ret=IF.set_mode(@pi,@gpio,mode)
