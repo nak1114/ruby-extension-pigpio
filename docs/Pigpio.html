@@ -82,6 +82,8 @@
     
     <li ><a href="#method-i-hardware_revision">#hardware_revision</a>
     
+    <li ><a href="#method-i-pi">#pi</a>
+    
     <li ><a href="#method-i-pigpio_version">#pigpio_version</a>
     
     <li ><a href="#method-i-stop">#stop</a>
@@ -155,7 +157,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 6</span>
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">addr</span>=<span class="ruby-keyword">nil</span>,<span class="ruby-identifier">port</span>=<span class="ruby-keyword">nil</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>)
   <span class="ruby-ivar">@pi</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">pigpio_start</span>(<span class="ruby-identifier">addr</span>,<span class="ruby-identifier">port</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">blk</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">connect</span>
@@ -200,7 +202,7 @@
 
           
           <div class="method-source-code" id="bank-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 49</span>
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">bank</span>(<span class="ruby-identifier">num</span>)
   <span class="ruby-constant">Bank</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">num</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -233,7 +235,7 @@
 
           
           <div class="method-source-code" id="connect-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 13</span>
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">connect</span>
   <span class="ruby-ivar">@pi</span><span class="ruby-operator">&gt;=</span><span class="ruby-value">0</span>
 <span class="ruby-keyword">end</span></pre>
@@ -266,7 +268,7 @@
 
           
           <div class="method-source-code" id="current_tick-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 20</span>
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">current_tick</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_current_tick</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -299,7 +301,7 @@
 
           
           <div class="method-source-code" id="gpio-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 54</span>
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">gpio</span>(<span class="ruby-identifier">gpio</span>)
   (<span class="ruby-identifier">gpio</span><span class="ruby-operator">&lt;</span><span class="ruby-value">32</span> <span class="ruby-operator">?</span> <span class="ruby-constant">UserGPIO</span> <span class="ruby-operator">:</span> <span class="ruby-constant">GPIO</span>).<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">gpio</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -332,9 +334,42 @@
 
           
           <div class="method-source-code" id="hardware_revision-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 23</span>
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">hardware_revision</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_hardware_revision</span>(<span class="ruby-ivar">@pi</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pi" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pi</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pi-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pi</span>
+  <span class="ruby-ivar">@pi</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -365,7 +400,7 @@
 
           
           <div class="method-source-code" id="pigpio_version-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 26</span>
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 33</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">pigpio_version</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_pigpio_version</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -398,7 +433,7 @@
 
           
           <div class="method-source-code" id="stop-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 16</span>
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">stop</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">pigpio_stop</span>(<span class="ruby-ivar">@pi</span>)
   <span class="ruby-ivar">@pi</span>=<span class="ruby-value">-1</span>

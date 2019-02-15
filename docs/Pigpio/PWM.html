@@ -143,7 +143,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 116</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 2</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pi</span>,<span class="ruby-identifier">gpio</span>)
   <span class="ruby-ivar">@pi</span>=<span class="ruby-identifier">pi</span>
   <span class="ruby-ivar">@gpio</span>=<span class="ruby-identifier">gpio</span>
@@ -185,7 +185,7 @@
 
           
           <div class="method-source-code" id="dutycycle-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 123</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">dutycycle</span>
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_PWM_dutycycle</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -218,7 +218,7 @@
 
           
           <div class="method-source-code" id="dutycycle-3D-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 120</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">dutycycle=</span>(<span class="ruby-identifier">dutycycle</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_PWM_dutycycle</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">dutycycle</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -251,7 +251,7 @@
 
           
           <div class="method-source-code" id="frequency-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 138</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">frequency</span>
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_PWM_frequency</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -284,7 +284,7 @@
 
           
           <div class="method-source-code" id="frequency-3D-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 135</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">frequency=</span>(<span class="ruby-identifier">frequency</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_PWM_frequency</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">frequency</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -317,7 +317,7 @@
 
           
           <div class="method-source-code" id="range-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 129</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">range</span>
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_PWM_range</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -350,7 +350,7 @@
 
           
           <div class="method-source-code" id="range-3D-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 126</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">range=</span>(<span class="ruby-identifier">range</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_PWM_range</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">range</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -383,7 +383,7 @@
 
           
           <div class="method-source-code" id="real_range-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 132</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">real_range</span>
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_PWM_real_range</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -416,7 +416,7 @@
 
           
           <div class="method-source-code" id="servo_pulsewidth-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 144</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">servo_pulsewidth</span>
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_servo_pulsewidth</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -449,7 +449,7 @@
 
           
           <div class="method-source-code" id="servo_pulsewidth-3D-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 141</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">servo_pulsewidth=</span>(<span class="ruby-identifier">pulsewidth</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_servo_pulsewidth</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">pulsewidth</span>)
 <span class="ruby-keyword">end</span></pre>
