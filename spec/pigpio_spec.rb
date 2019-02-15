@@ -43,6 +43,9 @@ RSpec.describe Pigpio do
   end
 end
 RSpec.describe Pigpio::IF do
+  before do
+    Pigpio::IF.time_time
+  end
   it "error code" do
     read_args
     write_seq "dummy_return"
