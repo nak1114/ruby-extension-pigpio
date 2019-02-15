@@ -1893,7 +1893,7 @@ GPIO has the identified edge.
 . .
 
 :call-seq:
- callback(Integer pi,Integer user_gpio, Integer edge){|tick,level,user_gpio| } -> Pigpio::CallbackID
+ callback(Integer pi,Integer user_gpio, Integer edge){|tick,level,user_gpio| } -> Pigpio::Callback
 
 If you call this method without a block, this method raises an Pigpio::CallbackError exception.
 
@@ -1968,7 +1968,7 @@ The callback is called with the event id, and tick, whenever the
 event occurs.
 
 :call-seq:
- event_callback(Integer pi,Integer event){|tick,event| } -> Pigpio::CallbackID
+ event_callback(Integer pi,Integer event){|tick,event| } -> Pigpio::Callback
 
 If you call this method without a block, this method raises an Pigpio::CallbackError exception.
 
@@ -3657,7 +3657,7 @@ This class has some constances for pigpio library.
   /*
   The class for callback.
   */
-  cCallbackID = rb_define_class_under(cPigpio,"CallbackID", rb_cData);
+  cCallbackID = rb_define_class_under(cPigpio,"Callback", rb_cData);
     rb_define_method(cCallbackID, "id", pigpio_rbst_callback_id_r_id, 0);
     rb_define_method(cCallbackID, "cancel", pigpio_rbst_callback_id_cancel, 0);
     rb_gc_register_address(&cCallbackID);
