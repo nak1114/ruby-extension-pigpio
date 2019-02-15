@@ -71,20 +71,20 @@ void pigpio_stop(int pi){
 }
 uint32_t get_current_tick(int pi){
   uint32_t reti;
-  pargs("get_current_tick : %lu\n",pi);
-  sscanf(flie_lines(),"%d",&reti);
+  pargs("get_current_tick : %d\n",pi);
+  sscanf(flie_lines(),"%lu",&reti);
   return reti;
 }
 uint32_t get_hardware_revision(int pi){
   uint32_t reti;
-  pargs("get_hardware_revision : %lu\n",pi);
-  sscanf(flie_lines(),"%d",&reti);
+  pargs("get_hardware_revision : %d\n",pi);
+  sscanf(flie_lines(),"%lu",&reti);
   return reti;
 }
 uint32_t get_pigpio_version(int pi){
   uint32_t reti;
-  pargs("get_pigpio_version : %lu\n",pi);
-  sscanf(flie_lines(),"%d",&reti);
+  pargs("get_pigpio_version : %d\n",pi);
+  sscanf(flie_lines(),"%lu",&reti);
   return reti;
 }
 
@@ -131,6 +131,7 @@ int notify_close(int pi, unsigned handle){return 123;}
 int wave_clear(int pi){return 123;}
 int wave_add_new(int pi){return 123;}
 int wave_add_generic(int pi, unsigned numPulses, gpioPulse_t *pulses){return 123;}
+int wave_add_serial(int pi, unsigned user_gpio, unsigned baud, unsigned data_bits, unsigned stop_bits, unsigned offset, unsigned numBytes, char *str){return 123;}
 int wave_create(int pi){return 123;}
 int wave_delete(int pi, unsigned wave_id){return 123;}
 int wave_send_once(int pi, unsigned wave_id){return 123;}
@@ -208,7 +209,6 @@ int event_callback_cancel(unsigned callback_id){return 123;}
 int wait_for_event(int pi, unsigned event, double timeout){return 123;}
 int event_trigger(int pi, unsigned event){return 123;}
 
-int wave_add_serial(int pi, unsigned user_gpio, unsigned baud, unsigned data_bits, unsigned stop_bits, unsigned offset, unsigned numBytes, char *str){return 123;}
 int i2c_write_byte_data(int pi, unsigned handle, unsigned i2c_reg, unsigned bVal){return 123;}
 int i2c_write_word_data(int pi, unsigned handle, unsigned i2c_reg, unsigned wVal){return 123;}
 int i2c_write_block_data(int pi, unsigned handle, unsigned i2c_reg, char *buf, unsigned count){return 123;}
