@@ -1,4 +1,5 @@
 class Pigpio::GPIO
+  IF=Pigpio::IF
   def initialize(pi,gpio)
     @pi=pi #0-15
     @gpio=gpio #0-53
@@ -12,7 +13,7 @@ class Pigpio::GPIO
   def mode
     ret=IF.get_mode(@pi,@gpio)
   end
-  def pud(pud)
+  def pud=(pud)
     ret=IF.set_pull_up_down(@pi,@gpio,pud)
   end
   def read

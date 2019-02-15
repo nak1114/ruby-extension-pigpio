@@ -1,5 +1,6 @@
 require_relative "./gpio"
-class ::Pigpio::UserGPIO < ::Pigpio::GPIO
+class Pigpio::UserGPIO < Pigpio::GPIO
+  IF=Pigpio::IF
   def watchdog(timeout)
     ret=IF.set_watchdog(@pi,@gpio,timeout)
   end

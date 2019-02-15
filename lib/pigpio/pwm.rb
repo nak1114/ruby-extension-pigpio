@@ -1,4 +1,5 @@
 class Pigpio::PWM
+  IF=Pigpio::IF
   def initialize(pi,gpio)
     @pi=pi
     @gpio=gpio
