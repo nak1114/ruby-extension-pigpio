@@ -1,6 +1,8 @@
 #include "pigpiod_if2.h"
 #include <stdio.h>
 #include <stdarg.h>
+#include <unistd.h>
+#include <pthread.h>
 
 #define numAry(ary) (sizeof( ary )/sizeof( ary [0]))
 static FILE *ret_values=NULL;
@@ -255,4 +257,21 @@ int bb_i2c_zip(int pi, unsigned SDA, char *inBuf, unsigned inLen, char *outBuf, 
 int bb_spi_open(int pi, unsigned CS, unsigned MISO, unsigned MOSI, unsigned SCLK, unsigned baud, unsigned spi_flags){return 123;}
 int bb_spi_xfer(int pi, unsigned CS, char    *txBuf, char    *rxBuf, unsigned count){return 123;}
 int spi_xfer(int pi, unsigned handle, char *txBuf, char *rxBuf, unsigned count){return 123;}
-int callback_ex(int pi, unsigned user_gpio, unsigned edge, CBFuncEx_t f, void *userdata){return 123;}
+
+
+static void* static_userdata;
+void* threaded_func(void*data){
+  CBFuncEx_t f=(CBFuncEx_t)data;
+  sleep(1);
+  printf("threaded_func : start\n");
+  (*f)(23,12,123,456,static_userdata);
+  printf("threaded_func : end\n");
+}
+
+int callback_ex(int pi, unsigned user_gpio, unsigned edge, CBFuncEx_t f, void *userdata){
+  pthread_t thread;
+  printf("callback_ex : %d,%u,%u,%x,%x\n",pi,user_gpio,edge,f,userdata);
+  static_userdata=userdata;
+  pthread_create( &thread, NULL, threaded_func, f );
+  return 123;
+}

@@ -13,7 +13,9 @@ RSpec.describe Pigpio::UserGPIO do
     skip
   end
   it "#callback" do
-    skip
+    cb=pin.callback(0){|tick,level| p [tick,level]}
+    sleep 3
+    cb.cancel
   end
   it "#wait_for_edge" do
     skip
