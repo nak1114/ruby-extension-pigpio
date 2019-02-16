@@ -144,12 +144,12 @@ VALUE pigpio_rbst_gpioPulse_make(VALUE self,VALUE gpioOn,VALUE gpioOff,VALUE usD
   st->usDelay=NUM2ULONG(usDelay);
   return obj;
 }
-void pigpio_rbbk_CBFuncEx(int pi, unsigned user_gpio, unsigned level, uint32_t tick, void *userdata){
-  (rb_funcall((VALUE)userdata, rb_intern("call"), 3,ULONG2NUM(tick),UINT2NUM(level),UINT2NUM(user_gpio)));
+void pigpio_rbbk_CBFuncEx(int pi, unsigned user_gpio, unsigned level, uint32_t tick, void *callee_proc){
+  (rb_funcall((VALUE)callee_proc, rb_intern("call"), 3,ULONG2NUM(tick),UINT2NUM(level),UINT2NUM(user_gpio)));
   return;
 }
-void pigpio_rbbk_evtCBFuncEx(int pi, unsigned event, uint32_t tick, void *userdata){
-  (rb_funcall((VALUE)userdata, rb_intern("call"), 2,ULONG2NUM(tick),UINT2NUM(event)));
+void pigpio_rbbk_evtCBFuncEx(int pi, unsigned event, uint32_t tick, void *callee_proc){
+  (rb_funcall((VALUE)callee_proc, rb_intern("call"), 2,ULONG2NUM(tick),UINT2NUM(event)));
   return;
 }
 
@@ -1901,11 +1901,11 @@ See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#callback_ex]
 */
 VALUE pigpio_rbfn_callback(int argc, VALUE *argv, VALUE self){
   int id;
-  VALUE pi; VALUE user_gpio; VALUE edge; VALUE userdata;
-  rb_scan_args(argc,argv,"3&",&pi,&user_gpio,&edge,&userdata);
-  if(NIL_P(userdata)){rb_raise(cCallbackError,"No callback block.\n");}
-  id=( callback_ex(NUM2INT(pi), NUM2UINT(user_gpio), NUM2UINT(edge), pigpio_rbbk_CBFuncEx, (void*)userdata));
-  return pigpio_rbst_callback_id_make_inner(id,userdata,callback_cancel);
+  VALUE pi; VALUE user_gpio; VALUE edge; VALUE callee_proc;
+  rb_scan_args(argc,argv,"3&",&pi,&user_gpio,&edge,&callee_proc);
+  if(NIL_P(callee_proc)){rb_raise(cCallbackError,"No callback block.\n");}
+  id=( callback_ex(NUM2INT(pi), NUM2UINT(user_gpio), NUM2UINT(edge), pigpio_rbbk_CBFuncEx, (void*)callee_proc));
+  return pigpio_rbst_callback_id_make_inner(id,callee_proc,callback_cancel);
 }
 /*
 This function cancels a callback identified by its id.
@@ -1976,11 +1976,11 @@ See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#event_callback_e
 */
 VALUE pigpio_rbfn_event_callback(int argc, VALUE *argv, VALUE self){
   int id;
-  VALUE pi; VALUE event; VALUE userdata;
-  rb_scan_args(argc,argv,"2&",&pi,&event,&userdata);
-  if(NIL_P(userdata)){rb_raise(cCallbackError,"No callback block.\n");}
-  id=( event_callback_ex(NUM2INT(pi), NUM2UINT(event), pigpio_rbbk_evtCBFuncEx, (void *)userdata));
-  return pigpio_rbst_callback_id_make_inner(id,userdata,event_callback_cancel);
+  VALUE pi; VALUE event; VALUE callee_proc;
+  rb_scan_args(argc,argv,"2&",&pi,&event,&callee_proc);
+  if(NIL_P(callee_proc)){rb_raise(cCallbackError,"No callback block.\n");}
+  id=( event_callback_ex(NUM2INT(pi), NUM2UINT(event), pigpio_rbbk_evtCBFuncEx, (void *)callee_proc));
+  return pigpio_rbst_callback_id_make_inner(id,callee_proc,event_callback_cancel);
 }
 /*
 This function cancels an event callback identified by its id.
