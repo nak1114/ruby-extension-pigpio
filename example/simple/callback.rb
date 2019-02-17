@@ -13,11 +13,14 @@ button=pi.gpio(17)
 button.mode=PI_INPUT
 button.pud=PI_PUD_UP
 button.glitch_filter(30)
-button.callback(EITHER_EDGE){|tick,level|
+cb=button.callback(EITHER_EDGE){|tick,level|
   led.write level
   counter+=1
 }
 
+led.write 1
 while(counter<10)do
+  sleep(1)
 end
+cb.cancel
 led.write 0

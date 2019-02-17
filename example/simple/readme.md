@@ -11,17 +11,15 @@
 LED brightness will increase while you press the button.
 
 ```sh
-$ ruby pwm.rb
+ruby pwm.rb
 ```
 
 ## Callback sample
 
 [Script is here.](./callback.rb)
 
-not work, now.
-
-LED will light, while you press the button.
+LED will light, while you release the button.
 
 ```sh
-$ ruby callback.rb
+ruby callback.rb
 ```
