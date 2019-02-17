@@ -144,7 +144,6 @@ int set_bank_2(int pi, uint32_t bits){return 123;}
 int set_watchdog(int pi, unsigned user_gpio, unsigned timeout){return 123;}
 int set_glitch_filter(int pi, unsigned user_gpio, unsigned steady){return 123;}
 int callback(int pi, unsigned user_gpio, unsigned edge, CBFunc_t f){return 123;}
-int callback_cancel(unsigned callback_id){return 123;}
 int wait_for_edge(int pi, unsigned user_gpio, unsigned edge, double timeout){return 123;}
 int set_noise_filter(int pi, unsigned user_gpio, unsigned steady, unsigned active){return 123;}
 int gpio_trigger(int pi, unsigned user_gpio, unsigned pulseLen, unsigned level){return 123;}
@@ -259,22 +258,30 @@ int bb_spi_xfer(int pi, unsigned CS, char    *txBuf, char    *rxBuf, unsigned co
 int spi_xfer(int pi, unsigned handle, char *txBuf, char *rxBuf, unsigned count){return 123;}
 
 
-static void* static_userdata;
+static void* volatile static_userdata;
 void* threaded_func(void*data){
+  int i;
   CBFuncEx_t f=(CBFuncEx_t)data;
   sleep(1);
-  printf("threaded_func : start\n");
-  (*f)(23,12,123,456,static_userdata);
-  printf("threaded_func : end\n");
+  if(static_userdata!=NULL){(*f)(23,12,123,456,static_userdata);}
   sleep(1);
-  printf("threaded_func : start\n");
-  (*f)(23,120,1230,4560,static_userdata);
-  printf("threaded_func : end\n");
+  if(static_userdata!=NULL){(*f)(23,120,1230,4560,static_userdata);}
+  sleep(2);
+  i=0;
+  while(static_userdata!=NULL){
+    (*f)(23,120,i,10000+i,static_userdata);
+    usleep(1);
+    i++;
+  }
+  printf("callback is stop\n");
+}
+int callback_cancel(unsigned callback_id){
+  static_userdata=NULL;
+  return 123;
 }
 
 int callback_ex(int pi, unsigned user_gpio, unsigned edge, CBFuncEx_t f, void *userdata){
   pthread_t thread;
-  printf("callback_ex : %d,%u,%u,%x,%x\n",pi,user_gpio,edge,f,userdata);
   static_userdata=userdata;
   pthread_create( &thread, NULL, threaded_func, f );
   return 123;

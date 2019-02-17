@@ -12,13 +12,13 @@ class Pigpio
     end
     def callback(edge,&blk)
       return nil unless blk
-      q = Queue.new
-      th1 = Thread.start do
+      q=NativeQueue.make
+      th=Thread.start do
         while resource = q.pop
-          p resource
+          blk.call(*resource)
         end
       end
-      IF.callback(@pi,@gpio,edge,q,th1)
+      IF.callback(@pi,@gpio,edge,q,th)
     end
     def wait_for_edge(edge,timeout)
       ret=IF.wait_for_edge(@pi,@gpio,edge,timeout)
