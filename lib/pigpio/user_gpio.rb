@@ -14,7 +14,8 @@ class Pigpio
       return nil unless blk
       q=NativeQueue.make
       th=Thread.start do
-        while resource = q.pop
+        while true
+          resource = q.pop
           blk.call(*resource)
         end
       end

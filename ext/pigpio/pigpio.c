@@ -59,6 +59,7 @@ VALUE pigpio_rbst_callback_pqueue_pop(VALUE self){
   volatile callback_item_t *cur=queue->read;
   VALUE ret;
   struct timeval t;
+  t.tv_sec=0;
   t.tv_usec=100000;
   if(queue->flag_overflow!=0){
     rb_raise(cCallbackError,"Overflow NativeQueue.\n");
