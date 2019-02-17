@@ -11,7 +11,14 @@ class Pigpio
       ret=IF.set_noise_filter(@pi,@gpio,steady,active)
     end
     def callback(edge,&blk)
-      IF.callback(@pi,@gpio,edge,&blk)
+      return nil unless blk
+      q = Queue.new
+      th1 = Thread.start do
+        while resource = q.pop
+          p resource
+        end
+      end
+      IF.callback(@pi,@gpio,edge,q,th1)
     end
     def wait_for_edge(edge,timeout)
       ret=IF.wait_for_edge(@pi,@gpio,edge,timeout)

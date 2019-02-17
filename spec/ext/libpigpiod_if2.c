@@ -266,6 +266,10 @@ void* threaded_func(void*data){
   printf("threaded_func : start\n");
   (*f)(23,12,123,456,static_userdata);
   printf("threaded_func : end\n");
+  sleep(1);
+  printf("threaded_func : start\n");
+  (*f)(23,120,1230,4560,static_userdata);
+  printf("threaded_func : end\n");
 }
 
 int callback_ex(int pi, unsigned user_gpio, unsigned edge, CBFuncEx_t f, void *userdata){
