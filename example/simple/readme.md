@@ -4,6 +4,17 @@
 
 ![board_image](./board.svg)
 
+## GPIO sample
+
+[Script is here.](./led.rb)
+
+LED will light 3 times.
+
+```sh
+$ sudo pigpiod
+$ ruby led.rb
+```
+
 ## PWM sample
 
 [Script is here.](./pwm.rb)
