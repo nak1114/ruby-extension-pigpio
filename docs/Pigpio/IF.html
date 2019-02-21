@@ -1167,7 +1167,7 @@ site</a></p>
         
         <div class="method-heading">
           <span class="method-callseq">
-            callback(Integer pi,Integer user_gpio, Integer edge){|tick,level,user_gpio| } &rarr; Pigpio::Callback
+            callback(Integer pi,Integer user_gpio, Integer edge){|tick,level,gpio,pi| ... } &rarr; Pigpio::Callback
           </span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -1220,7 +1220,7 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#callback_ex">pigpio site</a></p>
 
           
           <div class="method-source-code" id="callback-source">
-            <pre>VALUE pigpio_rbfn_callback(VALUE self,VALUE pi, VALUE user_gpio, VALUE edge, VALUE queue, VALUE thread){</pre>
+            <pre>VALUE pigpio_rbfn_callback(int argc, VALUE *argv, VALUE self){</pre>
           </div>
           
         </div>

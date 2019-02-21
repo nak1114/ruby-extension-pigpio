@@ -4,81 +4,87 @@
 #define TypedData_Get_Struct2(obj, type, data_type) ((type*)rb_check_typeddata((obj), (data_type)))
 
 static VALUE cCallbackID;
+static VALUE cNativeQueue;
 static VALUE cCallbackError;
 
 typedef struct{
-  unsigned level;
    uint32_t tick;
+  unsigned char level;
+  unsigned char dummy;
+  unsigned char gpio;
+  unsigned char pi;
 } callback_item_t;
 
 #define PG_EXT_CALLBACK_BUF_SIZE (128)
 typedef struct{
   volatile callback_item_t buf[ PG_EXT_CALLBACK_BUF_SIZE ];
-  volatile callback_item_t* volatile read;
-  volatile callback_item_t* volatile write;
-  volatile int flag_overflow;
+  volatile unsigned short read;
+  volatile unsigned short write;
+  volatile unsigned short size;
+  volatile char flag_overflow;
 } callback_queue_t;
 
 
 
 typedef struct{
   callback_queue_t*queue;
+  VALUE callback;
+  struct timeval t;
 } callback_pqueue_t;
-void pigpio_rbst_callback_que_dfree(void* _self){
+void pigpio_rbst_callback_pqueue_dmark(void* _self){
+  callback_pqueue_t *self=(callback_pqueue_t *)_self;
+  rb_gc_mark(self->callback);
+}
+void pigpio_rbst_callback_pqueue_dfree(void* _self){
   callback_pqueue_t *self=(callback_pqueue_t *)_self;
   if(self->queue!=NULL)free(self->queue);
   xfree(self);
   return;
 }
-size_t pigpio_rbst_callback_que_dsize(const void *_self){
+size_t pigpio_rbst_callback_pqueue_dsize(const void *_self){
   return sizeof(callback_pqueue_t)+sizeof(callback_queue_t);
 }
 const rb_data_type_t callback_pqueue_type = { //https://gist.github.com/yugui/87ef6964d8a76794be6f
-    "struct@callback_pqueue",{NULL,pigpio_rbst_callback_que_dfree,pigpio_rbst_callback_que_dsize,{0,0}},0,NULL,0
+    "struct@callback_pqueue",{
+      pigpio_rbst_callback_pqueue_dmark,
+      pigpio_rbst_callback_pqueue_dfree,
+      pigpio_rbst_callback_pqueue_dsize,{0,0}},0,NULL,0
 };
 /*
 Constructor of Pigpio::NativeQueue class
 */
-VALUE pigpio_rbst_callback_pqueue_make(VALUE self){
+VALUE pigpio_rbst_callback_pqueue_make_inner(VALUE callback,time_t sec,long usec){
   VALUE obj;
   callback_pqueue_t *st;
   callback_queue_t *queue;
-  obj = TypedData_Make_Struct(self, callback_pqueue_t, &callback_pqueue_type, st);
+  obj = TypedData_Make_Struct(cNativeQueue, callback_pqueue_t, &callback_pqueue_type, st);
+  st->t.tv_sec=sec;
+  st->t.tv_usec=usec;
+  st->callback=callback;
   st->queue=queue=malloc(sizeof(callback_queue_t));
-  queue->read=queue->buf;
-  queue->write=queue->buf;
+  queue->read=0;
+  queue->write=0;
   queue->flag_overflow=0;
-  return obj;
-}
-/*
-Get a data from FIFO Queue.
-*/
-VALUE pigpio_rbst_callback_pqueue_pop(VALUE self){
-  callback_pqueue_t *st=TypedData_Get_Struct2(self,callback_pqueue_t,&callback_pqueue_type);
-  callback_queue_t *queue=st->queue;
-  volatile callback_item_t *cur=queue->read;
-  VALUE ret;
-  struct timeval t;
-  t.tv_sec=0;
-  t.tv_usec=100000;
-  if(queue->flag_overflow!=0){
-    rb_raise(cCallbackError,"Overflow NativeQueue.\n");
-  }
-  while(cur==queue->write){
-    rb_thread_wait_for(t);
-  }
-  ret=rb_ary_new_from_args(2,ULONG2NUM(cur->tick),UINT2NUM(cur->level));
-  queue->read=(cur==queue->buf+(PG_EXT_CALLBACK_BUF_SIZE-1)) ? queue->buf : (cur+1) ;
-  return(ret);
+ return obj;
 }
 /*
 Set a data to FIFO Queue.
 */
-void pigpio_rbstn_callback_pqueue_push(callback_queue_t *queue,unsigned level, uint32_t tick){
-  volatile callback_item_t *cur=queue->write;
+void pigpio_rbbk_CBFuncEx(int pi, unsigned user_gpio, unsigned level, uint32_t tick, void *_queue){
+  callback_queue_t *queue=(callback_queue_t *)_queue;
+  unsigned short cur=queue->write;
+  queue->buf[cur].tick=tick;
+  queue->buf[cur].level=level;
+  queue->buf[cur].gpio=user_gpio;
+  queue->buf[cur].pi=pi;
+  cur=(cur>=(PG_EXT_CALLBACK_BUF_SIZE-1)) ? 0 : (cur+1) ;
+/*
   cur->tick=tick;
   cur->level=level;
+  cur->gpio=user_gpio;
+  cur->pi=pi;
   cur=(cur==queue->buf+(PG_EXT_CALLBACK_BUF_SIZE-1)) ? queue->buf : (cur+1) ;
+*/
   if(cur==queue->read){
     queue->flag_overflow=1;
   }else{
@@ -86,6 +92,28 @@ void pigpio_rbstn_callback_pqueue_push(callback_queue_t *queue,unsigned level, u
   }
   return;
 }
+static VALUE callback_receive(void*_self){
+  callback_pqueue_t *st=TypedData_Get_Struct2((VALUE)_self,callback_pqueue_t,&callback_pqueue_type);
+  VALUE callee_proc      =st->callback;
+  struct timeval  t      =st->t;
+  callback_queue_t *queue=st->queue;
+  unsigned short cur=queue->read;
+
+  while(1){
+    if(queue->flag_overflow!=0){
+      rb_raise(cCallbackError,"Overflow NativeQueue.\n");
+    }
+    while(cur==queue->write){
+      rb_thread_wait_for(t);
+    }
+    rb_funcall((VALUE)callee_proc, rb_intern("call"), 4,
+      ULONG2NUM(queue->buf[cur].tick),CHR2FIX(queue->buf[cur].level),CHR2FIX(queue->buf[cur].gpio),CHR2FIX(queue->buf[cur].pi));
+    queue->read=cur=(cur==(PG_EXT_CALLBACK_BUF_SIZE-1)) ? 0 : (cur+1) ;
+  }
+  return Qnil;
+}
+
+
 
 typedef int (*cancel_t)(unsigned);
 typedef struct{
@@ -124,7 +152,6 @@ VALUE pigpio_rbst_callback_id_make_inner(int id,cancel_t cancel,VALUE queue,VALU
   st->queue=queue;
   st->thread=thread;
   st->cancel=cancel;
-
   return obj;
 }
 /*
@@ -150,18 +177,16 @@ VALUE pigpio_rbst_callback_id_cancel(VALUE self){
   callback_id_t *st=TypedData_Get_Struct2(self,callback_id_t,&callback_id_data_type);
   id=st->id;
   if(id<0){return INT2NUM(pigif_callback_not_found);}
+  id=(*(st->cancel))(st->id);
   if(st->thread!=Qnil){
     rb_funcall((VALUE)st->thread, rb_intern("kill"), 0);
   }
   st->id=-1;
   st->thread=Qnil;
   st->queue=Qnil;
-  return INT2NUM((*(st->cancel))(id));
+  return INT2NUM(id);
 }
-void pigpio_rbbk_CBFuncEx(int pi, unsigned user_gpio, unsigned level, uint32_t tick, void *queue){
-  pigpio_rbstn_callback_pqueue_push((callback_queue_t *)queue,level,tick);
-  return;
-}
+
 void pigpio_rbbk_evtCBFuncEx(int pi, unsigned event, uint32_t tick, void *callee_proc){
   (rb_funcall((VALUE)callee_proc, rb_intern("call"), 2,ULONG2NUM(tick),UINT2NUM(event)));
   return;
@@ -1987,15 +2012,25 @@ GPIO has the identified edge.
 . .
 
 :call-seq:
- callback(Integer pi,Integer user_gpio, Integer edge){|tick,level,user_gpio| } -> Pigpio::Callback
+ callback(Integer pi,Integer user_gpio, Integer edge){|tick,level,gpio,pi| ... } -> Pigpio::Callback
 
 If you call this method without a block, this method raises an Pigpio::CallbackError exception.
 
 See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#callback_ex]
 */
-VALUE pigpio_rbfn_callback(VALUE self,VALUE pi, VALUE user_gpio, VALUE edge, VALUE queue, VALUE thread){
+VALUE pigpio_rbfn_callback(int argc, VALUE *argv, VALUE self){
   int id;
-  callback_pqueue_t *st=TypedData_Get_Struct2(queue,callback_pqueue_t,&callback_pqueue_type);
+  VALUE queue;
+  VALUE thread;
+  callback_pqueue_t *st;
+  VALUE pi; VALUE user_gpio; VALUE edge; VALUE block;
+  rb_scan_args(argc,argv,"3&",&pi,&user_gpio,&edge,&block);
+  if(block==Qnil){
+    return Qnil;
+  }
+  queue=pigpio_rbst_callback_pqueue_make_inner(block,0,100000);
+  thread=rb_thread_create(callback_receive,(void*)queue);
+  st=TypedData_Get_Struct2(queue,callback_pqueue_t,&callback_pqueue_type);
 
   //if(NIL_P(callee_proc)){rb_raise(cCallbackError,"No callback block.\n");}
   id=callback_ex(NUM2INT(pi), NUM2UINT(user_gpio), NUM2UINT(edge), pigpio_rbbk_CBFuncEx, (void*)st->queue);
@@ -3676,7 +3711,7 @@ This class has some constances for pigpio library.
     rb_define_singleton_method(cAPI, "wave_add_generic",        pigpio_rbfn_wave_add_generic,         2);
     rb_define_singleton_method(cAPI, "wave_add_serial",         pigpio_rbfn_wave_add_serial,          7);
     rb_define_singleton_method(cAPI, "wave_chain",              pigpio_rbfn_wave_chain,               2);
-    rb_define_singleton_method(cAPI, "callback",                pigpio_rbfn_callback,                 5);
+    rb_define_singleton_method(cAPI, "callback",                pigpio_rbfn_callback,                 -1);
     rb_define_singleton_method(cAPI, "callback_cancel",         pigpio_rbfn_callback_cancel,          1);
     rb_define_singleton_method(cAPI, "wait_for_edge",           pigpio_rbfn_wait_for_edge,            4);
     rb_define_singleton_method(cAPI, "event_callback",          pigpio_rbfn_event_callback,           -1);
@@ -3751,9 +3786,8 @@ This class has some constances for pigpio library.
   /*
   The class of native queue.
   */
-  cNativeQueue = rb_define_class_under(cPigpio,"NativeQueue", rb_cData);
-    rb_define_singleton_method(cNativeQueue, "make", pigpio_rbst_callback_pqueue_make, 0);
-    rb_define_method(cNativeQueue, "pop", pigpio_rbst_callback_pqueue_pop, 0);
+  cNativeQueue = rb_define_class_under(cAPI,"NativeQueue", rb_cData);
+    rb_gc_register_address(&cNativeQueue);
 
   /*
   The class of callback.

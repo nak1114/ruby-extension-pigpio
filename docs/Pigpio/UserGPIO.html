@@ -139,13 +139,7 @@
             <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">callback</span>(<span class="ruby-identifier">edge</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>)
   <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">blk</span>
-  <span class="ruby-identifier">q</span>=<span class="ruby-constant">NativeQueue</span>.<span class="ruby-identifier">make</span>
-  <span class="ruby-identifier">th</span>=<span class="ruby-constant">Thread</span>.<span class="ruby-identifier">start</span> <span class="ruby-keyword">do</span>
-    <span class="ruby-keyword">while</span> <span class="ruby-identifier">resource</span> = <span class="ruby-identifier">q</span>.<span class="ruby-identifier">pop</span>
-      <span class="ruby-identifier">blk</span>.<span class="ruby-identifier">call</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">resource</span>)
-    <span class="ruby-keyword">end</span>
-  <span class="ruby-keyword">end</span>
-  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">callback</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">edge</span>,<span class="ruby-identifier">q</span>,<span class="ruby-identifier">th</span>)
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">callback</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">edge</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -242,7 +236,7 @@
 
           
           <div class="method-source-code" id="pwm-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 29</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pwm</span>
   <span class="ruby-constant">PWM</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -275,7 +269,7 @@
 
           
           <div class="method-source-code" id="trigger-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 26</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 20</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">trigger</span>(<span class="ruby-identifier">pulseLen</span>,<span class="ruby-identifier">level</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">gpio_trigger</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">pulseLen</span>,<span class="ruby-identifier">level</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -308,7 +302,7 @@
 
           
           <div class="method-source-code" id="wait_for_edge-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 23</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/user_gpio.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">wait_for_edge</span>(<span class="ruby-identifier">edge</span>,<span class="ruby-identifier">timeout</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">wait_for_edge</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">edge</span>,<span class="ruby-identifier">timeout</span>)
 <span class="ruby-keyword">end</span></pre>

@@ -19,12 +19,12 @@ RSpec.describe Pigpio::UserGPIO do
       cb=pin.callback(Pigpio::Constant::RISING_EDGE){|tick,level| ary << [tick,level]}
       expect(cb.id).to be 123
       sleep 3
-    rescue Pigpio::CallbackError=> e
+    rescue e
       put e.message
     ensure
       cb.cancel
     end
-    expect(ary).to eq [[456, 123],[4560, 1230]]
+    expect(ary).to eq [[88, 99], [87, 98]]
     expect(cb.id).to be -1
   end
   it "#wait_for_edge" do

@@ -263,19 +263,20 @@ void* threaded_func(void*data){
   int i;
   CBFuncEx_t f=(CBFuncEx_t)data;
   sleep(1);
-  if(static_userdata!=NULL){(*f)(23,12,123,456,static_userdata);}
+  if(static_userdata!=NULL){(*f)(23,77,99,88,static_userdata);}
   sleep(1);
-  if(static_userdata!=NULL){(*f)(23,120,1230,4560,static_userdata);}
+  if(static_userdata!=NULL){(*f)(23,76,98,87,static_userdata);}
   sleep(2);
   i=0;
   while(static_userdata!=NULL){
-    (*f)(23,120,i,10000+i,static_userdata);
+    (*f)(23,120,i,-i,static_userdata);
     usleep(1);
     i++;
   }
   printf("callback is stop\n");
 }
 int callback_cancel(unsigned callback_id){
+  printf("callback is start\n");
   static_userdata=NULL;
   return 123;
 }
