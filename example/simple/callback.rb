@@ -24,3 +24,4 @@ while(counter<10)do
 end
 cb.cancel
 led.write 0
+pi.stop

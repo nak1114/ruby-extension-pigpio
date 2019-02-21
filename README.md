@@ -51,9 +51,11 @@ led.pud = PI_PUD_OFF
   led.write 0
   sleep 1
 end
+pi.stop
 ```
 
 Then, run deamon and script.
+
 ```sh
 $ sudo pigpiod
 $ ruby example_led.rb

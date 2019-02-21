@@ -19,3 +19,4 @@ while true do
   pwm.dutycycle= i
   sleep 0.01
 end
+pi.stop

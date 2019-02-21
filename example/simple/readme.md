@@ -11,7 +11,8 @@
 LED brightness will increase while you press the button.
 
 ```sh
-ruby pwm.rb
+$ sudo pigpiod
+$ ruby pwm.rb
 ```
 
 ## Callback sample
@@ -21,5 +22,6 @@ ruby pwm.rb
 LED will light, while you release the button.
 
 ```sh
-ruby callback.rb
+$ sudo pigpiod
+$ ruby callback.rb
 ```
