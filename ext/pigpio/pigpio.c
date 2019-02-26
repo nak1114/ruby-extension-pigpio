@@ -1459,7 +1459,7 @@ Returns 1 if a waveform is currently being transmitted, otherwise 0.
 See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_tx_busy]
 */
 VALUE pigpio_rbfn_wave_tx_busy(VALUE self,VALUE pi){
-  return INT2NUM(wave_tx_busy(NUM2INT(pi)));
+  return wave_tx_busy(NUM2INT(pi)) ? Qtrue : Qfalse ;
 }
 /*
 This function stops the transmission of the current waveform.
