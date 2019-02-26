@@ -130,6 +130,9 @@ void pigpio_rbst_callback_id_dmark(void* _self){
 }
 void pigpio_rbst_callback_id_dfree(void* _self){
   callback_id_t *self=(callback_id_t *)_self;
+  if(self->id >= 0){
+    (*(self->cancel))(self->id);
+  }
   xfree(self);
   return;
 }
