@@ -36,3 +36,14 @@ LED will light, while you release the button.
 $ sudo pigpiod
 $ ruby callback.rb
 ```
+
+## WAVE sample
+
+[Script is here.](./wave.rb)
+
+LED will light 3 times.
+
+```sh
+$ sudo pigpiod
+$ ruby wave.rb
+```
