@@ -173,7 +173,12 @@ int wave_delete(int pi, unsigned wave_id){return 123;}
 int wave_send_once(int pi, unsigned wave_id){return 123;}
 int wave_send_repeat(int pi, unsigned wave_id){return 123;}
 int wave_send_using_mode(int pi, unsigned wave_id, unsigned mode){return 123;}
-int wave_chain(int pi, char *buf, unsigned bufSize){return 123;}
+int wave_chain(int pi, char *buf, unsigned bufSize){
+  pargs("wave_chain : %u :",bufSize);
+  for(int i=0;i<bufSize;i++){pargs(" %x",buf[i]);}
+  pargs("\n");
+  return 0;
+}
 int wave_tx_at(int pi){return 123;}
 int wave_tx_busy(int pi){return 123;}
 int wave_tx_stop(int pi){return 123;}

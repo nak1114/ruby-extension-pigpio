@@ -5,6 +5,7 @@ require "pigpio/gpio"
 require "pigpio/user_gpio"
 require "pigpio/pwm"
 require "pigpio/bank"
+require "pigpio/wave"
 
 class Pigpio
   def initialize(addr=nil,port=nil,&blk)
@@ -39,6 +40,9 @@ class Pigpio
   end
   def gpio(gpio)
     (gpio<32 ? UserGPIO : GPIO).new(@pi,gpio)
+  end
+  def wave()
+    Wave.new(@pi)
   end
   
 end
