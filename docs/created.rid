@@ -1,9 +1,10 @@
-Thu, 21 Feb 2019 10:44:24 +0000
-ext/pigpio/pigpio.c	Thu, 21 Feb 2019 10:38:25 +0000
-lib/pigpio.rb	Thu, 14 Feb 2019 17:11:04 +0000
+Tue, 26 Feb 2019 15:35:04 +0000
+ext/pigpio/pigpio.c	Tue, 26 Feb 2019 15:34:45 +0000
+lib/pigpio.rb	Tue, 26 Feb 2019 12:00:51 +0000
 lib/pigpio/bank.rb	Fri, 15 Feb 2019 16:38:36 +0000
 lib/pigpio/constant.rb	Thu, 14 Feb 2019 06:42:42 +0000
 lib/pigpio/gpio.rb	Fri, 15 Feb 2019 16:39:07 +0000
 lib/pigpio/pwm.rb	Fri, 15 Feb 2019 16:41:43 +0000
 lib/pigpio/user_gpio.rb	Thu, 21 Feb 2019 10:42:16 +0000
-lib/pigpio/version.rb	Sun, 17 Feb 2019 12:08:17 +0000
+lib/pigpio/version.rb	Thu, 21 Feb 2019 13:06:50 +0000
+lib/pigpio/wave.rb	Tue, 26 Feb 2019 14:04:17 +0000

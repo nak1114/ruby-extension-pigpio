@@ -1390,7 +1390,9 @@ The code is currently dimensioned to support a chain with roughly
 
 
 :call-seq:
- wave_chain(Integer pi, [Integer] buf) -> Integer
+ wave_chain(Integer pi, Object buf) -> Integer
+
+The arg buf is binary stirng or integer array.
 
 See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_chain]
 */
@@ -1454,7 +1456,7 @@ transmitted.
 Returns 1 if a waveform is currently being transmitted, otherwise 0.
 
 :call-seq:
- wave_tx_busy(Integer pi) -> Integer
+ wave_tx_busy(Integer pi) -> Boolean
 
 See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_tx_busy]
 */

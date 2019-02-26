@@ -5947,7 +5947,7 @@ site</a></p>
         
         <div class="method-heading">
           <span class="method-callseq">
-            wave_chain(Integer pi, [Integer] buf) &rarr; Integer
+            wave_chain(Integer pi, Object buf) &rarr; Integer
           </span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -6000,6 +6000,8 @@ Loop Forever @ 255 3      @ loop forever</pre>
 
 <p>The code is currently dimensioned to support a chain with roughly 600
 entries and 20 loop counters.</p>
+
+<p>The arg buf is binary stirng or integer array.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_chain">pigpio site</a></p>
@@ -6177,7 +6179,7 @@ wave_id: &gt;=0, as returned by [*wave_create*].</pre>
 
 <p>. .</p>
 
-<p>Wave ids are allocated in order, 0, 1, 2, etc.</p>
+<p><a href="Wave.html">Wave</a> ids are allocated in order, 0, 1, 2, etc.</p>
 
 <p>Returns 0 if OK, otherwise PI_BAD_WAVE_ID.</p>
 
@@ -6810,7 +6812,7 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_tx_at">pigpio site</a></p>
         
         <div class="method-heading">
           <span class="method-callseq">
-            wave_tx_busy(Integer pi) &rarr; Integer
+            wave_tx_busy(Integer pi) &rarr; Boolean
           </span>
           
           <span class="method-click-advice">click to toggle source</span>
