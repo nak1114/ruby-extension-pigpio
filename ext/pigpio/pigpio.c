@@ -1395,6 +1395,24 @@ The code is currently dimensioned to support a chain with roughly
 See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_chain]
 */
 VALUE pigpio_rbfn_wave_chain(VALUE self,VALUE pi, VALUE buf){
+  VALUE rbuf;
+  int ret;
+  switch (TYPE(buf)) {
+  case T_STRING:
+    rbuf=buf;
+    break;
+  case T_ARRAY:
+    rbuf=rb_funcall((VALUE)buf, rb_intern("pack"), 1,rb_str_new2("c*"));
+    break;
+  case T_FIXNUM:
+  default:
+    rb_raise(rb_eTypeError, "not valid value");
+    break;
+  }
+  ret=wave_chain(NUM2INT(pi),StringValuePtr(rbuf), RSTRING_LEN(rbuf));
+  RB_GC_GUARD(rbuf);
+  return INT2NUM(ret);
+/*
   unsigned bufSize=rb_array_len(buf);
   char bufc[bufSize];
   unsigned i;
@@ -1402,6 +1420,7 @@ VALUE pigpio_rbfn_wave_chain(VALUE self,VALUE pi, VALUE buf){
     bufc[i]=(char)FIX2INT(rb_ary_entry(buf,i));
   }
   return INT2NUM( wave_chain(NUM2INT(pi),bufc, bufSize));
+*/
 }
 /*
 This function returns the id of the waveform currently being
