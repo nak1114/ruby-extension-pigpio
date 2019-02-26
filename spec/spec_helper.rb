@@ -18,8 +18,9 @@ end
 
 SeqFile=File.expand_path('../ext/values.txt', __FILE__)
 ArgsFile=File.expand_path('../ext/args.txt', __FILE__)
-def write_seq(str)
+def write_seq(str,writefile=true)
   File.write(SeqFile,str.chomp)
+  read_args if writefile
 end
 def read_args()
   ret=nil
