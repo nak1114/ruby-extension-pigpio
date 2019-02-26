@@ -13,6 +13,7 @@ RSpec.describe Pigpio::UserGPIO do
     skip
   end
   it "#callback" do
+    write_seq "1"
     cb=nil
     begin
       ary=[]
