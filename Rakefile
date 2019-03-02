@@ -25,3 +25,7 @@ task :dummy do
     sh("ruby extconf.rb && make && \\cp -f libpigpiod_if2.so /usr/lib")
   end
 end
+
+task :dockerv do
+  sh("ruby ./bin/docker.rb v")
+end
