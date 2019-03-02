@@ -21,4 +21,4 @@ while wave.tx_busy
   sleep 0.1
 end
 wave.clear
-
+pi.stop
