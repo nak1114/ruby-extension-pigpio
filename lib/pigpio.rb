@@ -12,6 +12,7 @@ require "pigpio/bit_bang_serial"
 require "pigpio/serial"
 
 class Pigpio
+  attr_reader :pi
   def initialize(addr=nil,port=nil,&blk)
     @pi=IF.pigpio_start(addr,port)
     if blk && connect
@@ -21,9 +22,6 @@ class Pigpio
   end
   def connect
     @pi>=0
-  end
-  def pi
-    @pi
   end
   def stop
     IF.pigpio_stop(@pi)
