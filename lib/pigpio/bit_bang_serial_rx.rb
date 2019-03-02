@@ -1,6 +1,6 @@
 class Pigpio
   class BitBangSerialRx
-    attr_reader :pi,:gpio
+    attr_reader :rx
     def initialize(rx,baud=9600,data_bits=8)
       @rx=rx
       IF.bb_serial_read_open(@rx.pi,@rx.gpio,baud,data_bits)
