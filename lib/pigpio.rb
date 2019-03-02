@@ -46,10 +46,10 @@ class Pigpio
   def wave()
     Wave.new(@pi)
   end
-  def serial(rx,tx=nil,baud=19200,data_bits=8,stop_bits=1,parity_type=:none)
-    return BitBangSerialRx(@pi,rx,baud,data_bits) if tx==nil
-    return BitBangSerialTx(@pi,tx,baud,data_bits,stop_bits) if rx==nil
-    return BitBangSerial(@pi,rx,tx,baud,data_bits,stop_bits)
+  def serial(rx,tx=nil,baud=9600,data_bits=8,stop_bits=1,parity_type=:none)
+    return BitBangSerialRx.new(rx,baud,data_bits) if tx==nil
+    return BitBangSerialTx.new(tx,baud,data_bits,stop_bits) if rx==nil
+    return BitBangSerial.new(rx,tx,baud,data_bits,stop_bits)
   end
   
 end
