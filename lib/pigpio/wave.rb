@@ -70,8 +70,8 @@ class Pigpio
     def max_cbs
       IF.wave_get_max_cbs(@pi)
     end
-    def pulse(on,off,tick)
-      Pulse.make(on,off,tick)
+    def pulse(on,off,us)
+      Pulse.make(on,off,us)
     end
         
   end
