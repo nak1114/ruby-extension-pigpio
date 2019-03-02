@@ -1,11 +1,9 @@
 class Pigpio
   class GPIO
+    attr_reader :pi,:gpio
     def initialize(pi,gpio)
       @pi=pi #0-15
       @gpio=gpio #0-53
-    end
-    def gpio
-      [@pi,@gpio]
     end
     def mode=(mode)
       ret=IF.set_mode(@pi,@gpio,mode)
