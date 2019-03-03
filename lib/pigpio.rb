@@ -10,6 +10,7 @@ require "pigpio/bit_bang_serial_rx"
 require "pigpio/bit_bang_serial_tx"
 require "pigpio/bit_bang_serial"
 require "pigpio/serial"
+require "pigpio/spi"
 
 class Pigpio
   attr_reader :pi
@@ -51,5 +52,8 @@ class Pigpio
     return BitBangSerialTx.new(tx,baud,data_bits,stop_bits) if rx==nil
     return BitBangSerial.new(rx,tx,baud,data_bits,stop_bits)
   end
-  
+  def spi(pi,spi_channel=0,enable_cex=1,baud=500000,
+    bits_per_word: 8,first_MISO: false,first_MOSI: false,idol_bytes: 0,is_3wire: false,active_low_cex: 0,spi_mode: 0)
+    SPI.new(pi,spi_channel,enable_cex,baud,bits_per_word,first_MISO,first_MOSI,idol_bytes,is_3wire,active_low_cex,spi_mode)
+  end
 end
