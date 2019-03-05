@@ -1,5 +1,6 @@
 #include "ruby.h"
 #include "pigpiod_if2.h"
+#include <string.h>
 
 #define TypedData_Get_Struct2(obj, type, data_type) ((type*)rb_check_typeddata((obj), (data_type)))
 
@@ -214,6 +215,9 @@ VALUE pigpio_rbst_bsc_xfer_make(VALUE self){
   VALUE obj;
   bsc_xfer_t *st;
   obj = TypedData_Make_Struct(self, bsc_xfer_t, &bsc_xfer_data_type, st);
+  st->control=0;
+  st->txCnt=0;
+  st->rxCnt=0;
   return obj;
 }
 /*
@@ -225,30 +229,55 @@ VALUE pigpio_rbst_bsc_xfer_w_control(VALUE self,VALUE control){
   return self;
 }
 /*
-Setter
+Set TX buffer
 */
 VALUE pigpio_rbst_bsc_xfer_w_txBuf(VALUE self,VALUE txBuf){
   bsc_xfer_t *st=TypedData_Get_Struct2(self,bsc_xfer_t,&bsc_xfer_data_type);
   int len=RSTRING_LEN(txBuf);
   char *buf=StringValuePtr(txBuf);
   st->txCnt=(len<BSC_FIFO_SIZE)?len:BSC_FIFO_SIZE;
-  for(int i=0;i<st->txCnt;i++){
-    st->txBuf[i]=*buf++;
-  }
+  memcpy(st->txBuf,buf,st->txCnt);
+  //for(int i=0;i<st->txCnt;i++){st->txBuf[i]=*buf++;}
   RB_GC_GUARD(txBuf);
   return self;
 }
 /*
-Getter
+Get RX buffer
 */
 VALUE pigpio_rbst_bsc_xfer_r_rxBuf(VALUE self){
   bsc_xfer_t *st=TypedData_Get_Struct2(self,bsc_xfer_t,&bsc_xfer_data_type);
+  return rb_str_new(st->rxBuf,st->rxCnt);
+  /*
   VALUE rxBuf=rb_str_new("",st->rxCnt);
   char *buf=StringValuePtr(rxBuf);
   for(int i=0;i<st->rxCnt;i++){
     *buf++=st->rxBuf[i];
   }
   return rxBuf;
+  */
+}
+/*
+Get control
+*/
+VALUE pigpio_rbst_bsc_xfer_r_control(VALUE self){
+  bsc_xfer_t *st=TypedData_Get_Struct2(self,bsc_xfer_t,&bsc_xfer_data_type);
+  return ULONG2NUM(st->control);
+}
+/*
+Stop trans
+*/
+VALUE pigpio_rbst_bsc_xfer_stop(VALUE self){
+  bsc_xfer_t *st=TypedData_Get_Struct2(self,bsc_xfer_t,&bsc_xfer_data_type);
+  st->control=st->control|0x00000080L;
+  return ULONG2NUM(st->control);
+}
+/*
+Close slave I/F
+*/
+VALUE pigpio_rbst_bsc_xfer_close(VALUE self){
+  bsc_xfer_t *st=TypedData_Get_Struct2(self,bsc_xfer_t,&bsc_xfer_data_type);
+  st->control=st->control&0xfffffffcL;
+  return ULONG2NUM(st->control);
 }
 
 const rb_data_type_t gpioPulse_data_type = { //https://gist.github.com/yugui/87ef6964d8a76794be6f
@@ -3804,8 +3833,11 @@ This class has some constances for pigpio library.
   cBscXfer = rb_define_class_under(cPigpio,"BscXfer", rb_cData);
     rb_define_singleton_method(cBscXfer, "make", pigpio_rbst_bsc_xfer_make, 0);
     rb_define_method(cBscXfer, "control=", pigpio_rbst_bsc_xfer_w_control, 1);
+    rb_define_method(cBscXfer, "control", pigpio_rbst_bsc_xfer_r_control, 0);
     rb_define_method(cBscXfer, "txBuf=", pigpio_rbst_bsc_xfer_w_txBuf, 1);
     rb_define_method(cBscXfer, "rxBuf", pigpio_rbst_bsc_xfer_r_rxBuf, 0);
+    rb_define_method(cBscXfer, "stop", pigpio_rbst_bsc_xfer_stop, 0);
+    rb_define_method(cBscXfer, "close", pigpio_rbst_bsc_xfer_close, 0);
 
   /*
   The class of native queue.
