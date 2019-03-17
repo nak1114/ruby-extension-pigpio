@@ -1,8 +1,8 @@
 # I/F Loop back sample
 
-## UART(serial) loop back
-
 ![board_image](./uart.svg)
+
+## UART(serial) loop back
 
 [Script is here.](./uart.rb)
 
@@ -16,4 +16,16 @@ $ ruby uart.rb
 "y"
 "x"
 ""
+```
+
+## SPI loop back
+
+[Script is here.](./spi.rb)
+
+Console will echo back below.
+
+```sh
+$ sudo pigpiod
+$ ruby spi.rb
+"abcdef"
 ```
