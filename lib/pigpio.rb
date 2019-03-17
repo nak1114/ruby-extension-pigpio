@@ -11,6 +11,7 @@ require "pigpio/bit_bang_serial_tx"
 require "pigpio/bit_bang_serial"
 require "pigpio/serial"
 require "pigpio/spi"
+require "pigpio/i2c"
 
 class Pigpio
   attr_reader :pi
@@ -56,10 +57,7 @@ class Pigpio
     bits_per_word: 8,first_MISO: false,first_MOSI: false,idol_bytes: 0,is_3wire: false,active_low_cex: 0,spi_mode: 0)
     SPI.new(@pi,spi_channel,enable_cex,baud,bits_per_word: bits_per_word,first_MISO:first_MISO,first_MOSI:first_MOSI,idol_bytes:idol_bytes,is_3wire:is_3wire,active_low_cex:active_low_cex,spi_mode:spi_mode)
   end
-  def spi_slave_buf()
-    IF.BscXfer.make()
-  end
-  def spi_slave(bscxfer)
-    IF.bsc_xfer(@pi,bscxfer)
+  def i2c(i2c_bus,i2c_addr)
+    I2C.new(@pi,i2c_bus,i2c_addr)
   end
 end
