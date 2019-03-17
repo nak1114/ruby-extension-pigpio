@@ -79,18 +79,20 @@ void pigpio_rbbk_CBFuncEx(int pi, unsigned user_gpio, unsigned level, uint32_t t
   queue->buf[cur].gpio=user_gpio;
   queue->buf[cur].pi=pi;
   cur=(cur>=(PG_EXT_CALLBACK_BUF_SIZE-1)) ? 0 : (cur+1) ;
-/*
-  cur->tick=tick;
-  cur->level=level;
-  cur->gpio=user_gpio;
-  cur->pi=pi;
-  cur=(cur==queue->buf+(PG_EXT_CALLBACK_BUF_SIZE-1)) ? queue->buf : (cur+1) ;
-*/
+
   if(cur==queue->read){
     queue->flag_overflow=1;
   }else{
     queue->write=cur;
   }
+  return;
+}
+
+/*
+Set a data to FIFO Queue for event.
+*/
+void pigpio_rbbk_evtCBFuncEx(int pi, unsigned event, uint32_t tick, void *queue){
+  pigpio_rbbk_CBFuncEx(pi,pi,event,tick,queue);
   return;
 }
 static VALUE callback_receive(void*_self){
@@ -189,11 +191,6 @@ VALUE pigpio_rbst_callback_id_cancel(VALUE self){
   st->thread=Qnil;
   st->queue=Qnil;
   return INT2NUM(id);
-}
-
-void pigpio_rbbk_evtCBFuncEx(int pi, unsigned event, uint32_t tick, void *callee_proc){
-  (rb_funcall((VALUE)callee_proc, rb_intern("call"), 2,ULONG2NUM(tick),UINT2NUM(event)));
-  return;
 }
 
 const rb_data_type_t bsc_xfer_data_type = { //https://gist.github.com/yugui/87ef6964d8a76794be6f
@@ -2085,7 +2082,6 @@ VALUE pigpio_rbfn_callback(int argc, VALUE *argv, VALUE self){
   thread=rb_thread_create(callback_receive,(void*)queue);
   st=TypedData_Get_Struct2(queue,callback_pqueue_t,&callback_pqueue_type);
 
-  //if(NIL_P(callee_proc)){rb_raise(cCallbackError,"No callback block.\n");}
   id=callback_ex(NUM2INT(pi), NUM2UINT(user_gpio), NUM2UINT(edge), pigpio_rbbk_CBFuncEx, (void*)st->queue);
   return pigpio_rbst_callback_id_make_inner(id,callback_cancel,queue,thread);
 }
@@ -2158,9 +2154,19 @@ See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#event_callback_e
 */
 VALUE pigpio_rbfn_event_callback(int argc, VALUE *argv, VALUE self){
   int id;
-  VALUE pi; VALUE event; VALUE queue; VALUE thread;
-  rb_scan_args(argc,argv,"4",&pi,&event,&queue,&thread);
-  id=event_callback_ex(NUM2INT(pi), NUM2UINT(event), pigpio_rbbk_evtCBFuncEx, (void *)queue);
+  VALUE queue;
+  VALUE thread;
+  callback_pqueue_t *st;
+  VALUE pi; VALUE event; VALUE block;
+  rb_scan_args(argc,argv,"2&",&pi,&event,&block);
+  if(block==Qnil){
+    return Qnil;
+  }
+  queue=pigpio_rbst_callback_pqueue_make_inner(block,0,100000);
+  thread=rb_thread_create(callback_receive,(void*)queue);
+  st=TypedData_Get_Struct2(queue,callback_pqueue_t,&callback_pqueue_type);
+
+  id=event_callback_ex(NUM2INT(pi), NUM2UINT(event), pigpio_rbbk_evtCBFuncEx, (void *)st->queue);
   return pigpio_rbst_callback_id_make_inner(id,event_callback_cancel,queue,thread);
 }
 /*
