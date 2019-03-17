@@ -1,6 +1,6 @@
 # SSD1306 by I2C sample
 
-![board_image](./ssd1306.svg)
+![board_image](./ssd1306.png)
 
 [Script is here.](./ssd1306.rb)
 
