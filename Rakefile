@@ -29,3 +29,8 @@ end
 task :dockerv do
   sh("ruby ./bin/docker.rb v")
 end
+
+task :reset do
+  sh "git fetch origin"
+  sh "git reset --hard origin/master"
+end
