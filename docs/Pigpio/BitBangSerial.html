@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class Pigpio::Bank - RDoc Documentation</title>
+<title>class Pigpio::BitBangSerial - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../";
@@ -58,7 +58,7 @@
   <h3>Parent</h3>
 
   
-  <p class="link">Object
+  <p class="link">BitBangSerialTx
   
 </div>
 
@@ -70,13 +70,11 @@
 
   <ul class="link-list" role="directory">
     
-    <li ><a href="#method-c-new">::new</a>
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
     
-    <li ><a href="#method-i-clear">#clear</a>
+    <li class="calls-super" ><a href="#method-i-close">#close</a>
     
     <li ><a href="#method-i-read">#read</a>
-    
-    <li ><a href="#method-i-set">#set</a>
     
   </ul>
 </div>
@@ -84,9 +82,9 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-Pigpio::Bank">
-  <h1 id="class-Pigpio::Bank" class="class">
-    class Pigpio::Bank
+<main role="main" aria-labelledby="class-Pigpio::BitBangSerial">
+  <h1 id="class-Pigpio::BitBangSerial" class="class">
+    class Pigpio::BitBangSerial
   </h1>
 
   <section class="description">
@@ -102,21 +100,28 @@
     
 
     
-    <section class="constants-list">
-      <header>
-        <h3>Constants</h3>
-      </header>
-      <dl>
-      
-        <dt id="Set">Set
-        
-        <dd>
-        
-      
-      </dl>
-    </section>
-    
 
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-rx" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">rx</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
     
 
     
@@ -130,7 +135,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(pi,num)</span>
+            class="method-args">(rx,tx,baud=9600,data_bits=8,stop_bits=1,parity_type=:none)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -142,13 +147,18 @@
           
           
           
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/bank.rb, line 8</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pi</span>,<span class="ruby-identifier">num</span>)
-  <span class="ruby-ivar">@pi</span>=<span class="ruby-identifier">pi</span>
-  <span class="ruby-ivar">@num</span>=<span class="ruby-identifier">num</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/bit_bang_serial.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">rx</span>,<span class="ruby-identifier">tx</span>,<span class="ruby-identifier">baud</span>=<span class="ruby-value">9600</span>,<span class="ruby-identifier">data_bits</span>=<span class="ruby-value">8</span>,<span class="ruby-identifier">stop_bits</span>=<span class="ruby-value">1</span>,<span class="ruby-identifier">parity_type</span>=<span class="ruby-value">:none</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">tx</span>,<span class="ruby-identifier">baud</span>,<span class="ruby-identifier">data_bits</span>,<span class="ruby-identifier">stop_bits</span>)
+  <span class="ruby-ivar">@rx</span>=<span class="ruby-constant">BitBangSerialRx</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">rx</span>,<span class="ruby-identifier">baud</span>,<span class="ruby-identifier">data_bits</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -168,11 +178,11 @@
        </header>
 
     
-      <div id="method-i-clear" class="method-detail ">
+      <div id="method-i-close" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">clear</span><span
-            class="method-args">(bits)</span>
+          <span class="method-name">close</span><span
+            class="method-args">()</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -184,12 +194,18 @@
           
           
           
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
 
           
-          <div class="method-source-code" id="clear-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/bank.rb, line 15</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear</span>(<span class="ruby-identifier">bits</span>)
-  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Set</span>[<span class="ruby-value">:clear</span>][<span class="ruby-ivar">@num</span>],<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">bits</span>)
+          <div class="method-source-code" id="close-source">
+            <pre><span class="ruby-comment"># File lib/pigpio/bit_bang_serial.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@rx</span>.<span class="ruby-identifier">close</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -205,7 +221,7 @@
         
         <div class="method-heading">
           <span class="method-name">read</span><span
-            class="method-args">()</span>
+            class="method-args">(bufsize=1)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -220,42 +236,9 @@
 
           
           <div class="method-source-code" id="read-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/bank.rb, line 12</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">read</span>
-  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Set</span>[<span class="ruby-value">:read</span>][<span class="ruby-ivar">@num</span>],<span class="ruby-ivar">@pi</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-set" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">set</span><span
-            class="method-args">(bits)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="set-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/bank.rb, line 18</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">set</span>(<span class="ruby-identifier">bits</span>)
-  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">send</span>(<span class="ruby-constant">Set</span>[<span class="ruby-value">:set</span>][<span class="ruby-ivar">@num</span>],<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">bits</span>)
+            <pre><span class="ruby-comment"># File lib/pigpio/bit_bang_serial.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read</span>(<span class="ruby-identifier">bufsize</span>=<span class="ruby-value">1</span>)
+  <span class="ruby-ivar">@rx</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">bufsize</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           

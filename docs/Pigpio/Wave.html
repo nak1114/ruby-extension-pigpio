@@ -8,7 +8,6 @@
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../";
-  var index_rel_prefix = "../";
 </script>
 
 <script src="../js/jquery.js"></script>
@@ -135,6 +134,8 @@
   </section>
 
   
+  
+  
   <section id="5Buntitled-5D" class="documentation-section">
     
 
@@ -171,7 +172,7 @@
           
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 3</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">pi</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pi</span>)
   <span class="ruby-ivar">@pi</span>=<span class="ruby-identifier">pi</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_clear</span>(<span class="ruby-identifier">pi</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -213,7 +214,7 @@
           
           <div class="method-source-code" id="add_generic-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 13</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_generic</span>(<span class="ruby-identifier">pulses</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_generic</span>(<span class="ruby-identifier">pulses</span>)
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_add_generic</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">pulses</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -246,7 +247,7 @@
           
           <div class="method-source-code" id="add_new-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 10</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_new</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_new</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_add_new</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -279,7 +280,7 @@
           
           <div class="method-source-code" id="add_serial-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 16</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_serial</span>(<span class="ruby-identifier">user_gpio</span>,<span class="ruby-identifier">baud</span>,<span class="ruby-identifier">data_bits</span>,<span class="ruby-identifier">stop_bits</span>,<span class="ruby-identifier">offset</span>,<span class="ruby-identifier">str</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_serial</span>(<span class="ruby-identifier">user_gpio</span>,<span class="ruby-identifier">baud</span>,<span class="ruby-identifier">data_bits</span>,<span class="ruby-identifier">stop_bits</span>,<span class="ruby-identifier">offset</span>,<span class="ruby-identifier">str</span>)
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_add_serial</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">user_gpio</span>,<span class="ruby-identifier">baud</span>,<span class="ruby-identifier">data_bits</span>,<span class="ruby-identifier">stop_bits</span>,<span class="ruby-identifier">offset</span>,<span class="ruby-identifier">str</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -312,7 +313,7 @@
           
           <div class="method-source-code" id="cbs-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 64</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cbs</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cbs</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_get_cbs</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -345,7 +346,7 @@
           
           <div class="method-source-code" id="chain-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 34</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">chain</span>(<span class="ruby-identifier">buf</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">chain</span>(<span class="ruby-identifier">buf</span>)
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_chain</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">buf</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -378,7 +379,7 @@
           
           <div class="method-source-code" id="clear-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 7</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">clear</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clear</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_clear</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -411,7 +412,7 @@
           
           <div class="method-source-code" id="create-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_create</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -444,7 +445,7 @@
           
           <div class="method-source-code" id="delete-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 22</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete</span>(<span class="ruby-identifier">id</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete</span>(<span class="ruby-identifier">id</span>)
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_delete</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">id</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -477,7 +478,7 @@
           
           <div class="method-source-code" id="high_cbs-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 67</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">high_cbs</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">high_cbs</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_get_high_cbs</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -510,7 +511,7 @@
           
           <div class="method-source-code" id="high_micros-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 49</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">high_micros</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">high_micros</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_get_high_micros</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -543,7 +544,7 @@
           
           <div class="method-source-code" id="high_pulses-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 58</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">high_pulses</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">high_pulses</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_get_high_pulses</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -576,7 +577,7 @@
           
           <div class="method-source-code" id="max_cbs-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 70</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">max_cbs</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">max_cbs</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_get_max_cbs</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -609,7 +610,7 @@
           
           <div class="method-source-code" id="max_micros-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 52</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">max_micros</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">max_micros</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_get_max_micros</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -642,7 +643,7 @@
           
           <div class="method-source-code" id="max_pulses-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 61</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">max_pulses</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">max_pulses</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_get_max_pulses</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -675,7 +676,7 @@
           
           <div class="method-source-code" id="micros-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 46</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">micros</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">micros</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_get_micros</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -692,7 +693,7 @@
         
         <div class="method-heading">
           <span class="method-name">pulse</span><span
-            class="method-args">(on,off,tick)</span>
+            class="method-args">(on,off,us)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -708,8 +709,8 @@
           
           <div class="method-source-code" id="pulse-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 73</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pulse</span>(<span class="ruby-identifier">on</span>,<span class="ruby-identifier">off</span>,<span class="ruby-identifier">tick</span>)
-  <span class="ruby-constant">Pulse</span>.<span class="ruby-identifier">make</span>(<span class="ruby-identifier">on</span>,<span class="ruby-identifier">off</span>,<span class="ruby-identifier">tick</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pulse</span>(<span class="ruby-identifier">on</span>,<span class="ruby-identifier">off</span>,<span class="ruby-identifier">us</span>)
+  <span class="ruby-constant">Pulse</span>.<span class="ruby-identifier">make</span>(<span class="ruby-identifier">on</span>,<span class="ruby-identifier">off</span>,<span class="ruby-identifier">us</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -741,7 +742,7 @@
           
           <div class="method-source-code" id="pulses-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 55</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pulses</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pulses</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_get_pulses</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -774,7 +775,7 @@
           
           <div class="method-source-code" id="send_once-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 25</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send_once</span>(<span class="ruby-identifier">id</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">send_once</span>(<span class="ruby-identifier">id</span>)
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_delete</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">id</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -807,7 +808,7 @@
           
           <div class="method-source-code" id="send_repeat-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 28</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send_repeat</span>(<span class="ruby-identifier">id</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">send_repeat</span>(<span class="ruby-identifier">id</span>)
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_delete</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">id</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -840,7 +841,7 @@
           
           <div class="method-source-code" id="send_using_mode-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 31</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send_using_mode</span>(<span class="ruby-identifier">id</span>,<span class="ruby-identifier">mode</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">send_using_mode</span>(<span class="ruby-identifier">id</span>,<span class="ruby-identifier">mode</span>)
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_delete</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">id</span>,<span class="ruby-identifier">mode</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -873,7 +874,7 @@
           
           <div class="method-source-code" id="tx_at-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 37</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tx_at</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tx_at</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_tx_at</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -906,7 +907,7 @@
           
           <div class="method-source-code" id="tx_busy-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 40</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tx_busy</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tx_busy</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_tx_busy</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -939,7 +940,7 @@
           
           <div class="method-source-code" id="tx_stop-source">
             <pre><span class="ruby-comment"># File lib/pigpio/wave.rb, line 43</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tx_stop</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tx_stop</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">wave_tx_stop</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -959,8 +960,8 @@
 
 
 <footer id="validator-badges" role="contentinfo">
-  <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

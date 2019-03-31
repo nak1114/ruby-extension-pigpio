@@ -8,7 +8,6 @@
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../";
-  var index_rel_prefix = "../";
 </script>
 
 <script src="../js/jquery.js"></script>
@@ -109,6 +108,8 @@
   </section>
 
   
+  
+  
   <section id="5Buntitled-5D" class="documentation-section">
     
 
@@ -145,7 +146,7 @@
           
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 3</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">pi</span>,<span class="ruby-identifier">gpio</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pi</span>,<span class="ruby-identifier">gpio</span>)
   <span class="ruby-ivar">@pi</span>=<span class="ruby-identifier">pi</span>
   <span class="ruby-ivar">@gpio</span>=<span class="ruby-identifier">gpio</span>
 <span class="ruby-keyword">end</span></pre>
@@ -187,7 +188,7 @@
           
           <div class="method-source-code" id="dutycycle-source">
             <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 13</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dutycycle</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dutycycle</span>
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_PWM_dutycycle</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -220,7 +221,7 @@
           
           <div class="method-source-code" id="dutycycle-3D-source">
             <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 10</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">dutycycle=</span>(<span class="ruby-identifier">dutycycle</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dutycycle=</span>(<span class="ruby-identifier">dutycycle</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_PWM_dutycycle</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">dutycycle</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -253,7 +254,7 @@
           
           <div class="method-source-code" id="frequency-source">
             <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 28</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">frequency</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">frequency</span>
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_PWM_frequency</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -286,7 +287,7 @@
           
           <div class="method-source-code" id="frequency-3D-source">
             <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 25</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">frequency=</span>(<span class="ruby-identifier">frequency</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">frequency=</span>(<span class="ruby-identifier">frequency</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_PWM_frequency</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">frequency</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -319,7 +320,7 @@
           
           <div class="method-source-code" id="range-source">
             <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 19</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">range</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">range</span>
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_PWM_range</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -352,7 +353,7 @@
           
           <div class="method-source-code" id="range-3D-source">
             <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 16</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">range=</span>(<span class="ruby-identifier">range</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">range=</span>(<span class="ruby-identifier">range</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_PWM_range</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">range</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -385,7 +386,7 @@
           
           <div class="method-source-code" id="real_range-source">
             <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 22</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">real_range</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">real_range</span>
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_PWM_real_range</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -418,7 +419,7 @@
           
           <div class="method-source-code" id="servo_pulsewidth-source">
             <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 34</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">servo_pulsewidth</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">servo_pulsewidth</span>
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_servo_pulsewidth</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -451,7 +452,7 @@
           
           <div class="method-source-code" id="servo_pulsewidth-3D-source">
             <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 31</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">servo_pulsewidth=</span>(<span class="ruby-identifier">pulsewidth</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">servo_pulsewidth=</span>(<span class="ruby-identifier">pulsewidth</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_servo_pulsewidth</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">pulsewidth</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -484,7 +485,7 @@
           
           <div class="method-source-code" id="start-source">
             <pre><span class="ruby-comment"># File lib/pigpio/pwm.rb, line 7</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start</span>(<span class="ruby-identifier">dutycycle</span>)
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>(<span class="ruby-identifier">dutycycle</span>)
   <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_PWM_dutycycle</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">dutycycle</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -504,8 +505,8 @@
 
 
 <footer id="validator-badges" role="contentinfo">
-  <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

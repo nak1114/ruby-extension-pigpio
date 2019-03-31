@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class Pigpio::BscXfer - RDoc Documentation</title>
+<title>class Pigpio::BitBangSerialRx - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../";
@@ -58,7 +58,7 @@
   <h3>Parent</h3>
 
   
-  <p class="link">Data
+  <p class="link">Object
   
 </div>
 
@@ -70,19 +70,13 @@
 
   <ul class="link-list" role="directory">
     
-    <li ><a href="#method-c-make">::make</a>
+    <li ><a href="#method-c-new">::new</a>
     
     <li ><a href="#method-i-close">#close</a>
     
-    <li ><a href="#method-i-control">#control</a>
+    <li ><a href="#method-i-invert">#invert</a>
     
-    <li ><a href="#method-i-control-3D">#control=</a>
-    
-    <li ><a href="#method-i-rxBuf">#rxBuf</a>
-    
-    <li ><a href="#method-i-stop">#stop</a>
-    
-    <li ><a href="#method-i-txBuf-3D">#txBuf=</a>
+    <li ><a href="#method-i-read">#read</a>
     
   </ul>
 </div>
@@ -90,15 +84,13 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-Pigpio::BscXfer">
-  <h1 id="class-Pigpio::BscXfer" class="class">
-    class Pigpio::BscXfer
+<main role="main" aria-labelledby="class-Pigpio::BitBangSerialRx">
+  <h1 id="class-Pigpio::BitBangSerialRx" class="class">
+    class Pigpio::BitBangSerialRx
   </h1>
 
   <section class="description">
     
-<p>This class wrap bsc_xfer_t.</p>
-
   </section>
 
   
@@ -112,6 +104,27 @@
     
 
     
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-rx" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">rx</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
 
     
      <section id="public-class-5Buntitled-5D-method-details" class="method-section">
@@ -120,11 +133,11 @@
        </header>
 
     
-      <div id="method-c-make" class="method-detail ">
+      <div id="method-c-new" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">make</span><span
-            class="method-args">()</span>
+          <span class="method-name">new</span><span
+            class="method-args">(rx,baud=9600,data_bits=8)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -133,23 +146,18 @@
 
         <div class="method-description">
           
-          <p>Constructor of bsc_xfer_t as <a href="BscXfer.html">Pigpio::BscXfer</a>
-class</p>
-
-<pre>typedef struct
-{
-  uint32_t control;          // Write
-  int rxCnt;                 // Read only
-  char rxBuf[BSC_FIFO_SIZE]; // Read only
-  int txCnt;                 // Write
-  char txBuf[BSC_FIFO_SIZE]; // Write
-} bsc_xfer_t;</pre>
+          
           
           
 
           
-          <div class="method-source-code" id="make-source">
-            <pre>VALUE pigpio_rbst_bsc_xfer_make(VALUE self){</pre>
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/pigpio/bit_bang_serial_rx.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">rx</span>,<span class="ruby-identifier">baud</span>=<span class="ruby-value">9600</span>,<span class="ruby-identifier">data_bits</span>=<span class="ruby-value">8</span>)
+  <span class="ruby-ivar">@rx</span>=<span class="ruby-identifier">rx</span>
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">bb_serial_read_open</span>(<span class="ruby-ivar">@rx</span>.<span class="ruby-identifier">pi</span>,<span class="ruby-ivar">@rx</span>.<span class="ruby-identifier">gpio</span>,<span class="ruby-identifier">baud</span>,<span class="ruby-identifier">data_bits</span>)
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">bb_serial_invert</span>(<span class="ruby-ivar">@rx</span>.<span class="ruby-identifier">pi</span>,<span class="ruby-ivar">@rx</span>.<span class="ruby-identifier">gpio</span>,<span class="ruby-value">0</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -181,13 +189,16 @@ class</p>
 
         <div class="method-description">
           
-          <p>Close slave I/F</p>
+          
           
           
 
           
           <div class="method-source-code" id="close-source">
-            <pre>VALUE pigpio_rbst_bsc_xfer_close(VALUE self){</pre>
+            <pre><span class="ruby-comment"># File lib/pigpio/bit_bang_serial_rx.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">bb_serial_read_close</span>(<span class="ruby-ivar">@rx</span>.<span class="ruby-identifier">pi</span>,<span class="ruby-ivar">@rx</span>.<span class="ruby-identifier">gpio</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -198,11 +209,11 @@ class</p>
       </div>
 
     
-      <div id="method-i-control" class="method-detail ">
+      <div id="method-i-invert" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">control</span><span
-            class="method-args">()</span>
+          <span class="method-name">invert</span><span
+            class="method-args">(invert=1)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -211,13 +222,16 @@ class</p>
 
         <div class="method-description">
           
-          <p>Get control</p>
+          
           
           
 
           
-          <div class="method-source-code" id="control-source">
-            <pre>VALUE pigpio_rbst_bsc_xfer_r_control(VALUE self){</pre>
+          <div class="method-source-code" id="invert-source">
+            <pre><span class="ruby-comment"># File lib/pigpio/bit_bang_serial_rx.rb, line 15</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">invert</span>(<span class="ruby-identifier">invert</span>=<span class="ruby-value">1</span>)
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">bb_serial_invert</span>(<span class="ruby-ivar">@rx</span>.<span class="ruby-identifier">pi</span>,<span class="ruby-ivar">@rx</span>.<span class="ruby-identifier">gpio</span>,<span class="ruby-identifier">invert</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -228,11 +242,11 @@ class</p>
       </div>
 
     
-      <div id="method-i-control-3D" class="method-detail ">
+      <div id="method-i-read" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">control=</span><span
-            class="method-args">(p1)</span>
+          <span class="method-name">read</span><span
+            class="method-args">(bufsize=1)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -241,103 +255,16 @@ class</p>
 
         <div class="method-description">
           
-          <p>Setter</p>
           
-          
-
-          
-          <div class="method-source-code" id="control-3D-source">
-            <pre>VALUE pigpio_rbst_bsc_xfer_w_control(VALUE self,VALUE control){</pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-rxBuf" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">rxBuf</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Get RX buffer</p>
           
           
 
           
-          <div class="method-source-code" id="rxBuf-source">
-            <pre>VALUE pigpio_rbst_bsc_xfer_r_rxBuf(VALUE self){</pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-stop" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">stop</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Stop trans</p>
-          
-          
-
-          
-          <div class="method-source-code" id="stop-source">
-            <pre>VALUE pigpio_rbst_bsc_xfer_stop(VALUE self){</pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-txBuf-3D" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">txBuf=</span><span
-            class="method-args">(p1)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Set TX buffer</p>
-          
-          
-
-          
-          <div class="method-source-code" id="txBuf-3D-source">
-            <pre>VALUE pigpio_rbst_bsc_xfer_w_txBuf(VALUE self,VALUE txBuf){</pre>
+          <div class="method-source-code" id="read-source">
+            <pre><span class="ruby-comment"># File lib/pigpio/bit_bang_serial_rx.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read</span>(<span class="ruby-identifier">bufsize</span>=<span class="ruby-value">1</span>)
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">bb_serial_read</span>(<span class="ruby-ivar">@rx</span>.<span class="ruby-identifier">pi</span>,<span class="ruby-ivar">@rx</span>.<span class="ruby-identifier">gpio</span>,<span class="ruby-identifier">bufsize</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

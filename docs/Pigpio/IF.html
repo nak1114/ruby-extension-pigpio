@@ -8,7 +8,6 @@
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../";
-  var index_rel_prefix = "../";
 </script>
 
 <script src="../js/jquery.js"></script>
@@ -314,6 +313,8 @@
   </section>
 
   
+  
+  
   <section id="5Buntitled-5D" class="documentation-section">
     
 
@@ -346,7 +347,7 @@
 
         <div class="method-description">
           
-          <p>This function stops bit banging I2C on a pair of <a
+          <p>This function stops bit banging <a href="I2C.html">I2C</a> on a pair of <a
 href="GPIO.html">GPIO</a> previously opened with
 [<strong>bb_i2c_open</strong>].</p>
 
@@ -394,10 +395,10 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_i2c_close">pigpio site</a></p>
         <div class="method-description">
           
           <p>This function selects a pair of <a href="GPIO.html">GPIO</a> for bit
-banging I2C at a specified baud rate.</p>
+banging <a href="I2C.html">I2C</a> at a specified baud rate.</p>
 
-<p>Bit banging I2C allows for certain operations which are not possible with
-the standard I2C driver.</p>
+<p>Bit banging <a href="I2C.html">I2C</a> allows for certain operations which
+are not possible with the standard <a href="I2C.html">I2C</a> driver.</p>
 
 <pre class="ruby"><span class="ruby-identifier">baud</span> <span class="ruby-identifier">rates</span> <span class="ruby-identifier">as</span> <span class="ruby-identifier">low</span> <span class="ruby-identifier">as</span> <span class="ruby-value">50</span> 
 <span class="ruby-identifier">repeated</span> <span class="ruby-identifier">starts</span> 
@@ -464,9 +465,9 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_i2c_open">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>This function executes a sequence of bit banged I2C operations.  The
-operations to be performed are specified by the contents of inBuf which
-contains the concatenated command codes and associated data.</p>
+          <p>This function executes a sequence of bit banged <a href="I2C.html">I2C</a>
+operations.  The operations to be performed are specified by the contents
+of inBuf which contains the concatenated command codes and associated data.</p>
 
 <p>. .</p>
 
@@ -504,7 +505,8 @@ previous value until updated.</p>
 
 <p>No flags are currently defined.</p>
 
-<p>The returned I2C data is stored in consecutive locations of outBuf.</p>
+<p>The returned <a href="I2C.html">I2C</a> data is stored in consecutive
+locations of outBuf.</p>
 
 <p>…</p>
 
@@ -599,17 +601,10 @@ site</a></p>
         
         <div class="method-heading">
           <span class="method-callseq">
-            bb_serial_read(Integer pi,Integer user_gpio, Integer bufSize) &rarr; Integer (When onError)
+            bb_serial_read(Integer pi,Integer user_gpio, Integer bufSize) &rarr; Pigpio::Buffer buf
           </span>
           
           <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-        <div class="method-heading">
-          <span class="method-callseq">
-            bb_serial_read(Integer pi,Integer user_gpio, Integer bufSize) &rarr; String  (When Success)
-          </span>
           
         </div>
         
@@ -624,13 +619,14 @@ serial cyclic buffer to the buffer starting at buf.</p>
 
 <pre>       pi: &gt;=0 (as returned by [*pigpio_start*]).
 user_gpio: 0-31, previously opened with [*bb_serial_read_open*].
-      buf: an array to receive the read bytes.
   bufSize: &gt;=0</pre>
 
 <p>. .</p>
 
-<p>Returns the number of bytes copied if OK, otherwise PI_BAD_USER_GPIO or
-PI_NOT_SERIAL_GPIO.</p>
+<p>Returns to buf.ret_code attribute the number of bytes copied if OK,
+otherwise PI_BAD_USER_GPIO or PI_NOT_SERIAL_GPIO.</p>
+
+<p>The received data is get by the buf.to_s method.</p>
 
 <p>The bytes returned for each character depend upon the number of data bits
 [<strong>data_bits</strong>] specified in the
@@ -778,7 +774,7 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>This function stops bit banging SPI on a set of <a
+          <p>This function stops bit banging <a href="SPI.html">SPI</a> on a set of <a
 href="GPIO.html">GPIO</a> opened with [<strong>bbSPIOpen</strong>].</p>
 
 <p>. .</p>
@@ -825,7 +821,7 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_spi_close">pigpio site</a></p>
         <div class="method-description">
           
           <p>This function selects a set of <a href="GPIO.html">GPIO</a> for bit banging
-SPI at a specified baud rate.</p>
+<a href="SPI.html">SPI</a> at a specified baud rate.</p>
 
 <p>. .</p>
 
@@ -848,7 +844,7 @@ spi_flags: see below</pre>
 
 <p>. .</p>
 
-<p>mm defines the SPI mode, defaults to 0</p>
+<p>mm defines the <a href="SPI.html">SPI</a> mode, defaults to 0</p>
 
 <p>. .</p>
 
@@ -873,8 +869,8 @@ default (0) shifts the most significant bit out first.</p>
 <p>Returns 0 if OK, otherwise PI_BAD_USER_GPIO, PI_BAD_SPI_BAUD, or
 PI_GPIO_IN_USE.</p>
 
-<p>If more than one device is connected to the SPI bus (defined by SCLK, MOSI,
-and MISO) each must have its own CS.</p>
+<p>If more than one device is connected to the <a href="SPI.html">SPI</a> bus
+(defined by SCLK, MOSI, and MISO) each must have its own CS.</p>
 
 <p>…</p>
 
@@ -924,7 +920,7 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_spi_open">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>This function executes a bit banged SPI transfer.</p>
+          <p>This function executes a bit banged <a href="SPI.html">SPI</a> transfer.</p>
 
 <p>. .</p>
 
@@ -972,7 +968,8 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_spi_xfer">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>This function allows the Pi to act as a slave I2C device.</p>
+          <p>This function allows the Pi to act as a slave <a href="I2C.html">I2C</a>
+device.</p>
 
 <p>The data bytes (if any) are written to the BSC transmit FIFO and the bytes
 in the BSC receive FIFO are returned.</p>
@@ -1043,10 +1040,10 @@ site</a></p>
           
           <p>This function provides a low-level interface to the SPI/I2C Slave
 peripheral.  This peripheral allows the Pi to act as a slave device on an
-I2C or SPI bus.</p>
+<a href="I2C.html">I2C</a> or <a href="SPI.html">SPI</a> bus.</p>
 
-<p>I can&#39;t get SPI to work properly.  I tried with a control word of 0x303
-and swapped MISO and MOSI.</p>
+<p>I can&#39;t get <a href="SPI.html">SPI</a> to work properly.  I tried with
+a control word of 0x303 and swapped MISO and MOSI.</p>
 
 <p>The function sets the BSC mode, writes any data in the transmit buffer to
 the BSC transmit FIFO, and copies any data in the BSC receive FIFO to the
@@ -1087,9 +1084,9 @@ requested if the FIFO already contained untransmitted data).</p>
 mode until a different control word is sent.</p>
 
 <p>The BSC peripheral uses <a href="GPIO.html">GPIO</a> 18 (SDA) and 19 (SCL)
-in I2C mode and <a href="GPIO.html">GPIO</a> 18 (MOSI), 19 (SCLK), 20
-(MISO), and 21 (CE) in SPI mode.  You need to swap MISO/MOSI between master
-and slave.</p>
+in <a href="I2C.html">I2C</a> mode and <a href="GPIO.html">GPIO</a> 18
+(MOSI), 19 (SCLK), 20 (MISO), and 21 (CE) in <a href="SPI.html">SPI</a>
+mode.  You need to swap MISO/MOSI between master and slave.</p>
 
 <p>When a zero control word is received <a href="GPIO.html">GPIO</a> 18-21
 will be reset to INPUT mode.</p>
@@ -2488,7 +2485,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>This closes the I2C device associated with the handle.</p>
+          <p>This closes the <a href="I2C.html">I2C</a> device associated with the
+handle.</p>
 
 <p>. .</p>
 
@@ -3415,9 +3413,9 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>This function executes a sequence of I2C operations.  The operations to be
-performed are specified by the contents of inBuf which contains the
-concatenated command codes and associated data.</p>
+          <p>This function executes a sequence of <a href="I2C.html">I2C</a> operations.
+The operations to be performed are specified by the contents of inBuf which
+contains the concatenated command codes and associated data.</p>
 
 <p>. .</p>
 
@@ -3452,7 +3450,8 @@ two bytes (0-65535, least significant byte first).</p>
 <p>The address defaults to that associated with the handle. The flags default
 to 0.  The address and flags maintain their previous value until updated.</p>
 
-<p>The returned I2C data is stored in consecutive locations of outBuf.</p>
+<p>The returned <a href="I2C.html">I2C</a> data is stored in consecutive
+locations of outBuf.</p>
 
 <p>…</p>
 
@@ -4260,17 +4259,10 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#serial_open">pigpio site</a></p>
         
         <div class="method-heading">
           <span class="method-callseq">
-            serial_read(Integer pi,Integer handle, Integer count) &rarr; Integer (When onError)
+            serial_read(Integer pi,Integer handle, Integer count) &rarr; Pigpio::Buffer buf
           </span>
           
           <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-        <div class="method-heading">
-          <span class="method-callseq">
-            serial_read(Integer pi,Integer handle, Integer count) &rarr; String buf (When Success)
-          </span>
           
         </div>
         
@@ -4285,15 +4277,15 @@ with handle and writes them to buf.</p>
 
 <pre>    pi: &gt;=0 (as returned by [*pigpio_start*]).
 handle: &gt;=0, as returned by a call to [*serial_open*].
-   buf: an array to receive the read data.
  count: the maximum number of bytes to read.</pre>
 
 <p>. .</p>
 
-<p>Returns the number of bytes read (&gt;=0) if OK, otherwise PI_BAD_HANDLE,
-PI_BAD_PARAM, PI_SER_READ_NO_DATA, or PI_SER_WRITE_FAILED.</p>
+<p>Returns to buf.ret_code attribute the number of bytes read (&gt;=0) if OK,
+otherwise PI_BAD_HANDLE, PI_BAD_PARAM, PI_SER_READ_NO_DATA, or
+PI_SER_WRITE_FAILED.</p>
 
-<p>If no data is ready zero is returned.</p>
+<p>The received data is get by the buf.to_s method.</p>
 
 <p>See also: <a
 href="http://abyz.me.uk/rpi/pigpio/pdif2.html#serial_read">pigpio site</a></p>
@@ -5215,7 +5207,8 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#set_watchdog">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>This functions closes the SPI device identified by the handle.</p>
+          <p>This functions closes the <a href="SPI.html">SPI</a> device identified by
+the handle.</p>
 
 <p>. .</p>
 
@@ -5260,13 +5253,14 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#spi_close">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>This function returns a handle for the SPI device on channel. Data will be
-transferred at baud bits per second.  The flags may be used to modify the
-default behaviour of 4-wire operation, mode 0, active low chip select.</p>
+          <p>This function returns a handle for the <a href="SPI.html">SPI</a> device on
+channel. Data will be transferred at baud bits per second.  The flags may
+be used to modify the default behaviour of 4-wire operation, mode 0, active
+low chip select.</p>
 
-<p>An auxiliary SPI device is available on all models but the A and B and may
-be selected by setting the A bit in the flags.  The auxiliary device has 3
-chip selects and a selectable word size in bits.</p>
+<p>An auxiliary <a href="SPI.html">SPI</a> device is available on all models
+but the A and B and may be selected by setting the A bit in the flags.  The
+auxiliary device has 3 chip selects and a selectable word size in bits.</p>
 
 <p>. .</p>
 
@@ -5289,7 +5283,7 @@ PI_BAD_SPI_SPEED, PI_BAD_FLAGS, PI_NO_AUX_SPI, or PI_SPI_OPEN_FAILED.</p>
 
 <p>. .</p>
 
-<p>mm defines the SPI mode.</p>
+<p>mm defines the <a href="SPI.html">SPI</a> mode.</p>
 
 <p>Warning: modes 1 and 3 do not appear to work on the auxiliary device.</p>
 
@@ -5305,27 +5299,29 @@ PI_BAD_SPI_SPEED, PI_BAD_FLAGS, PI_NO_AUX_SPI, or PI_SPI_OPEN_FAILED.</p>
 
 <p>px is 0 if CEx is active low (default) and 1 for active high.</p>
 
-<p>ux is 0 if the CEx <a href="GPIO.html">GPIO</a> is reserved for SPI
-(default) and 1 otherwise.</p>
+<p>ux is 0 if the CEx <a href="GPIO.html">GPIO</a> is reserved for <a
+href="SPI.html">SPI</a> (default) and 1 otherwise.</p>
 
-<p>A is 0 for the standard SPI device, 1 for the auxiliary SPI.</p>
+<p>A is 0 for the standard <a href="SPI.html">SPI</a> device, 1 for the
+auxiliary <a href="SPI.html">SPI</a>.</p>
 
-<p>W is 0 if the device is not 3-wire, 1 if the device is 3-wire.  Standard
-SPI device only.</p>
+<p>W is 0 if the device is not 3-wire, 1 if the device is 3-wire.  Standard <a
+href="SPI.html">SPI</a> device only.</p>
 
 <p>nnnn defines the number of bytes (0-15) to write before switching the MOSI
 line to MISO to read data.  This field is ignored if W is not set. 
-Standard SPI device only.</p>
+Standard <a href="SPI.html">SPI</a> device only.</p>
 
 <p>T is 1 if the least significant bit is transmitted on MOSI first, the
-default (0) shifts the most significant bit out first.  Auxiliary SPI
-device only.</p>
+default (0) shifts the most significant bit out first.  Auxiliary <a
+href="SPI.html">SPI</a> device only.</p>
 
 <p>R is 1 if the least significant bit is received on MISO first, the default
-(0) receives the most significant bit first.  Auxiliary SPI device only.</p>
+(0) receives the most significant bit first.  Auxiliary <a
+href="SPI.html">SPI</a> device only.</p>
 
 <p>bbbbbb defines the word size in bits (0-32).  The default (0) sets 8 bits
-per word.  Auxiliary SPI device only.</p>
+per word.  Auxiliary <a href="SPI.html">SPI</a> device only.</p>
 
 <p>The [<strong>spi_read</strong>], [<strong>spi_write</strong>], and
 [<strong>spi_xfer</strong>] functions transfer data packed into 1, 2, or 4
@@ -5386,8 +5382,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>This function reads count bytes of data from the SPI device associated with
-the handle.</p>
+          <p>This function reads count bytes of data from the <a href="SPI.html">SPI</a>
+device associated with the handle.</p>
 
 <p>. .</p>
 
@@ -5435,8 +5431,8 @@ site</a></p>
 
         <div class="method-description">
           
-          <p>This function writes count bytes of data from buf to the SPI device
-associated with the handle.</p>
+          <p>This function writes count bytes of data from buf to the <a
+href="SPI.html">SPI</a> device associated with the handle.</p>
 
 <p>. .</p>
 
@@ -5490,9 +5486,9 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#spi_write">pigpio site</a></p>
 
         <div class="method-description">
           
-          <p>This function transfers count bytes of data from txBuf to the SPI device
-associated with the handle.  Simultaneously count bytes of data are read
-from the device and placed in rxBuf.</p>
+          <p>This function transfers count bytes of data from txBuf to the <a
+href="SPI.html">SPI</a> device associated with the handle.  Simultaneously
+count bytes of data are read from the device and placed in rxBuf.</p>
 
 <p>. .</p>
 
@@ -6904,8 +6900,8 @@ href="http://abyz.me.uk/rpi/pigpio/pdif2.html#wave_tx_stop">pigpio site</a></p>
 
 
 <footer id="validator-badges" role="contentinfo">
-  <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

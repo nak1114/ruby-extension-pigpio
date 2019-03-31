@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class Pigpio::Callback - RDoc Documentation</title>
+<title>class Pigpio::Buffer - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../";
@@ -58,7 +58,7 @@
   <h3>Parent</h3>
 
   
-  <p class="link">Data
+  <p class="link">String
   
 </div>
 
@@ -70,9 +70,9 @@
 
   <ul class="link-list" role="directory">
     
-    <li ><a href="#method-i-cancel">#cancel</a>
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
     
-    <li ><a href="#method-i-id">#id</a>
+    <li ><a href="#method-i-valid-3F">#valid?</a>
     
   </ul>
 </div>
@@ -80,14 +80,14 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-Pigpio::Callback">
-  <h1 id="class-Pigpio::Callback" class="class">
-    class Pigpio::Callback
+<main role="main" aria-labelledby="class-Pigpio::Buffer">
+  <h1 id="class-Pigpio::Buffer" class="class">
+    class Pigpio::Buffer
   </h1>
 
   <section class="description">
     
-<p>The class of callback.</p>
+<p>The class of Rx buffer.</p>
 
   </section>
 
@@ -102,45 +102,64 @@
     
 
     
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-ret_code" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ret_code</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
 
     
-     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
        <header>
-         <h3>Public Instance Methods</h3>
+         <h3>Public Class Methods</h3>
        </header>
 
     
-      <div id="method-i-cancel" class="method-detail ">
-        
+      <div id="method-c-new" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-callseq">
-            cancel() &rarr; Integer
-          </span>
+          <span class="method-name">new</span><span
+            class="method-args">(ret_code,str=nil)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
         </div>
         
-        
 
         <div class="method-description">
           
-          <p>This function cancels a callback/event-callback.</p>
-
-<p>The function returns 0 if OK, otherwise pigif_callback_not_found.</p>
-
-<p>See also: <a
-href="http://abyz.me.uk/rpi/pigpio/pdif2.html#event_callback_cancel">pigpio
-site event_callback_cancel</a> See also: <a
-href="http://abyz.me.uk/rpi/pigpio/pdif2.html#callback_cancel">pigpio site
-callback_cancel</a></p>
           
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
           
 
           
-          <div class="method-source-code" id="cancel-source">
-            <pre>VALUE pigpio_rbst_callback_id_cancel(VALUE self){</pre>
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/pigpio/buffer.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">ret_code</span>,<span class="ruby-identifier">str</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-ivar">@ret_code</span>=<span class="ruby-identifier">ret_code</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
@@ -151,10 +170,18 @@ callback_cancel</a></p>
       </div>
 
     
-      <div id="method-i-id" class="method-detail ">
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-valid-3F" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">id</span><span
+          <span class="method-name">valid?</span><span
             class="method-args">()</span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -164,13 +191,16 @@ callback_cancel</a></p>
 
         <div class="method-description">
           
-          <p>Get callback id.R eturn Integer.</p>
+          
           
           
 
           
-          <div class="method-source-code" id="id-source">
-            <pre>VALUE pigpio_rbst_callback_id_r_id(VALUE self){</pre>
+          <div class="method-source-code" id="valid-3F-source">
+            <pre><span class="ruby-comment"># File lib/pigpio/buffer.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid?</span>
+  <span class="ruby-ivar">@ret_code</span><span class="ruby-operator">&gt;=</span><span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>

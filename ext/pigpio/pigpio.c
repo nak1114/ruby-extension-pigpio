@@ -2360,18 +2360,16 @@ associated with handle and writes them to buf.
 . .
      pi: >=0 (as returned by [*pigpio_start*]).
  handle: >=0, as returned by a call to [*serial_open*].
-    buf: an array to receive the read data.
   count: the maximum number of bytes to read.
 . .
 
-Returns the number of bytes read (>=0) if OK, otherwise PI_BAD_HANDLE,
+Returns to buf.ret_code attribute the number of bytes read (>=0) if OK, otherwise PI_BAD_HANDLE,
 PI_BAD_PARAM, PI_SER_READ_NO_DATA, or PI_SER_WRITE_FAILED.
 
-If no data is ready zero is returned.
+The received data is get by the buf.to_s method.
 
 :call-seq:
- serial_read(Integer pi,Integer handle, Integer count) -> Integer (When onError)
- serial_read(Integer pi,Integer handle, Integer count) -> String buf (When Success)
+ serial_read(Integer pi,Integer handle, Integer count) -> Pigpio::Buffer buf
 
 See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#serial_read]
 */
@@ -2439,12 +2437,13 @@ bit bang serial cyclic buffer to the buffer starting at buf.
 . .
         pi: >=0 (as returned by [*pigpio_start*]).
  user_gpio: 0-31, previously opened with [*bb_serial_read_open*].
-       buf: an array to receive the read bytes.
    bufSize: >=0
 . .
 
-Returns the number of bytes copied if OK, otherwise PI_BAD_USER_GPIO
+Returns to buf.ret_code attribute the number of bytes copied if OK, otherwise PI_BAD_USER_GPIO
 or PI_NOT_SERIAL_GPIO.
+
+The received data is get by the buf.to_s method.
 
 The bytes returned for each character depend upon the number of
 data bits [*data_bits*] specified in the [*bb_serial_read_open*] command.
@@ -2454,8 +2453,7 @@ data bits [*data_bits*] specified in the [*bb_serial_read_open*] command.
 * For [*data_bits*] 17-32 there will be four bytes per character.
 
 :call-seq:
- bb_serial_read(Integer pi,Integer user_gpio, Integer bufSize) -> Integer (When onError)
- bb_serial_read(Integer pi,Integer user_gpio, Integer bufSize) -> String  (When Success)
+ bb_serial_read(Integer pi,Integer user_gpio, Integer bufSize) -> Pigpio::Buffer buf
 
 See also: {pigpio site}[http://abyz.me.uk/rpi/pigpio/pdif2.html#bb_serial_read]
 */

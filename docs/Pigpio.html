@@ -8,7 +8,6 @@
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
-  var index_rel_prefix = "./";
 </script>
 
 <script src="./js/jquery.js"></script>
@@ -83,9 +82,13 @@
     
     <li ><a href="#method-i-hardware_revision">#hardware_revision</a>
     
-    <li ><a href="#method-i-pi">#pi</a>
+    <li ><a href="#method-i-i2c">#i2c</a>
     
     <li ><a href="#method-i-pigpio_version">#pigpio_version</a>
+    
+    <li ><a href="#method-i-serial">#serial</a>
+    
+    <li ><a href="#method-i-spi">#spi</a>
     
     <li ><a href="#method-i-stop">#stop</a>
     
@@ -109,6 +112,8 @@
   </section>
 
   
+  
+  
   <section id="5Buntitled-5D" class="documentation-section">
     
 
@@ -131,6 +136,27 @@
     
 
     
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-pi" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">pi</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
 
     
      <section id="public-class-5Buntitled-5D-method-details" class="method-section">
@@ -143,7 +169,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(addr=nil,port=nil,&amp;blk)</span>
+            class="method-args">(addr=nil,port=nil,&blk)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -158,8 +184,8 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 11</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">addr</span>=<span class="ruby-keyword">nil</span>,<span class="ruby-identifier">port</span>=<span class="ruby-keyword">nil</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>)
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">addr</span>=<span class="ruby-keyword">nil</span>,<span class="ruby-identifier">port</span>=<span class="ruby-keyword">nil</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">blk</span>)
   <span class="ruby-ivar">@pi</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">pigpio_start</span>(<span class="ruby-identifier">addr</span>,<span class="ruby-identifier">port</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">blk</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">connect</span>
     <span class="ruby-identifier">blk</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>) 
@@ -203,8 +229,8 @@
 
           
           <div class="method-source-code" id="bank-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 38</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bank</span>(<span class="ruby-identifier">num</span>)
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bank</span>(<span class="ruby-identifier">num</span>)
   <span class="ruby-constant">Bank</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">num</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -236,8 +262,8 @@
 
           
           <div class="method-source-code" id="connect-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 18</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">connect</span>
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">connect</span>
   <span class="ruby-ivar">@pi</span><span class="ruby-operator">&gt;=</span><span class="ruby-value">0</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -269,8 +295,8 @@
 
           
           <div class="method-source-code" id="current_tick-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 28</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">current_tick</span>
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">current_tick</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_current_tick</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -302,8 +328,8 @@
 
           
           <div class="method-source-code" id="gpio-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 41</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gpio</span>(<span class="ruby-identifier">gpio</span>)
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gpio</span>(<span class="ruby-identifier">gpio</span>)
   (<span class="ruby-identifier">gpio</span><span class="ruby-operator">&lt;</span><span class="ruby-value">32</span> <span class="ruby-operator">?</span> <span class="ruby-constant">UserGPIO</span> <span class="ruby-operator">:</span> <span class="ruby-constant">GPIO</span>).<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">gpio</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -335,8 +361,8 @@
 
           
           <div class="method-source-code" id="hardware_revision-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 31</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">hardware_revision</span>
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hardware_revision</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_hardware_revision</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -349,11 +375,11 @@
       </div>
 
     
-      <div id="method-i-pi" class="method-detail ">
+      <div id="method-i-i2c" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">pi</span><span
-            class="method-args">()</span>
+          <span class="method-name">i2c</span><span
+            class="method-args">(i2c_bus,i2c_addr)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -367,10 +393,10 @@
           
 
           
-          <div class="method-source-code" id="pi-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 21</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pi</span>
-  <span class="ruby-ivar">@pi</span>
+          <div class="method-source-code" id="i2c-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">i2c</span>(<span class="ruby-identifier">i2c_bus</span>,<span class="ruby-identifier">i2c_addr</span>)
+  <span class="ruby-constant">I2C</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">i2c_bus</span>,<span class="ruby-identifier">i2c_addr</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -401,9 +427,78 @@
 
           
           <div class="method-source-code" id="pigpio_version-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 34</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pigpio_version</span>
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pigpio_version</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_pigpio_version</span>(<span class="ruby-ivar">@pi</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-serial" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">serial</span><span
+            class="method-args">(rx,tx=nil,baud=9600,data_bits=8,stop_bits=1,parity_type=:none)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="serial-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">serial</span>(<span class="ruby-identifier">rx</span>,<span class="ruby-identifier">tx</span>=<span class="ruby-keyword">nil</span>,<span class="ruby-identifier">baud</span>=<span class="ruby-value">9600</span>,<span class="ruby-identifier">data_bits</span>=<span class="ruby-value">8</span>,<span class="ruby-identifier">stop_bits</span>=<span class="ruby-value">1</span>,<span class="ruby-identifier">parity_type</span>=<span class="ruby-value">:none</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">BitBangSerialRx</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">rx</span>,<span class="ruby-identifier">baud</span>,<span class="ruby-identifier">data_bits</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">tx</span><span class="ruby-operator">==</span><span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">BitBangSerialTx</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">tx</span>,<span class="ruby-identifier">baud</span>,<span class="ruby-identifier">data_bits</span>,<span class="ruby-identifier">stop_bits</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">rx</span><span class="ruby-operator">==</span><span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">BitBangSerial</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">rx</span>,<span class="ruby-identifier">tx</span>,<span class="ruby-identifier">baud</span>,<span class="ruby-identifier">data_bits</span>,<span class="ruby-identifier">stop_bits</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-spi" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">spi</span><span
+            class="method-args">(spi_channel=0,enable_cex=1,baud=500000, bits_per_word: 8,first_MISO: false,first_MOSI: false,idol_bytes: 0,is_3wire: false,active_low_cex: 0,spi_mode: 0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="spi-source">
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">spi</span>(<span class="ruby-identifier">spi_channel</span>=<span class="ruby-value">0</span>,<span class="ruby-identifier">enable_cex</span>=<span class="ruby-value">1</span>,<span class="ruby-identifier">baud</span>=<span class="ruby-value">500000</span>,
+  <span class="ruby-identifier">bits_per_word</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>,<span class="ruby-identifier">first_MISO</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,<span class="ruby-identifier">first_MOSI</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,<span class="ruby-identifier">idol_bytes</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>,<span class="ruby-identifier">is_3wire</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,<span class="ruby-identifier">active_low_cex</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>,<span class="ruby-identifier">spi_mode</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>)
+  <span class="ruby-constant">SPI</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-identifier">spi_channel</span>,<span class="ruby-identifier">enable_cex</span>,<span class="ruby-identifier">baud</span>,<span class="ruby-identifier">bits_per_word</span><span class="ruby-operator">:</span> <span class="ruby-identifier">bits_per_word</span>,<span class="ruby-identifier">first_MISO</span><span class="ruby-value">:first_MISO</span>,<span class="ruby-identifier">first_MOSI</span><span class="ruby-value">:first_MOSI</span>,<span class="ruby-identifier">idol_bytes</span><span class="ruby-value">:idol_bytes</span>,<span class="ruby-identifier">is_3wire</span><span class="ruby-value">:is_3wire</span>,<span class="ruby-identifier">active_low_cex</span><span class="ruby-value">:active_low_cex</span>,<span class="ruby-identifier">spi_mode</span><span class="ruby-value">:spi_mode</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -434,8 +529,8 @@
 
           
           <div class="method-source-code" id="stop-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 24</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stop</span>
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stop</span>
   <span class="ruby-constant">IF</span>.<span class="ruby-identifier">pigpio_stop</span>(<span class="ruby-ivar">@pi</span>)
   <span class="ruby-ivar">@pi</span>=<span class="ruby-value">-1</span>
 <span class="ruby-keyword">end</span></pre>
@@ -468,8 +563,8 @@
 
           
           <div class="method-source-code" id="wave-source">
-            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 44</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">wave</span>()
+            <pre><span class="ruby-comment"># File lib/pigpio.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wave</span>()
   <span class="ruby-constant">Wave</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@pi</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -489,8 +584,8 @@
 
 
 <footer id="validator-badges" role="contentinfo">
-  <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.0.1.
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>class Pigpio::GPIO - RDoc Documentation</title>
+<title>class Pigpio::Serial - RDoc Documentation</title>
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../";
@@ -72,17 +72,15 @@
     
     <li ><a href="#method-c-new">::new</a>
     
-    <li ><a href="#method-i-hardware_PWM">#hardware_PWM</a>
+    <li ><a href="#method-i-byte">#byte</a>
     
-    <li ><a href="#method-i-hardware_clock">#hardware_clock</a>
+    <li ><a href="#method-i-byte-3D">#byte=</a>
     
-    <li ><a href="#method-i-mode">#mode</a>
-    
-    <li ><a href="#method-i-mode-3D">#mode=</a>
-    
-    <li ><a href="#method-i-pud-3D">#pud=</a>
+    <li ><a href="#method-i-close">#close</a>
     
     <li ><a href="#method-i-read">#read</a>
+    
+    <li ><a href="#method-i-size">#size</a>
     
     <li ><a href="#method-i-write">#write</a>
     
@@ -92,9 +90,9 @@
   </div>
 </nav>
 
-<main role="main" aria-labelledby="class-Pigpio::GPIO">
-  <h1 id="class-Pigpio::GPIO" class="class">
-    class Pigpio::GPIO
+<main role="main" aria-labelledby="class-Pigpio::Serial">
+  <h1 id="class-Pigpio::Serial" class="class">
+    class Pigpio::Serial
   </h1>
 
   <section class="description">
@@ -110,6 +108,25 @@
     
 
     
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="Baud">Baud
+        
+        <dd>
+        
+      
+        <dt id="TTY">TTY
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
 
     
     <section class="attribute-method-details" class="method-section">
@@ -118,9 +135,9 @@
       </header>
 
       
-      <div id="attribute-i-gpio" class="method-detail">
+      <div id="attribute-i-handle" class="method-detail">
         <div class="method-heading attribute-method-heading">
-          <span class="method-name">gpio</span><span
+          <span class="method-name">handle</span><span
             class="attribute-access-type">[R]</span>
         </div>
 
@@ -158,7 +175,7 @@
         
         <div class="method-heading">
           <span class="method-name">new</span><span
-            class="method-args">(pi,gpio)</span>
+            class="method-args">(pi,ser_tty,baud)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -173,10 +190,10 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 4</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pi</span>,<span class="ruby-identifier">gpio</span>)
-  <span class="ruby-ivar">@pi</span>=<span class="ruby-identifier">pi</span> <span class="ruby-comment">#0-15</span>
-  <span class="ruby-ivar">@gpio</span>=<span class="ruby-identifier">gpio</span> <span class="ruby-comment">#0-53</span>
+            <pre><span class="ruby-comment"># File lib/pigpio/serial.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">pi</span>,<span class="ruby-identifier">ser_tty</span>,<span class="ruby-identifier">baud</span>)
+  <span class="ruby-ivar">@pi</span>=<span class="ruby-identifier">pi</span>
+  <span class="ruby-ivar">@handle</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">serial_open</span>(<span class="ruby-identifier">pi</span>,<span class="ruby-identifier">ser_tty</span>,<span class="ruby-identifier">baud</span>=<span class="ruby-value">19200</span>,<span class="ruby-value">0</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -196,76 +213,10 @@
        </header>
 
     
-      <div id="method-i-hardware_PWM" class="method-detail ">
+      <div id="method-i-byte" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">hardware_PWM</span><span
-            class="method-args">(vPWMfreq,vPWMduty)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="hardware_PWM-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 26</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">hardware_PWM</span>(<span class="ruby-identifier">vPWMfreq</span>,<span class="ruby-identifier">vPWMduty</span>)
-  <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">hardware_PWM</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">vPWMfreq</span>,<span class="ruby-identifier">vPWMduty</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-hardware_clock" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">hardware_clock</span><span
-            class="method-args">(clkfreq)</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          
-          
-          
-
-          
-          <div class="method-source-code" id="hardware_clock-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 23</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">hardware_clock</span>(<span class="ruby-identifier">clkfreq</span>)
-  <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">hardware_clock</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">clkfreq</span>)
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-mode" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">mode</span><span
+          <span class="method-name">byte</span><span
             class="method-args">()</span>
           
           <span class="method-click-advice">click to toggle source</span>
@@ -280,10 +231,10 @@
           
 
           
-          <div class="method-source-code" id="mode-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 11</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">mode</span>
-  <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">get_mode</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
+          <div class="method-source-code" id="byte-source">
+            <pre><span class="ruby-comment"># File lib/pigpio/serial.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">byte</span>
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">serial_read_byte</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@handle</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -295,11 +246,11 @@
       </div>
 
     
-      <div id="method-i-mode-3D" class="method-detail ">
+      <div id="method-i-byte-3D" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">mode=</span><span
-            class="method-args">(mode)</span>
+          <span class="method-name">byte=</span><span
+            class="method-args">(bVal)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -313,10 +264,10 @@
           
 
           
-          <div class="method-source-code" id="mode-3D-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 8</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">mode=</span>(<span class="ruby-identifier">mode</span>)
-  <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_mode</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">mode</span>)
+          <div class="method-source-code" id="byte-3D-source">
+            <pre><span class="ruby-comment"># File lib/pigpio/serial.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">byte=</span>(<span class="ruby-identifier">bVal</span>)
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">serial_write_byte</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@handle</span>,<span class="ruby-identifier">bVal</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -328,11 +279,11 @@
       </div>
 
     
-      <div id="method-i-pud-3D" class="method-detail ">
+      <div id="method-i-close" class="method-detail ">
         
         <div class="method-heading">
-          <span class="method-name">pud=</span><span
-            class="method-args">(pud)</span>
+          <span class="method-name">close</span><span
+            class="method-args">()</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -346,10 +297,10 @@
           
 
           
-          <div class="method-source-code" id="pud-3D-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 14</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">pud=</span>(<span class="ruby-identifier">pud</span>)
-  <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">set_pull_up_down</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">pud</span>)
+          <div class="method-source-code" id="close-source">
+            <pre><span class="ruby-comment"># File lib/pigpio/serial.rb, line 10</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">serial_close</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@handle</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -365,7 +316,7 @@
         
         <div class="method-heading">
           <span class="method-name">read</span><span
-            class="method-args">()</span>
+            class="method-args">(count)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -380,9 +331,42 @@
 
           
           <div class="method-source-code" id="read-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 17</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">read</span>
-  <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">gpio_read</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>)
+            <pre><span class="ruby-comment"># File lib/pigpio/serial.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read</span>(<span class="ruby-identifier">count</span>)
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">serial_read</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@handle</span>,<span class="ruby-identifier">count</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">size</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="size-source">
+            <pre><span class="ruby-comment"># File lib/pigpio/serial.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">size</span>
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">serial_data_available</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@handle</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -398,7 +382,7 @@
         
         <div class="method-heading">
           <span class="method-name">write</span><span
-            class="method-args">(level)</span>
+            class="method-args">(buf)</span>
           
           <span class="method-click-advice">click to toggle source</span>
           
@@ -413,9 +397,9 @@
 
           
           <div class="method-source-code" id="write-source">
-            <pre><span class="ruby-comment"># File lib/pigpio/gpio.rb, line 20</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">write</span>(<span class="ruby-identifier">level</span>)
-  <span class="ruby-identifier">ret</span>=<span class="ruby-constant">IF</span>.<span class="ruby-identifier">gpio_write</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@gpio</span>,<span class="ruby-identifier">level</span>)
+            <pre><span class="ruby-comment"># File lib/pigpio/serial.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write</span>(<span class="ruby-identifier">buf</span>)
+  <span class="ruby-constant">IF</span>.<span class="ruby-identifier">serial_write</span>(<span class="ruby-ivar">@pi</span>,<span class="ruby-ivar">@handle</span>,<span class="ruby-identifier">buf</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
           
