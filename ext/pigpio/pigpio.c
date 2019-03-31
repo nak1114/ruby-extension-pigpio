@@ -7,6 +7,7 @@
 static VALUE cCallbackID;
 static VALUE cNativeQueue;
 static VALUE cCallbackError;
+static VALUE cBuffer;
 
 typedef struct{
    uint32_t tick;
@@ -2378,7 +2379,9 @@ VALUE pigpio_rbfn_serial_read(VALUE self, VALUE pi, VALUE handle, VALUE count){
   unsigned countc=NUM2UINT(count);
   VALUE buf=rb_str_new("",countc);//#<Encoding:ASCII-8BIT>;
   int ret=serial_read(NUM2INT(pi), NUM2UINT(handle), (void*)StringValuePtr(buf), countc);
-  return (ret < 0)?INT2NUM(ret):rb_str_resize(buf,ret);
+  return rb_funcall((VALUE)cBuffer, rb_intern("new"), 2,INT2NUM(ret),rb_str_resize(buf,ret));
+
+  //return (ret < 0)?INT2NUM(ret):rb_str_resize(buf,ret);
   //if(ret < 0){buf=Qnil;}
   //return rb_ary_new_from_args(2,buf,INT2NUM(ret));
 }
@@ -2460,7 +2463,8 @@ VALUE pigpio_rbfn_bb_serial_read(VALUE self, VALUE pi, VALUE user_gpio, VALUE bu
   size_t countc=NUM2SIZET(bufSize);
   VALUE buf=rb_str_new("",countc);//#<Encoding:ASCII-8BIT>;
   int ret=bb_serial_read(NUM2INT(pi), NUM2UINT(user_gpio), (void*)StringValuePtr(buf), countc);
-  return (ret < 0)?INT2NUM(ret):rb_str_resize(buf,ret);
+  return rb_funcall((VALUE)cBuffer, rb_intern("new"), 2,INT2NUM(ret),rb_str_resize(buf,ret));
+  //return (ret < 0)?INT2NUM(ret):rb_str_resize(buf,ret);
   //if(ret < 0){buf=Qnil;}
   //return rb_ary_new_from_args(2,buf,INT2NUM(ret));
 }
@@ -3702,9 +3706,6 @@ This class has some constances for pigpio library.
 */
 void Init_pigpio(void){
   VALUE cPulse,cBscXfer,cNativeQueue;
-/*
-This class has some constances for pigpio library.
-*/
   VALUE cPigpio = rb_define_class("Pigpio", rb_cObject);
   /*
   This module is a ruby binding to pigpio library.
@@ -3864,4 +3865,10 @@ This class has some constances for pigpio library.
   */
   cCallbackError = rb_define_class_under(cPigpio,"CallbackError", rb_eException);
     rb_gc_register_address(&cCallbackError);
+
+  /*
+  The class of Rx buffer.
+  */
+  cBuffer = rb_define_class_under(cPigpio,"Buffer", rb_cString);
+    rb_gc_register_address(&cBuffer);
 }
