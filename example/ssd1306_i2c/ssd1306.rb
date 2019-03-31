@@ -119,7 +119,7 @@ begin
     self.background_color="black"
   }
   draw = Magick::Draw.new
-  draw.font = './font/misaki_gothic.ttf' # Little Limit (http://littlelimit.net/)
+  draw.font = '../font/misaki_gothic.ttf' # Little Limit (http://littlelimit.net/)
   draw.pointsize = 8
   draw.fill = 'white'
   draw.gravity = Magick::NorthWestGravity
