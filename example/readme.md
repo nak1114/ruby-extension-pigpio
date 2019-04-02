@@ -12,6 +12,12 @@
 
 [more info](./ssd1306_i2c/readme.md)
 
+## SPI master by e-Paper
+
+![board_image](./e-paper_spi/e-paper.png)
+
+[more info](./e-paper_spi/readme.md)
+
 ## Simple I/O
 
 ![board_image](./simple/board.svg)
