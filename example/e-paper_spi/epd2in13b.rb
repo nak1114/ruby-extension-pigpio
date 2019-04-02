@@ -56,16 +56,14 @@ class EPD2IN13B
     sleep 0.1 while(@busy.read == 0)
   end
 
-  def com(*dat)
-    return if dat.size < 1
-    c=dat.shift
+  def com(command,*arg)
     @cs.write 0
 
     @dc.write 0 #command
-    @spi.write [c].pack("c*")
+    @spi.write [command].pack("c*")
 
     @dc.write 1 #data
-    @spi.write dat.pack("c*") if dat.size > 0
+    @spi.write arg.pack("c*") if arg.size > 0
 
     @cs.write 1
   end
@@ -73,15 +71,16 @@ class EPD2IN13B
   def image2buf(image)
     @buf_black=[]
     @buf_red=[]
+    th=65536/2
     (@height).times do |y|
       (@width/8).times do |col|
-        b,r=8.times.with_object([0,0]) do |x,c|
+        black,red=8.times.with_object([0,0]) do |x,c|
           px= image.pixel_color(x+col*8,y)
-          c[0]=(c[0]<<1) | (((px.red / (65536/2)) < 1 && (px.green / (65536/2)) <1 ) ? 0 : 1)
-          c[1]=(c[1]<<1) | (((px.red / (65536/2)) >=1 && (px.green / (65536/2)) <1 ) ? 0 : 1)
+          c[0]=c[0]<<1 | (px.red <  th && px.green < th ? 0 : 1)
+          c[1]=c[1]<<1 | (px.red >= th && px.green < th ? 0 : 1)
         end
-        @buf_black.push b
-        @buf_red.push r
+        @buf_black.push black
+        @buf_red.push red
       end
     end
   end
