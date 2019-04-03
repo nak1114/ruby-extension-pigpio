@@ -1,5 +1,11 @@
 # PiGPIO sample code
 
+## Simple I/O
+
+![board_image](./simple/board.svg)
+
+[more info](./simple/readme.md)
+
 ## UART and SPI loopback
 
 ![board_image](./loopback/uart.svg)
@@ -18,8 +24,10 @@
 
 [more info](./e-paper_spi/readme.md)
 
-## Simple I/O
+## Sharp Memory Display
 
-![board_image](./simple/board.svg)
+- 
 
-[more info](./simple/readme.md)
+![board_image](./sharp_memory_display/sharp_memory_display.png)
+
+[more info](./sharp_memory_display/readme.md)
