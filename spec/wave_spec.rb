@@ -2,7 +2,7 @@ RSpec.describe Pigpio::Wave do
   before do
     Pigpio::IF.time_time
   end
-  let(:wave){Pigpio.new.wave()}
+  let(:wave) { Pigpio.new.wave }
   it "#new" do
     skip
   end
@@ -35,7 +35,7 @@ RSpec.describe Pigpio::Wave do
   end
   it "#chain" do
     write_seq "1"
-    wave.chain([255,0,1,255,1,3,0,2])
+    wave.chain([255, 0, 1, 255, 1, 3, 0, 2])
     expect(read_args).to eq "pigpio_start : (null),(null)\nwave_chain : 8 : ffffffff 0 1 ffffffff 1 3 0 2\n"
   end
   it "#tx_at" do

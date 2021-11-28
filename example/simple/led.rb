@@ -1,9 +1,9 @@
 require "pigpio"
 include Pigpio::Constant
 
-pi=Pigpio.new
+pi = Pigpio.new
 unless pi.connect
-  exit -1
+  exit(-1)
 end
 
 led = pi.gpio(4)

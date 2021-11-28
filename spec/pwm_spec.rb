@@ -2,7 +2,7 @@ RSpec.describe Pigpio::PWM do
   before do
     Pigpio::IF.time_time
   end
-  let(:pin){Pigpio.new.gpio(0)}
+  let(:pin) { Pigpio.new.gpio(0) }
   it "#dutycycle=" do
     skip
   end

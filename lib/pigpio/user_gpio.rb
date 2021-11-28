@@ -2,26 +2,32 @@ require_relative "./gpio"
 class Pigpio
   class UserGPIO < GPIO
     def watchdog(timeout)
-      ret=IF.set_watchdog(@pi,@gpio,timeout)
+      ret = IF.set_watchdog(@pi, @gpio, timeout)
     end
+
     def glitch_filter(steady)
-      ret=IF.set_glitch_filter(@pi,@gpio,steady)
+      ret = IF.set_glitch_filter(@pi, @gpio, steady)
     end
-    def noise_filter(steady,active)
-      ret=IF.set_noise_filter(@pi,@gpio,steady,active)
+
+    def noise_filter(steady, active)
+      ret = IF.set_noise_filter(@pi, @gpio, steady, active)
     end
-    def callback(edge,&blk)
+
+    def callback(edge, &blk)
       return nil unless blk
-      IF.callback(@pi,@gpio,edge,&blk)
+      IF.callback(@pi, @gpio, edge, &blk)
     end
-    def wait_for_edge(edge,timeout)
-      ret=IF.wait_for_edge(@pi,@gpio,edge,timeout)
+
+    def wait_for_edge(edge, timeout)
+      ret = IF.wait_for_edge(@pi, @gpio, edge, timeout)
     end
-    def trigger(pulseLen,level)
-      ret=IF.gpio_trigger(@pi,@gpio,pulseLen,level)
+
+    def trigger(pulseLen, level)
+      ret = IF.gpio_trigger(@pi, @gpio, pulseLen, level)
     end
+
     def pwm
-      PWM.new(@pi,@gpio)
+      PWM.new(@pi, @gpio)
     end
   end
 end
