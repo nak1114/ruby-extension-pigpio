@@ -12,20 +12,21 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  config.filter_run :focus => true
+  config.filter_run focus: true
   config.run_all_when_everything_filtered = true
 end
 
-SeqFile=File.expand_path('../ext/values.txt', __FILE__)
-ArgsFile=File.expand_path('../ext/args.txt', __FILE__)
-def write_seq(str,writefile=true)
-  File.write(SeqFile,str.chomp)
+SeqFile = File.expand_path("../ext/values.txt", __FILE__)
+ArgsFile = File.expand_path("../ext/args.txt", __FILE__)
+def write_seq(str, writefile = true)
+  File.write(SeqFile, str.chomp)
   read_args if writefile
 end
-def read_args()
-  ret=nil
+
+def read_args
+  ret = nil
   if File.exist? ArgsFile
-    ret=File.read(ArgsFile)
+    ret = File.read(ArgsFile)
     FileUtils.rm(ArgsFile)
   end
   ret

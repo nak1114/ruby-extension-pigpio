@@ -1,0 +1,51 @@
+# Auto generated files with errors to ignore.
+# Remove from this list as you refactor files.
+---
+ignore:
+- example/e-paper_spi/epd2in13b.rb:
+  - Style/MixinUsage
+- example/loopback/spi.rb:
+  - Style/MixinUsage
+  - Lint/UselessAssignment
+- example/loopback/uart.rb:
+  - Style/MixinUsage
+  - Lint/UselessAssignment
+- example/sharp_memory_display/ls013b7dn05.rb:
+  - Lint/UselessAssignment
+  - Style/SafeNavigation
+  - Style/MixinUsage
+- example/simple/callback.rb:
+  - Style/MixinUsage
+- example/simple/led.rb:
+  - Style/MixinUsage
+- example/simple/pwm.rb:
+  - Style/MixinUsage
+  - Style/InfiniteLoop
+- example/simple/wave.rb:
+  - Style/MixinUsage
+- example/ssd1306_i2c/ssd1306.rb:
+  - Style/MixinUsage
+- lib/pigpio.rb:
+  - Naming/VariableName
+- lib/pigpio/bank.rb:
+  - Naming/ConstantName
+- lib/pigpio/constant.rb:
+  - Naming/ConstantName
+- lib/pigpio/gpio.rb:
+  - Lint/UselessAssignment
+  - Naming/VariableName
+- lib/pigpio/i2c.rb:
+  - Naming/VariableName
+- lib/pigpio/pwm.rb:
+  - Lint/UselessAssignment
+- lib/pigpio/serial.rb:
+  - Naming/ConstantName
+  - Lint/UselessAssignment
+  - Naming/VariableName
+- lib/pigpio/spi.rb:
+  - Naming/VariableName
+- lib/pigpio/user_gpio.rb:
+  - Lint/UselessAssignment
+  - Naming/VariableName
+- spec/ext/extconf.rb:
+  - Style/GlobalVars

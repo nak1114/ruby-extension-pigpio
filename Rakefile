@@ -9,10 +9,9 @@ end
 
 RSpec::Core::RakeTask.new(:spec)
 
-task :default => :spec
+task default: :spec
 
-
-RDOC_FILES = FileList["ext/pigpio/pigpio.c","lib/**/*.rb"]
+RDOC_FILES = FileList["ext/pigpio/pigpio.c", "lib/**/*.rb"]
 
 Rake::RDocTask.new do |rd|
   rd.main = "pigpio.c"

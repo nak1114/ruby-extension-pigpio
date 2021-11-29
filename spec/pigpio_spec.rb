@@ -7,8 +7,7 @@ RSpec.describe Pigpio do
     read_args
     expect(Pigpio::VERSION).not_to be nil
   end
-  let(:pi){Pigpio.new}
-
+  let(:pi) { Pigpio.new }
 
   it "start and stop with success" do
     write_seq "1"
@@ -61,5 +60,4 @@ RSpec.describe Pigpio::IF do
   it "time_time" do
     expect(Pigpio::IF.time_time).to be 12.3
   end
-
 end

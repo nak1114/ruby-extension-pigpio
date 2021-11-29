@@ -2,7 +2,7 @@ RSpec.describe Pigpio::GPIO do
   before do
     Pigpio::IF.time_time
   end
-  let(:pin){Pigpio.new.gpio(32)}
+  let(:pin) { Pigpio.new.gpio(32) }
   it "#gpio" do
     skip
   end
