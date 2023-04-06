@@ -30,15 +30,15 @@ class Pigpio
     end
 
     def send_once(id)
-      IF.wave_delete(@pi, id)
+      IF.wave_send_once(@pi, id)
     end
 
     def send_repeat(id)
-      IF.wave_delete(@pi, id)
+      IF.wave_send_repeat(@pi, id)
     end
 
     def send_using_mode(id, mode)
-      IF.wave_delete(@pi, id, mode)
+      IF.wave_send_using_mode(@pi, id, mode)
     end
 
     def chain(buf)
