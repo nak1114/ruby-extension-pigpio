@@ -3829,13 +3829,15 @@ void Init_pigpio(void){
   /*
   This class wrap gpioPulse_t.
   */
-  cPulse = rb_define_class_under(cPigpio,"Pulse", rb_cData);
+  cPulse = rb_define_class_under(cPigpio,"Pulse", rb_cObject);
+    rb_undef_alloc_func(cPulse);
     rb_define_singleton_method(cPulse, "make", pigpio_rbst_gpioPulse_make, 3);
 
   /*
   This class wrap bsc_xfer_t.
   */
-  cBscXfer = rb_define_class_under(cPigpio,"BscXfer", rb_cData);
+  cBscXfer = rb_define_class_under(cPigpio,"BscXfer", rb_cObject);
+    rb_undef_alloc_func(cBscXfer);
     rb_define_singleton_method(cBscXfer, "make", pigpio_rbst_bsc_xfer_make, 0);
     rb_define_method(cBscXfer, "control=", pigpio_rbst_bsc_xfer_w_control, 1);
     rb_define_method(cBscXfer, "control", pigpio_rbst_bsc_xfer_r_control, 0);
@@ -3847,13 +3849,15 @@ void Init_pigpio(void){
   /*
   The class of native queue.
   */
-  cNativeQueue = rb_define_class_under(cAPI,"NativeQueue", rb_cData);
+  cNativeQueue = rb_define_class_under(cAPI,"NativeQueue", rb_cObject);
+    rb_undef_alloc_func(cNativeQueue);
     rb_gc_register_address(&cNativeQueue);
 
   /*
   The class of callback.
   */
-  cCallbackID = rb_define_class_under(cPigpio,"Callback", rb_cData);
+  cCallbackID = rb_define_class_under(cPigpio,"Callback", rb_cObject);
+    rb_undef_alloc_func(cCallbackID);
     rb_define_method(cCallbackID, "id", pigpio_rbst_callback_id_r_id, 0);
     rb_define_method(cCallbackID, "cancel", pigpio_rbst_callback_id_cancel, 0);
     rb_gc_register_address(&cCallbackID);
@@ -3862,11 +3866,13 @@ void Init_pigpio(void){
   The class of callback error.
   */
   cCallbackError = rb_define_class_under(cPigpio,"CallbackError", rb_eException);
+    rb_undef_alloc_func(cCallbackError);
     rb_gc_register_address(&cCallbackError);
 
   /*
   The class of Rx buffer.
   */
   cBuffer = rb_define_class_under(cPigpio,"Buffer", rb_cString);
+    rb_undef_alloc_func(cBuffer);
     rb_gc_register_address(&cBuffer);
 }
